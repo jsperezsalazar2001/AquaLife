@@ -10,6 +10,7 @@
                 <div class="card-header"><i class="fa fa-info-circle"></i> {{ $data["accessory"]["name"] }}</div>
 
                 <div class="card-body">
+                    <img class="show_image" src="{{ asset('/images/'.$data['accessory']['image'])}}"><br />
                     <b>Accessory name:</b> {{ $data["accessory"]["name"] }}<br />
                     <b>Accessory category:</b> {{ $data["accessory"]["category"] }}<br />
                     <b>Accessory price:</b> {{ $data["accessory"]["price"] }}<br /><br /> 

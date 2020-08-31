@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Accessory extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
-    protected $fillable = ['name', 'category', 'price'];
+    protected $fillable = ['name', 'category', 'price', 'image'];
 
     public function getId()
     {
@@ -47,5 +47,15 @@ class Accessory extends Model
     public function setPrice($price)
     {
         $this->attributes['price'] = $price;
+    }
+
+    public function getImage()
+    {
+        return $this->attributes['price'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
 }
