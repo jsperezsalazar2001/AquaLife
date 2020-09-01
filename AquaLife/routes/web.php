@@ -28,3 +28,7 @@ Route::post('/accessory/save', 'AccessoryController@save')->name("accessory.save
 Route::post('/accessory/delete', 'AccessoryController@delete')->name("accessory.delete");
 
 Route::get('/accessory/list', 'AccessoryController@list')->name("accessory.list");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
