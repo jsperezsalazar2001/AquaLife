@@ -1,3 +1,4 @@
+<!-- Created by: Juan Sebastián Pérez Salazar -->
 @extends('layouts.master')
 
 @section("title", $data["title"])
@@ -30,6 +31,7 @@
                         <option value="skimmers">skimmers</option>
                     </select><br /><br />
                     <input type="text" placeholder="Enter price" name="price" value="{{ old('price') }}" /><br /><br />
+                    <input type="text" placeholder="Enter image name & ext" name="image" value="{{ old('image') }}" /><br /><br />
                     <input type="submit" value="Create" class="btn btn-success"/>
                 </form>
 

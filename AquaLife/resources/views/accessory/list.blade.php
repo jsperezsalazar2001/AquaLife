@@ -1,3 +1,5 @@
+<!-- Created by: Juan Sebastián Pérez Salazar -->
+
 @extends('layouts.master')
 
 @section("title", $data["title"])

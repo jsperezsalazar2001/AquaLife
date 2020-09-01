@@ -1,4 +1,5 @@
 <?php
+// Created by: Juan Sebastián Pérez Salazar
 
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -47,9 +48,10 @@ class AccessoryController extends Controller
         $request->validate([
             "name" => "required",
             "category" => "required",
-            "price" => "required|numeric|gt:0"
+            "price" => "required|numeric|gt:0",
+            "image" => "required"
         ]);
-        Accessory::create($request->only(["name", "category", "price"]));
+        Accessory::create($request->only(["name", "category", "price", "image"]));
 
         return back()->with('success','Item created successfully!');
 
