@@ -20,7 +20,7 @@
                     <b>Accessory name:</b> {{ $data["accessory"]["name"] }}<br />
                     <b>Accessory category:</b> {{ $data["accessory"]["category"] }}<br />
                     <b>Accessory price:</b> {{ $data["accessory"]["price"] }}<br /><br /> 
-                    <form method="POST" action="{{ route('accessory.delete') }}">
+                    <form method="POST" action="{{ route('admin.accessory.delete') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ $data['accessory']->getId() }}" />
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> Delete</button>

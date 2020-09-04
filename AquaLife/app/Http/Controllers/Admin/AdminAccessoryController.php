@@ -1,12 +1,14 @@
 <?php
 // Created by: Juan Sebastián Pérez Salazar
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Accessory;
+use App\Models\Accessory;
 use Illuminate\Http\Request;
 
-class AccessoryController extends Controller
+class AdminAccessoryController extends Controller
 {
     public function show($id)
     {
@@ -20,7 +22,7 @@ class AccessoryController extends Controller
 
         $data["title"] = $accessory->getName();
         $data["accessory"] = $accessory;
-        return view('accessory.show')->with("data",$data);
+        return view('admin.accessory.show')->with("data",$data);
     }
 
     public function list()
@@ -29,7 +31,7 @@ class AccessoryController extends Controller
         $data["title"] = "Accessories list";
         $data["accessories"] = Accessory::orderBy('id')->get();
 
-        return view('accessory.list')->with("data",$data);
+        return view('admin.accessory.list')->with("data",$data);
 
     }
 
@@ -39,18 +41,13 @@ class AccessoryController extends Controller
         $data["title"] = "Create accessory";
         $data["accessories"] = Accessory::all();
 
-        return view('accessory.create')->with("data",$data);
+        return view('admin.accessory.create')->with("data",$data);
 
     }
 
     public function save(Request $request)
     {
-        $request->validate([
-            "name" => "required",
-            "category" => "required",
-            "price" => "required|numeric|gt:0",
-            "image" => "required"
-        ]);
+        Accessory::validate($request);
         Accessory::create($request->only(["name", "category", "price", "image"]));
 
         return back()->with('success','Item created successfully!');
@@ -61,7 +58,7 @@ class AccessoryController extends Controller
         $accessory = Accessory::find($request['id']);
         $accessory->delete();
         //Accessory::destroy($request->only(["id"]));
-        return redirect()->route('accessory.list');
+        return redirect()->route('admin.accessory.list');
     }
 
 }

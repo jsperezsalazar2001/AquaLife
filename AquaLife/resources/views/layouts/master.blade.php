@@ -30,8 +30,8 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future Left Side Links -->
                         @if (!Auth::guest())
-                            <a class="navbar-brand" href="{{ route('accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
-                            <a class="navbar-brand" href="{{ route('accessory.create') }}"> <i class="fa fa-plus"></i> Create accessory </a>
+                            <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
+                            <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> Create accessory </a>
                         @endif
                     </ul>
 

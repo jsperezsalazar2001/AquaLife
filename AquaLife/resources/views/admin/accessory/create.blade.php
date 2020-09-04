@@ -19,7 +19,7 @@
                 </ul>
                 @endif
 
-                <form method="POST" action="{{ route('accessory.save') }}">
+                <form method="POST" action="{{ route('admin.accessory.save') }}">
                     @csrf
                     <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" /> <br /><br />
                     <label for="category">Category</label>

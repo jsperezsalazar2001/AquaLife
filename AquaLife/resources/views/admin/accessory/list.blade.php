@@ -19,7 +19,7 @@
                         @else
                             {{ $accessory->getId() }}
                         @endif    
-                        - {{ $accessory->getName() }} :</label><strong><a href="{{ route('accessory.show', ['id'=>$accessory->getId()]) }}"> More info <i class="fa fa-info"></i> </a></strong> <br />
+                        - {{ $accessory->getName() }} :</label><strong><a href="{{ route('admin.accessory.show', ['id'=>$accessory->getId()]) }}"> More info <i class="fa fa-info"></i> </a></strong> <br />
                     @endforeach
                 </div>
             </div>

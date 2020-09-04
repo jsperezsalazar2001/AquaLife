@@ -1,9 +1,10 @@
 <?php
 // Created by: Juan Sebastián Pérez Salazar
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Accessory extends Model
 {
@@ -58,5 +59,15 @@ class Accessory extends Model
     public function setImage($image)
     {
         $this->attributes['image'] = $image;
+    }
+
+    public static function validate(Request $request)
+    {
+        $request->validate([
+            "name" => "required",
+            "category" => "required",
+            "price" => "required|numeric|gt:0",
+            "image" => "required"
+        ]);
     }
 }
