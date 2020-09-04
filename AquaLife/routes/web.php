@@ -19,14 +19,14 @@ Route::get('/', function () {
 
 Route::get('/index', 'HomeController@index')->name("home.index");
 
-Route::get('/accessory/show/{id}', 'AccessoryController@show')->name("accessory.show");
+Route::get('/admin/accessory/show/{id}', 'AccessoryController@show')->name("accessory.show");
 
-Route::get('/accessory/create', 'AccessoryController@create')->name("accessory.create");
+Route::get('/admin/accessory/create', 'AccessoryController@create')->name("accessory.create");
 
-Route::post('/accessory/save', 'AccessoryController@save')->name("accessory.save");
+Route::post('admin/accessory/save', 'AccessoryController@save')->name("accessory.save");
 
-Route::post('/accessory/delete', 'AccessoryController@delete')->name("accessory.delete");
+Route::post('/admin/accessory/delete', 'AccessoryController@delete')->name("accessory.delete");
 
-Route::get('/accessory/list', 'AccessoryController@list')->name("accessory.list");
+Route::get('/admin/accessory/list', 'AccessoryController@list')->name("accessory.list");
 
 Auth::routes();
