@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class AdminAccessoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            return $next($request);
+        });
+    }
+
     public function show($id)
     {
         $data = []; //to be sent to the view

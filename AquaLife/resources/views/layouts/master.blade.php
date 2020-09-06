@@ -1,4 +1,4 @@
-<!-- Created by: Juan Sebastián Pérez Salazar -->
+<!-- Created by: Juan Sebastián Pérez Salazar and Daniel Felipe Gómez Martínez -->
 <!doctype html>
 <html>
 <head>
@@ -30,8 +30,11 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future Left Side Links -->
                         @if (!Auth::guest())
+                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> Profile </a>
                             <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
+                            @if(Auth::user()->getRole()=="Admin")
                             <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> Create accessory </a>
+                            @endif()
                         @endif
                     </ul>
 

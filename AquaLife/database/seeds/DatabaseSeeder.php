@@ -1,6 +1,8 @@
+<!-- Created by: Daniel Felipe Gómez Martínez -->
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+         //$this->call(UserSeeder::class);
+         factory(User::class,8)->create();
     }
 }
