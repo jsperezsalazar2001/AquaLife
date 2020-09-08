@@ -53,7 +53,7 @@ class Accessory extends Model
 
     public function getImage()
     {
-        return $this->attributes['price'];
+        return $this->attributes['image'];
     }
 
     public function setImage($image)

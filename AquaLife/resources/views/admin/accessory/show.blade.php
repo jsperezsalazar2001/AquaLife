@@ -15,7 +15,7 @@
                     @if(strlen($data['accessory']->getImage()) < 3)
                         <img class="show_image" src="{{ asset('/images/noavailable_img.png')}}"><br />
                     @else
-                        <img class="show_image" src="{{ asset('/images/'.$data['accessory']['image'])}}"><br />
+                        <img class="show_image" src="{{ asset('/images/'.$data['accessory']->getImage()) }}"><br />
                     @endif
                     <b>Accessory name:</b> {{ $data["accessory"]->getName() }}<br />
                     <b>Accessory category:</b> {{ $data["accessory"]->getCategory() }}<br />
