@@ -67,7 +67,14 @@ class Accessory extends Model
             "name" => ['required', 'string', 'min:1', 'max:255'],
             "category" => ['required', 'string', 'min:1', 'max:255'],
             "price" => ['required', 'numeric', 'gt:0'],
-            "image" => ['required', 'string', 'min:1', 'max:255']
+            "image" => ['required', 'file']
         ]);
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            return $name;
+        }
     }
 }

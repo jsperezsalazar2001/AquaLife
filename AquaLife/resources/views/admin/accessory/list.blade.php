@@ -14,12 +14,8 @@
                 <div class="card-body">
                     @foreach($data["accessories"] as $accessory)
                         <label>
-                        @if($loop->index < 2)    
-                            <b>{{ $accessory->getId() }}</b> 
-                        @else
-                            {{ $accessory->getId() }}
-                        @endif    
-                        - {{ $accessory->getName() }} :</label><strong><a href="{{ route('admin.accessory.show', ['id'=>$accessory->getId()]) }}"> More info <i class="fa fa-info"></i> </a></strong> <br />
+                            {{ $accessory->getId() }} - {{ $accessory->getName() }} :
+                        </label><strong><a href="{{ route('admin.accessory.show', ['id'=>$accessory->getId()]) }}"> More info <i class="fa fa-info"></i> </a></strong> <br />
                     @endforeach
                 </div>
             </div>
