@@ -64,10 +64,10 @@ class Accessory extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            "name" => "required",
-            "category" => "required",
-            "price" => "required|numeric|gt:0",
-            "image" => "required"
+            "name" => ['required', 'string', 'min:1', 'max:255'],
+            "category" => ['required', 'string', 'min:1', 'max:255'],
+            "price" => ['required', 'numeric', 'gt:0'],
+            "image" => ['required', 'string', 'min:1', 'max:255']
         ]);
     }
 }
