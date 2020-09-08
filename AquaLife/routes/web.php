@@ -25,9 +25,12 @@ Route::post('/admin/accessory/delete', 'Admin\AdminAccessoryController@delete')-
 
 Route::get('/admin/accessory/list', 'Admin\AdminAccessoryController@list')->name("admin.accessory.list");
 
+Route::get('/customer/accessory/list', 'Customer\CustomerAccessoryController@list')->name("customer.accessory.list");
+
 Auth::routes();
 
 Route::get('/user/show','User\UserController@show')->name("user.show");
 
 Route::get('/', 'HomeController@index')->name("home.index");
+
 Route::get('/admin/index', 'Admin\AdminHomeController@index')->name("admin.home.index");

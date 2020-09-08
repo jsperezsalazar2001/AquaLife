@@ -1,4 +1,3 @@
-<!-- Created by: Daniel Felipe Gómez Martínez -->
 <?php
 
 use Illuminate\Database\Migrations\Migration;

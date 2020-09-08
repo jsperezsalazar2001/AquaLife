@@ -53,7 +53,7 @@ class Accessory extends Model
 
     public function getImage()
     {
-        return $this->attributes['price'];
+        return $this->attributes['image'];
     }
 
     public function setImage($image)
@@ -64,10 +64,17 @@ class Accessory extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            "name" => "required",
-            "category" => "required",
-            "price" => "required|numeric|gt:0",
-            "image" => "required"
+            "name" => ['required', 'string', 'min:1', 'max:255'],
+            "category" => ['required', 'string', 'min:1', 'max:255'],
+            "price" => ['required', 'numeric', 'gt:0'],
+            "image" => ['required', 'file']
         ]);
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            return $name;
+        }
     }
 }

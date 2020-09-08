@@ -9,12 +9,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><i class="fa fa-info-circle"></i> {{ $data["user"]["name"] }}</div>
+                <div class="card-header"><i class="fa fa-info-circle"></i> {{ $data["user"]->getName() }}</div>
 
                 <div class="card-body">
-                    <b>User address:</b> {{ $data["user"]["addressUser"] }}<br />
-                    <b>User email:</b> {{ $data["user"]["email"] }}<br />
-                    <b>User role:</b> {{ $data["user"]["role"] }}<br /><br />
+                    <b>User address:</b> {{ $data["user"]->getAddressUser() }}<br />
+                    <b>User email:</b> {{ $data["user"]->getEmail() }}<br />
+                    <b>User role:</b> {{ $data["user"]->getRole() }}<br /><br />
                 </div>
             </div>
         </div>

@@ -56,11 +56,15 @@ class AdminAccessoryController extends Controller
 
     public function save(Request $request)
     {
-        Accessory::validate($request);
-        Accessory::create($request->only(["name", "category", "price", "image"]));
+        $name = Accessory::validate($request);
+        $accessory = new Accessory();
+        $accessory->setName($request->input('name'));
+        $accessory->setCategory($request->input('category'));
+        $accessory->setPrice($request->input('price'));
+        $accessory->setImage($name);
+        $accessory->save();
 
         return back()->with('success','Item created successfully!');
-
     }
 
     public function delete(Request $request){

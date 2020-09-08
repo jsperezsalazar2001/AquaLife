@@ -19,7 +19,7 @@
                 </ul>
                 @endif
 
-                <form method="POST" action="{{ route('admin.accessory.save') }}">
+                <form method="POST" action="{{ route('admin.accessory.save') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" /> <br /><br />
                     <label for="category">Category</label>
@@ -31,7 +31,7 @@
                         <option value="skimmers">skimmers</option>
                     </select><br /><br />
                     <input type="text" placeholder="Enter price" name="price" value="{{ old('price') }}" /><br /><br />
-                    <input type="text" placeholder="Enter image name & ext" name="image" value="{{ old('image') }}" /><br /><br />
+                    <input type="file" placeholder="Select an image" name="image" value="{{ old('image') }}" /><br /><br />
                     <input type="submit" value="Create" class="btn btn-success"/>
                 </form>
 
