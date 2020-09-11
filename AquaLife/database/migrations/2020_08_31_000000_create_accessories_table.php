@@ -18,6 +18,8 @@ class CreateAccessoriesTable extends Migration
             $table->text('name');
             $table->enum('category', ['filters', 'ilumination', 'heaters', 'feeders', 'skimmers']);
             $table->decimal('price', 10, 2);
+            $table->integer('in_stock');
+            $table->text('description');
             $table->text('image');
             $table->timestamps();
         });

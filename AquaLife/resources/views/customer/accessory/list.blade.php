@@ -22,7 +22,13 @@
                         <img src="{{ asset('/images/'.$accessory->getImage()) }}" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">{{ $accessory->getName() }}</h5>
-                            <p class="card-text">price: {{ $accessory->getPrice() }}</p>
+                            <p class="card-text">{{ __('accessory_list.description') }} : {{ $accessory->getDescription() }}</p>
+                            <p class="card-text">{{ __('accessory_list.price') }} : {{ $accessory->getPrice() }}</p>
+                            @if($accessory->getInStock() > 0)
+                            <p class="card-text green-color">{{ __('accessory_list.in_stock') }}</p>
+                            @else
+                            <p class="card-text red-color">{{ __('accessory_list.sold_out') }}</p>
+                            @endif
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">{{ $accessory->getCategory() }}</small>

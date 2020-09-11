@@ -61,6 +61,8 @@ class AdminAccessoryController extends Controller
         $accessory->setName($request->input('name'));
         $accessory->setCategory($request->input('category'));
         $accessory->setPrice($request->input('price'));
+        $accessory->setInStock($request->input('in_stock'));
+        $accessory->setDescription($request->input('description'));
         $accessory->setImage($name);
         $accessory->save();
 

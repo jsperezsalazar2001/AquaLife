@@ -10,3 +10,13 @@
 .padding-20{
     padding: 20px;
 }
+
+.green-color{
+    color: green;
+    font: bold;
+}
+
+.red-color{
+    color: red;
+    font: bold;
+}

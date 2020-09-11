@@ -12,9 +12,9 @@
                 <div class="card-header"><i class="fa fa-info-circle"></i> {{ $data["user"]->getName() }}</div>
 
                 <div class="card-body">
-                    <b>User address:</b> {{ $data["user"]->getAddressUser() }}<br />
-                    <b>User email:</b> {{ $data["user"]->getEmail() }}<br />
-                    <b>User role:</b> {{ $data["user"]->getRole() }}<br /><br />
+                    <b>{{ __('user_show.address') }}:</b> {{ $data["user"]->getAddressUser() }}<br />
+                    <b>{{ __('user_show.email') }}:</b> {{ $data["user"]->getEmail() }}<br />
+                    <b>{{ __('user_show.role') }}:</b> {{ $data["user"]->getRole() }}<br /><br />
                 </div>
             </div>
         </div>
