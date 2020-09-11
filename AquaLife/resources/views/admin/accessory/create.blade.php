@@ -12,11 +12,12 @@
                 <div class="card-header"><i class="fa fa-plus"></i> {{ __('accessory_create.title') }}</div>
                 <div class="card-body">
                 @if($errors->any())
-                <ul id="errors">
                     @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
                     @endforeach
-                </ul>
                 @endif
 
                 <form method="POST" id="create-form" action="{{ route('admin.accessory.save') }}" enctype="multipart/form-data">

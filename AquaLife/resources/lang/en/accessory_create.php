@@ -32,4 +32,5 @@ return [
         'priceHB' => 'Price must be greater than 0',
         'stockHB' => 'Stock must be greater than 0',
     ],
+    'succesful' => 'Item created successfully!',
 ];

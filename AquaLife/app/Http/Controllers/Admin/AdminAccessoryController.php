@@ -66,13 +66,12 @@ class AdminAccessoryController extends Controller
         $accessory->setImage($name);
         $accessory->save();
 
-        return back()->with('success','Item created successfully!');
+        return back()->with('success',"{{ __('accessory_create.succesful') }}");
     }
 
     public function delete(Request $request){
         $accessory = Accessory::find($request['id']);
         $accessory->delete();
-        //Accessory::destroy($request->only(["id"]));
         return redirect()->route('admin.accessory.list');
     }
 
