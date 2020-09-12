@@ -24,6 +24,7 @@ class CreateFishTable extends Migration
             $table->text('temperament');
             $table->integer('in_stock');
             $table->text('image');
+            $table->bigInteger('wish_list_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }

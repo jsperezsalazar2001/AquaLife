@@ -110,6 +110,18 @@ class Fish extends Model
         $this->attributes['image'] = $image;
     }
 
+    public function getWishlistId(){
+        return $this->attributes['wish_list_id']; 
+    }
+
+    public function setWishlistId($wish_list_id){
+        $this->attributes['wish_list_id'] = $wish_list_id; 
+    }
+
+    public function wishLists(){
+        return $this->belongsToMany(WishList::class,'wish_lists_fish','fish_id','wish_lists_id');
+    }
+    
     public static function validate(Request $request)
     {
         $request->validate([
