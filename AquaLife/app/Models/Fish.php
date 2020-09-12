@@ -89,6 +89,27 @@ class Fish extends Model
         $this->attributes['temperament'] = $temperament;
     }
 
+    
+    public function getInStock()
+    {
+        return $this->attributes['in_stock'];
+    }
+
+    public function setInStock($in_stock)
+    {
+        $this->attributes['in_stock'] = $in_stock;
+    }
+
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+    }
+
     public static function validate(Request $request)
     {
         $request->validate([
@@ -98,8 +119,17 @@ class Fish extends Model
             "color" => ['required','string','min:1','max:255'],
             "price" => ['required','numeric','gt:0','between:0.0001,999999999999999.9999'],
             "size" => ['required','string','min:1','max:255'],
-            "temperament" => ['required','string','min:1','max:255']
+            "temperament" => ['required','string','min:1','max:255'],
+            "in_stock" => ['required', 'numeric'],
+            "image" => ['required', 'file']
         ]);
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            return $name;
+        }
     }
 
 }

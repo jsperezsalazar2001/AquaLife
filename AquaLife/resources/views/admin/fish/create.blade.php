@@ -20,7 +20,7 @@
                 <div class="card-header"><i class="fas fa-plus-square"></i> Create fish</div>
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('fish.save') }}">
+                    <form method="POST" action="{{ route('admin.fish.save') }}" id="create-form" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -53,7 +53,12 @@
                         <select class="form-control" name="temperament">
                             <option value="Passive" selected>Passive</option>
                             <option value="Agressive">Agressive</option>
-                        </select><br/>
+                        </select>
+                        <br>
+                        <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.stock') }}" name="in_stock" value="{{ old('in_stock') }}" min="1" aria-describedby="stockHelpBlock" required/>
+                        <small id="stockHelpBlock" class="form-text text-muted">{{ __('accessory_create.label.stockHB') }}</small><br />
+                        <br>
+                        <input type="file" placeholder="Imagen" name="image" value="{{ old('image') }}" required/><br /><br/>
                         <input type="submit" value="Create" class="btn btn-success" />
                     </form>
 

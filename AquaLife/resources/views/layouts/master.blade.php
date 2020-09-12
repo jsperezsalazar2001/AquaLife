@@ -37,6 +37,8 @@
                             @if(Auth::user()->getRole()=="Admin")
                             <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
                             <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> Create accessory </a>
+                            <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus-square"></i> Create Fish    </a>
+                            <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-align-justify"></i> List Fish    </a>
                             @endif
                         @endif
                     </ul>

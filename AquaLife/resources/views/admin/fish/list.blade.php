@@ -28,7 +28,7 @@
                             </td>
                             <td>{{ $fish->getName() }}</td>
                             <td>{{ $fish->getPrice() }}</td>
-                            <td><a href="{{ route('fish.show', ['id'=>$fish->getId()]) }}"> More about <strong>{{ $fish->getName() }}</strong></a></td>
+                            <td><a href="{{ route('admin.fish.show', ['id'=>$fish->getId()]) }}"> More about <strong>{{ $fish->getName() }}</strong></a></td>
                         </tr>
                         @endforeach
                     </tbody>
