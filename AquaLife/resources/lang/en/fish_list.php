@@ -18,4 +18,8 @@ return [
     'price' => 'Price',
     'about' => 'About',
     'more' => 'More about',
+    'favorite' => 'Add to Wish list',
+    'buy' => 'Add to',
+    'in_stock' => 'IN STOCK',
+    'sold_out' => 'SOLD OUT',
 ];
