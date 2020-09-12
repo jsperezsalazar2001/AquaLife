@@ -15,6 +15,7 @@ class AddRoleToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('role')->default('Customer');
+            $table->bigInteger('wish_list_id')->unsigned()->unique()->default(0);
             //$table->enum('role', ['Customer', 'Admin']);
         });
     }
@@ -28,6 +29,8 @@ class AddRoleToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn(['role']);
+            $table->dropColumn(['wish_list_id']);
         });
+        Schema::dropIfExists('wish_lists');
     }
 }

@@ -12,12 +12,12 @@ class CreateEnvironmentalconditionsTable extends Migration
     public function up(){
         Schema::create('environmental_conditions',function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->decimal('ph_l_r', 10, 2);
-            $table->decimal('ph_h_r', 10, 2);
-            $table->decimal('temperature_l_r', 10, 2);
-            $table->decimal('temperature_h_r', 10, 2);
-            $table->decimal('hardness_l_r', 10, 2);
-            $table->decimal('hardness_h_r', 10, 2);
+            $table->decimal('ph_lr', 10, 2);
+            $table->decimal('ph_hr', 10, 2);
+            $table->decimal('temperature_lr', 10, 2);
+            $table->decimal('temperature_hr', 10, 2);
+            $table->decimal('hardness_lr', 10, 2);
+            $table->decimal('hardness_hr', 10, 2);
             $table->timestamps();
         });
     }
