@@ -72,4 +72,16 @@ class User extends Authenticatable
         $this->attributes['address_user'] = $address_user;
     }
 
+     public function getWishlistId(){
+        return $this->attributes['wish_list_id']; 
+    }
+
+    public function setWishlistId($wish_list_id){
+        $this->attributes['wish_list_id'] = $wish_list_id; 
+    }
+
+    public function wishLists(){
+        return $this->hasOne(WishList::class);
+    }
+
 }

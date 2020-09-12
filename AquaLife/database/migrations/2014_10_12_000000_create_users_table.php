@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->bigInteger('wish_list_id')->unsigned()->unique()->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +33,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('wish_lists');
         Schema::dropIfExists('users');
     }
 }
