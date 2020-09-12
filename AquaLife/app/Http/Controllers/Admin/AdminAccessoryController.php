@@ -66,7 +66,7 @@ class AdminAccessoryController extends Controller
         $accessory->setImage($name);
         $accessory->save();
 
-        return back()->with('success',"{{ __('accessory_create.succesful') }}");
+        return back()->with('success', __('accessory_create.succesful'));
     }
 
     public function delete(Request $request){
