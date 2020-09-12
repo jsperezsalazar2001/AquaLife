@@ -31,7 +31,7 @@
                         <option value="feeders">{{ __('accessory_create.input.feeders') }}</option>
                         <option value="skimmers">{{ __('accessory_create.input.skimmers') }}</option>
                     </select><br />
-                    <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.price') }}" name="price" value="{{ old('price') }}" min="1" aria-describedby="priceHelpBlock" required/>
+                    <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.price') }}" name="price" value="{{ old('price') }}" min="1" step="0.0001" aria-describedby="priceHelpBlock" required/>
                     <small id="priceHelpBlock" class="form-text text-muted">{{ __('accessory_create.label.priceHB') }}</small><br />
                     <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.stock') }}" name="in_stock" value="{{ old('in_stock') }}" min="1" aria-describedby="stockHelpBlock" required/>
                     <small id="stockHelpBlock" class="form-text text-muted">{{ __('accessory_create.label.stockHB') }}</small><br />
