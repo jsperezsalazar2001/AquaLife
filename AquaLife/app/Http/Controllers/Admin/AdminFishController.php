@@ -57,7 +57,7 @@ class AdminFishController extends Controller
          $newFish->setInStock($request->input('in_stock'));
          $newFish->setImage($imageName);
          $newFish->save();
-         return back()->with('success','Item created successfully!');
+         return back()->with('success', __('fish_create.succesful'));
     }
 
     public function delete(Request $request){
