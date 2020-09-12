@@ -61,16 +61,17 @@ class AdminAccessoryController extends Controller
         $accessory->setName($request->input('name'));
         $accessory->setCategory($request->input('category'));
         $accessory->setPrice($request->input('price'));
+        $accessory->setInStock($request->input('in_stock'));
+        $accessory->setDescription($request->input('description'));
         $accessory->setImage($name);
         $accessory->save();
 
-        return back()->with('success','Item created successfully!');
+        return back()->with('success',"{{ __('accessory_create.succesful') }}");
     }
 
     public function delete(Request $request){
         $accessory = Accessory::find($request['id']);
         $accessory->delete();
-        //Accessory::destroy($request->only(["id"]));
         return redirect()->route('admin.accessory.list');
     }
 

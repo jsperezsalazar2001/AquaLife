@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Accessory extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
-    protected $fillable = ['name', 'category', 'price', 'image'];
+    protected $fillable = ['name', 'category', 'price', 'in_stock', 'description', 'image'];
 
     public function getId()
     {
@@ -51,6 +51,26 @@ class Accessory extends Model
         $this->attributes['price'] = $price;
     }
 
+    public function getInStock()
+    {
+        return $this->attributes['in_stock'];
+    }
+
+    public function setInStock($in_stock)
+    {
+        $this->attributes['in_stock'] = $in_stock;
+    }
+
+    public function getDescription()
+    {
+        return $this->attributes['description'];
+    }
+
+    public function setDescription($description)
+    {
+        $this->attributes['description'] = $description;
+    }
+
     public function getImage()
     {
         return $this->attributes['image'];
@@ -61,12 +81,18 @@ class Accessory extends Model
         $this->attributes['image'] = $image;
     }
 
+    public function accessoryOrders(){
+        return $this->hasMany(AccessoryOrder::class);
+    }
+
     public static function validate(Request $request)
     {
         $request->validate([
             "name" => ['required', 'string', 'min:1', 'max:255'],
             "category" => ['required', 'string', 'min:1', 'max:255'],
             "price" => ['required', 'numeric', 'gt:0'],
+            "in_stock" => ['required', 'numeric', 'gt:0'],
+            "description" => ['required', 'string', 'min:1', 'max:255'],
             "image" => ['required', 'file']
         ]);
 
