@@ -22,8 +22,10 @@
                         <img src="{{ asset('/images/'.$fish->getImage()) }}" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">{{ $fish->getName() }}</h5>
-                            <p class="card-text"><strong>{{ __('fish_list.description') }}:</strong> {{ $fish->getDescription() }}</p>
-                            <p class="card-text"><strong>{{ __('fish_list.price') }}:</strong> {{ $fish->getPrice() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.size') }}</strong> {{ $fish->getSize() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.temperament') }}</strong> {{ $fish->getTemperament() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
                             @if($fish->getInStock() > 0)
                             <p class="card-text green-color">{{ __('fish_list.in_stock') }}</p>
                             @else
@@ -34,7 +36,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                        <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('fish_show.favorite') }}</button>
+                                        <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
                                     </div>
                                 </div>
                             </form><br/>
@@ -45,12 +47,12 @@
                                         <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999"/>
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
                                     </div>
-                                    <button type="submit" class="btn btn-info">{{ __('fish_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                    <button type="submit" class="btn btn-info">{{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
                                 </div>
                             </form>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">{{ $fish->getCategory() }}</small>
+                            <small class="text-muted">{{ $fish->getSpecies() }}</small>
                         </div>
                     </div>
                 @if(($loop->index + 1) == sizeof($data["fish"]))

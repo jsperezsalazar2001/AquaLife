@@ -45,3 +45,5 @@ Route::post('/admin/fish/save', 'Admin\AdminFishController@save')->name("admin.f
 Route::post('/admin/fish/delete', 'Admin\AdminFishController@delete')->name("admin.fish.delete");
 
 Route::get('/admin/fish/list', 'Admin\AdminFishController@list')->name("admin.fish.list");
+
+Route::get('/customer/fish/list', 'Customer\CustomerFishController@list')->name("customer.fish.list");
