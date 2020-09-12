@@ -21,5 +21,5 @@ return [
     'size' => 'Fish size:',
     'temperament' => 'Fish temperament:',
     'stock' => 'Fish stock:',
-    'delete' => 'Delete:',
+    'delete' => 'Delete',
 ];

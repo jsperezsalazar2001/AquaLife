@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><i class="fas fa-align-justify"></i>{{ __('fish_list.title') }}</div>
+                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('fish_list.title') }}</div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -20,12 +20,7 @@
                     <tbody>
                         @foreach($data["fish"] as $fish)
                         <tr>
-                            <td>
-                                @if($loop->index < 2) <b>{{ $fish->getId() }}</b>
-                                    @else
-                                    {{ $fish->getId() }}
-                                    @endif
-                            </td>
+                            <td>{{ $fish->getId() }}</td>
                             <td>{{ $fish->getName() }}</td>
                             <td>{{ $fish->getPrice() }}</td>
                             <td><a href="{{ route('admin.fish.show', ['id'=>$fish->getId()]) }}"> {{ __('fish_list.more') }} <strong>{{ $fish->getName() }}</strong></a></td>
