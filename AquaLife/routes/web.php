@@ -34,3 +34,14 @@ Route::get('/user/show','User\UserController@show')->name("user.show");
 Route::get('/', 'HomeController@index')->name("home.index");
 
 Route::get('/admin/index', 'Admin\AdminHomeController@index')->name("admin.home.index");
+
+
+Route::get('/admin/fish/show/{id}', 'Admin\AdminFishController@show')->name("admin.fish.show");
+
+Route::get('/admin/fish/create', 'Admin\AdminFishController@create')->name("admin.fish.create");
+
+Route::post('/admin/fish/save', 'Admin\AdminFishController@save')->name("admin.fish.save");
+
+Route::post('/admin/fish/delete', 'Admin\AdminFishController@delete')->name("admin.fish.delete");
+
+Route::get('/admin/fish/list', 'Admin\AdminFishController@list')->name("admin.fish.list");
