@@ -42,7 +42,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col">
-                                        <input type="number" class="form-control" name="quantity" value="1" step="1"/>
+                                        <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999"/>
                                         <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
                                     </div>
                                     <button type="submit" class="btn btn-info">{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
