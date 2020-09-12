@@ -17,7 +17,7 @@ class CreateAccessoriesTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->enum('category', ['filters', 'ilumination', 'heaters', 'feeders', 'skimmers']);
-            $table->decimal('price', 10, 2);
+            $table->unsignedDecimal('price', 19, 4);
             $table->integer('in_stock');
             $table->text('description');
             $table->text('image');

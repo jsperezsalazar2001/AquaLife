@@ -29,6 +29,25 @@
                             @else
                             <p class="card-text red-color">{{ __('accessory_list.sold_out') }}</p>
                             @endif
+                            <form method="POST" action="">
+                                @csrf
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
+                                        <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('accessory_show.favorite') }}</button>
+                                    </div>
+                                </div>
+                            </form><br/>
+                            <form method="POST" action="">
+                                @csrf
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="number" class="form-control" name="quantity" value="1" step="1"/>
+                                        <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
+                                    </div>
+                                    <button type="submit" class="btn btn-info">{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">{{ $accessory->getCategory() }}</small>
