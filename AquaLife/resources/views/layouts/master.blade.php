@@ -30,15 +30,16 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future Left Side Links -->
                         @if (!Auth::guest())
-                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> Profile </a>
+                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{ __('profile.title') }} </a>
                             @if(Auth::user()->getRole()=="Customer")
-                            <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
+                            <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
                             @endif
                             @if(Auth::user()->getRole()=="Admin")
-                            <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> Accessories </a>
-                            <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> Fish </a>
-                            <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> Create accessory </a>
-                            <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> Create Fish </a>
+                            <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.title') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.title') }} </a>
                             @endif
                         @endif
                     </ul>
