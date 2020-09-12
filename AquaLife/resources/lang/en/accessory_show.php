@@ -19,4 +19,6 @@ return [
     'price' => 'Accessory price',
     'stock' => 'Accessory stock',
     'delete' => 'Delete',
+    'favorite' => 'Add to Wish list',
+    'buy' => 'Add to'
 ];

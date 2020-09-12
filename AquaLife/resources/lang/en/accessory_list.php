@@ -19,4 +19,7 @@ return [
     'sold_out' => 'SOLD OUT',
     'title' => 'Accessories',
     'info' => 'More info',
+    'name' => 'Name',
+    'id' => 'ID',
+    'about' => 'About',
 ];
