@@ -15,18 +15,18 @@
                     @else
                         <img class="show_image" src="{{ asset('/images/'.$data['fish']->getImage()) }}"><br />
                     @endif
-                    <b>Fish name:</b> {{ $data["fish"]->getName() }}<br />
-                    <b>Fish species:</b> {{ $data["fish"]->getSpecies() }}<br />
-                    <b>Fish family:</b> {{ $data["fish"]->getFamily() }}<br />
-                    <b>Fish color:</b> {{ $data["fish"]->getColor() }}<br />
-                    <b>Fish price:</b> {{ $data["fish"]->getPrice() }}<br />
-                    <b>Fish size:</b> {{ $data["fish"]->getSize() }}<br />
-                    <b>Fish temperament:</b> {{ $data["fish"]->getTemperament() }}<br />
-                    <b>Fish stock</b> {{ $data["fish"]->getInStock() }}<br /><br /> 
+                    <b>{{ __('fish_show.name') }}</b> {{ $data["fish"]->getName() }}<br />
+                    <b>{{ __('fish_show.species') }} </b> {{ $data["fish"]->getSpecies() }}<br />
+                    <b>{{ __('fish_show.family') }} </b> {{ $data["fish"]->getFamily() }}<br />
+                    <b>{{ __('fish_show.color') }} </b> {{ $data["fish"]->getColor() }}<br />
+                    <b>{{ __('fish_show.price') }} </b> {{ $data["fish"]->getPrice() }}<br />
+                    <b>{{ __('fish_show.size') }} </b> {{ $data["fish"]->getSize() }}<br />
+                    <b>{{ __('fish_show.temperament') }}</b> {{ $data["fish"]->getTemperament() }}<br />
+                    <b>{{ __('fish_show.stock') }} </b> {{ $data["fish"]->getInStock() }}<br /><br /> 
                     <form method="POST" action="{{ route('admin.fish.delete') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ $data['fish']->getId() }}" />
-                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> Delete</button>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('fish_show.delete') }}</button>
                     </form>
                 </div>
             </div>
