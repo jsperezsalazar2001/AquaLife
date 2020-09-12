@@ -14,7 +14,7 @@ class CreateWishListsTable extends Migration
 			$table->bigIncrements('id');
 			$table->bigInteger('user_id')->unsigned()->unique();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->bigInteger('fish_id')->unsigned();
+			$table->bigInteger('fish_id')->unsigned()->default(0);
 			$table->timestamps();
 		});
 	}
