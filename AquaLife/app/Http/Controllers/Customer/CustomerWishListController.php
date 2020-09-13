@@ -8,7 +8,6 @@ use App\Models\Fish;
 use App\Models\WishListFish;
 use Illuminate\Support\Facades\Auth;
 Use Exception;
-use DB;
 use Illuminate\Http\Request;
 
 class CustomerWishListController extends Controller
@@ -35,8 +34,6 @@ class CustomerWishListController extends Controller
             return redirect()->route('customer.fish.list');
         }
 
-        
-
         return back()->with('success', __('wishListFish.succesful'));
 
     }
@@ -53,6 +50,7 @@ class CustomerWishListController extends Controller
         $wishListFishs = WishListFish::where("wish_list_id",$user_wish_list_id)->select('fish_id')->get();
         $idArray = $wishListFishs->pluck('fish_id');
         $data["fish"] = Fish::whereIn('id', $idArray)->get();
+
         return view('wishList.list')->with("data",$data);
     }
 
@@ -64,6 +62,7 @@ class CustomerWishListController extends Controller
             return redirect()->route('home.index');
         }
         $wish_list->delete();
+        
         return redirect()->route('customer.wishList.show');
     }
 
