@@ -1,4 +1,4 @@
-<!-- Created by: Juan Sebastián Pérez Salazar -->
+<!-- Created by: Daniel Felipe Gomez Martinez -->
 
 @extends('layouts.master')
 
@@ -24,36 +24,25 @@
                             <h5 class="card-title">{{ $fish->getName() }}</h5>
                             <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
                             <p class="card-text"><strong>{{ __('fish_show.size') }}</strong> {{ $fish->getSize() }}</p>
-                            <p class="card-text"><strong>{{ __('fish_show.species') }}</strong> {{ $fish->getSpecies() }}</p>
-                            <p class="card-text"><strong>{{ __('fish_show.family') }}</strong> {{ $fish->getFamily() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.temperament') }}</strong> {{ $fish->getTemperament() }}</p>
                             <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
                             @if($fish->getInStock() > 0)
                             <p class="card-text green-color">{{ __('fish_list.in_stock') }}</p>
                             @else
                             <p class="card-text red-color">{{ __('fish_list.sold_out') }}</p>
                             @endif
-                            <form method="POST" action="{{ route('customer.wishList.add') }}">
+                            <form method="POST" action="{{ route('customer.wishList.delete') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col">
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                        <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('wishListFish.delete') }}</button>
                                     </div>
                                 </div>
                             </form><br/>
-                            <form method="POST" action="{{ route('customer.fish.add-to-cart',['id'=> $fish->getId(), 'type' => 'fish']) }}" >
-                                @csrf
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999"/>
-                                        <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                    </div>
-                                    <button type="submit" class="btn btn-info">{{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
-                                </div>
-                            </form>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">{{ $fish->getTemperament() }}</small>
+                            <small class="text-muted">{{ $fish->getSpecies() }}</small>
                         </div>
                     </div>
                 @if(($loop->index + 1) == sizeof($data["fish"]))

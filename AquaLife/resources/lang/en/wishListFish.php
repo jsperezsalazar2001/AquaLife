@@ -13,8 +13,6 @@ return [
     |
     */
 
-    'title' => 'Fish',
-    'title_plural' => 'Fish',
-    'successful' =>'Fish added to cart successfully!',
-    'title_wish_list'=> 'Wish List',
+    'succesful' => 'Item add successfully to your wish list!',
+    'delete' => 'Delete',
 ];
