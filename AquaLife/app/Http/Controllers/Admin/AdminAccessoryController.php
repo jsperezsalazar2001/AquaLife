@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Accessory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 
 class AdminAccessoryController extends Controller
@@ -49,15 +50,71 @@ class AdminAccessoryController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = "Create accessory";
-        $data["accessories"] = Accessory::all();
 
         return view('admin.accessory.create')->with("data",$data);
 
     }
 
+    public function update(Request $request)
+    {
+        $data = [];
+        $data["title"] = "Update accessory";
+
+        try{
+            $accessory = Accessory::findOrFail($request->input('id'));
+        }catch(ModelNotFoundException $e){
+            return redirect()->route('admin.accessory.list');
+        }
+
+        $data["accessory"] = $accessory;
+
+        return view('admin.accessory.update')->with("data", $data);
+    }
+
+    public function updateSave(Request $request){
+        $accessory = Accessory::findOrFail($request->input('id'));
+        $name = Accessory::validate($request);
+
+        if($accessory->getName() != $request->input('name')){
+            $accessory->setName($request->input('name'));
+        }
+        if($accessory->getCategory() != $request->input('category')){
+            $accessory->setCategory($request->input('category'));
+        }
+        if($accessory->getPrice() != $request->input('price')){
+            $accessory->setPrice($request->input('price'));
+        }
+        if($accessory->getInStock() != $request->input('in_stock')){
+            $accessory->setInStock($request->input('in_stock'));
+        }
+        if(null != $request->input('new_description')){
+            $accessory->setDescription($request->input('new_description'));
+        }
+
+        if($request->hasFile('new_image')){
+            File::delete(asset('/images/'.$accessory->getImage()));
+            $file = $request->file('new_image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            $accessory->setImage($name);
+        }
+
+        $accessory->save();
+
+        return back()->with('success', __('accessory_update.succesful'));
+
+    }
+
     public function save(Request $request)
     {
-        $name = Accessory::validate($request);
+        Accessory::validate($request);
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+
         $accessory = new Accessory();
         $accessory->setName($request->input('name'));
         $accessory->setCategory($request->input('category'));

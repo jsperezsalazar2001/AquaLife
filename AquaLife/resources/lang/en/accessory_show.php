@@ -19,6 +19,7 @@ return [
     'price' => 'Accessory price',
     'stock' => 'Accessory stock',
     'delete' => 'Delete',
+    'update' => 'Update',
     'favorite' => 'Add to Wish list',
     'buy' => 'Add to',
     'remove' => 'Remove from'
