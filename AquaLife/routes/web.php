@@ -59,3 +59,5 @@ Route::post('/customer/accessory/add-to-cart/{id}/{type}', 'Customer\CustomerCar
 Route::post('/customer/remove-from-cart/{id}/{type}', 'Customer\CustomerCartController@removeFromCart')->name("customer.remove-from-cart");
 
 Route::get('/customer/cart', 'Customer\CustomerCartController@cart')->name("customer.cart");
+
+Route::post('/customer/cart/buy', 'Customer\CustomerCartController@buy')->name("customer.cart.buy");

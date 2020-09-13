@@ -6,6 +6,9 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\Fish;
 use App\Models\Accessory;
+use App\Models\Order;
+use App\Models\FishOrder;
+use App\Models\AccessoryOrder;
 use Illuminate\Http\Request;
 
 class CustomerCartController extends Controller
@@ -69,35 +72,58 @@ class CustomerCartController extends Controller
         return redirect()->route('home.index');
     }
 
-    // public function buy(Request $request)
-    // {
-    //     $order = new Order();
-    //     $order->setTotal("0");
-    //     $order->save();
+    public function buy(Request $request)
+    {
+        $userId = auth()->user()->id;
+        $paymentType = $request->input('payment_type');
+        $order = new Order();
+        $order->setTotalPrice("0");
+        $order->setPaymentType($paymentType);
+        $order->setUserId($userId);
+        $order->save();
 
-    //     $precioTotal = 0;
+        $totalPrice = 0;
 
-    //     $products = $request->session()->get("products");
-    //     if($products){
-    //         $keys = array_keys($products);
-    //         for($i=0;$i<count($keys);$i++){
-    //             $item = new Item();
-    //             $item->setProductId($keys[$i]);
-    //             $item->setOrderId($order->getId());
-    //             $item->setQuantity($products[$keys[$i]]);
-    //             $item->save();
-    //             $productActual = Product::find($keys[$i]);
-    //             $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
-    //         }
+        $fish = $request->session()->get("fish");
+        if($fish){
+            $keys = array_keys($fish);
+            for($i=0;$i<count($keys);$i++){
+                $currentFish = Fish::find($keys[$i]);
+                $subTotal = $currentFish->getPrice()*$fish[$keys[$i]];
+                $fishOrder = new FishOrder();
+                $fishOrder->setFishId($keys[$i]);
+                $fishOrder->setOrderId($order->getId());
+                $fishOrder->setQuantity($fish[$keys[$i]]);
+                $fishOrder->setSubtotal($subTotal);
+                $fishOrder->save();
+                
+                $totalPrice = $totalPrice + $subTotal;
+            }
+            $request->session()->forget('fish');
+        }
 
-    //         $order->setTotal($precioTotal);
-    //         $order->save();
+        $accessories = $request->session()->get("accessory");
+        if($accessories){
+            $keys = array_keys($accessories);
+            for($i=0;$i<count($keys);$i++){
+                $currentAccessory = Accessory::find($keys[$i]);
+                $subTotal = $currentAccessory->getPrice()*$accessories[$keys[$i]];
+                $accessoryOrder = new AccessoryOrder();
+                $accessoryOrder->setAccessoryId($keys[$i]);
+                $accessoryOrder->setOrderId($order->getId());
+                $accessoryOrder->setQuantity($accessories[$keys[$i]]);
+                $accessoryOrder->setSubtotal($subTotal);
+                $accessoryOrder->save();
+                $totalPrice = $totalPrice + $subTotal;
+            }
+            $request->session()->forget('accessory');
+        }
 
-    //         $request->session()->forget('products');
-    //     }
+        $order->setTotalPrice($totalPrice);
+        $order->save();
 
-    //     return redirect()->route('product.index');
-    // }
+        return redirect()->route('home.index')->with('success', __('order.succesful'));
+    }
 
     public static function typeExists($type)
     {

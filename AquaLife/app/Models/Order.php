@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
-    protected $fillable = ['payment_type', 'total_price'];
+    //protected $fillable = ['payment_type', 'total_price'];
 
     public function getId()
     {
@@ -49,6 +49,14 @@ class Order extends Model
     public function setCreatedAt($created_at)
     {
         $this->attributes['created_at'] = $created_at;
+    }
+
+    public function getUserId(){
+		return $this->attributes['user_id'];
+	}
+
+	public function setUserId($user_id){
+		$this->attributes['user_id'] = $user_id;
     }
 
     public function fish(){

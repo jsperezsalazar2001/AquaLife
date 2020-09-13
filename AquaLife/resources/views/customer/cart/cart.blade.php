@@ -5,9 +5,13 @@
 @section("title", $data["title"])
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        <div class="card">
+        <div class="card-header">{{ __('cart.name') }}</div>
+        <div class="card-body">
         @if(!empty($data["fish"]))
             @foreach($data["fish"] as $fish)
                 @if($loop->index == 0)
@@ -95,6 +99,23 @@
                 @endif
             @endforeach
             @endif
+            <br>
+            <form method="POST" action="{{ route('customer.cart.buy') }}" >
+                @csrf
+                <div class="row">
+                    <div class="col-6">
+                    <label for="payment_type">{{ __('cart.payment_type') }}</label>
+                        <select class="form-control" name="payment_type">
+                            <option value="Credit card" selected>{{ __('cart.payment_options.credit') }}</option>
+                            <option value="Cash">{{ __('cart.payment_options.cash') }}</option>
+                        </select>
+                    </div>
+                        <button type="submit" class="btn btn-success">{{ __('cart.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </form>
+            <br>
+            </div>
+            </div>
         </div>
     </div>
 </div>

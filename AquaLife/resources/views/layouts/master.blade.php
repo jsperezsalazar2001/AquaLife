@@ -34,7 +34,7 @@
                             @if(Auth::user()->getRole()=="Customer")
                             <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> cart </a>
+                            <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> {{ __('cart.name') }} </a>
                             @endif
                             @if(Auth::user()->getRole()=="Admin")
                             <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
