@@ -127,7 +127,6 @@ class CustomerCartController extends Controller
 
     public static function typeExists($type)
     {
-        
         return in_array($type, CustomerCartController::$types);
     }
 

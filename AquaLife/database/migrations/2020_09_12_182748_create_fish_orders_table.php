@@ -32,6 +32,6 @@ class CreateFishOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accessory_orders');
+        Schema::dropIfExists('fish_orders');
     }
 }
