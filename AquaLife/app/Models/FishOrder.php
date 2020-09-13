@@ -4,11 +4,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Fish;
+use App\Models\Order;
 
 class FishOrder extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
-    protected $fillable = ['quantity', 'subtotal'];
+    //protected $fillable = ['quantity', 'subtotal', 'fish_id'];
 
     public function getId()
     {
@@ -40,6 +42,26 @@ class FishOrder extends Model
         $this->attributes['subtotal'] = $subtotal;
     }
 
+    public function getFishId(){
+		return $this->attributes['fish_id'];
+	}
+
+	public function setFishId($fish_id){
+		$this->attributes['fish_id'] = $fish_id;
+	}
+    
+    public function getOrderId(){
+		return $this->attributes['order_id'];
+	}
+
+	public function setOrderId($order_id){
+		$this->attributes['order_id'] = $order_id;
+    }
+    
+	public function user(){
+		return $this->belongsTo(User::class);
+    }
+    
     public function accessory(){
         return $this->belongsTo(Fish::class);
     }
