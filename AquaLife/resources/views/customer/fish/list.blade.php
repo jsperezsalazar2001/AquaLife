@@ -8,15 +8,29 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ __('fish_list.filter_by') }}
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('customer.fish.list_by', ['value'=>'Passive']) }}">{{ __('fish_list.filter.passive') }}</a>
-                    <a class="dropdown-item" href="{{ route('customer.fish.list_by', ['value'=>'Agressive']) }}">{{ __('fish_list.filter.agressive') }}</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('customer.fish.list') }}">{{ __('fish_list.filter.wo_filter') }}</a>
+            <div class="row">
+                <div class="btn-group col">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('fish_list.filter_by_temp') }}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('customer.fish.list_by_temperament', ['value'=>'Passive']) }}">{{ __('fish_list.filter.passive') }}</a>
+                        <a class="dropdown-item" href="{{ route('customer.fish.list_by_temperament', ['value'=>'Agressive']) }}">{{ __('fish_list.filter.agressive') }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('customer.fish.list') }}">{{ __('fish_list.filter.wo_filter') }}</a>
+                    </div>
+                </div>
+                <div class="btn-group col">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('fish_list.filter_by_size') }}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('customer.fish.list_by_size', ['value'=>'Small']) }}">{{ __('fish_list.filter.small') }}</a>
+                        <a class="dropdown-item" href="{{ route('customer.fish.list_by_size', ['value'=>'Medium']) }}">{{ __('fish_list.filter.medium') }}</a>
+                        <a class="dropdown-item" href="{{ route('customer.fish.list_by_size', ['value'=>'Large']) }}">{{ __('fish_list.filter.large') }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('customer.fish.list') }}">{{ __('fish_list.filter.wo_filter') }}</a>
+                    </div>
                 </div>
             </div><br /><br />
             @if(sizeof($data["fish"]) < 1)
@@ -41,7 +55,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $fish->getName() }}</h5>
                                 <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
-                                <p class="card-text"><strong>{{ __('fish_show.size') }}</strong> {{ $fish->getSize() }}</p>
                                 <p class="card-text"><strong>{{ __('fish_show.species') }}</strong> {{ $fish->getSpecies() }}</p>
                                 <p class="card-text"><strong>{{ __('fish_show.family') }}</strong> {{ $fish->getFamily() }}</p>
                                 <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
@@ -71,7 +84,8 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">{{ $fish->getTemperament() }}</small>
+                                <small class="text-muted">{{ $fish->getTemperament() }} - </small>
+                                <small class="text-muted">{{ $fish->getSize() }}</small>
                             </div>
                         </div>
                     @if(($loop->index + 1) == sizeof($data["fish"]))

@@ -58,7 +58,9 @@ Route::post('/admin/fish/update_save', 'Admin\AdminFishController@updateSave')->
 
 Route::get('/customer/fish/list', 'Customer\CustomerFishController@list')->name("customer.fish.list");
 
-Route::get('/customer/fish/list_by/{value}', 'Customer\CustomerFishController@listBy')->name("customer.fish.list_by");
+Route::get('/customer/fish/list_by_temperament/{value}', 'Customer\CustomerFishController@listByTemperament')->name("customer.fish.list_by_temperament");
+
+Route::get('/customer/fish/list_by_size/{value}', 'Customer\CustomerFishController@listBySize')->name("customer.fish.list_by_size");
 
 Route::post('/customer/fish/add-to-cart/{id}/{type}', 'Customer\CustomerCartController@addToCart')->name("customer.fish.add-to-cart");
 

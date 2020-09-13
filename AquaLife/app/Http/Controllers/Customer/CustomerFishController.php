@@ -28,11 +28,20 @@ class CustomerFishController extends Controller
 
     }
 
-    public function listBy($value)
+    public function listByTemperament($value)
     {
         $data = [];
         $data["title"] = __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->where('temperament', $value)->get();
+
+        return view('customer.fish.list')->with("data",$data);
+    }
+
+    public function listBySize($value)
+    {
+        $data = [];
+        $data["title"] = __('fish_list.title');
+        $data["fish"] = Fish::orderBy('id')->where('size', $value)->get();
 
         return view('customer.fish.list')->with("data",$data);
     }
