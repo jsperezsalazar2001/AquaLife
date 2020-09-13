@@ -52,6 +52,10 @@ Route::post('/admin/fish/delete', 'Admin\AdminFishController@delete')->name("adm
 
 Route::get('/admin/fish/list', 'Admin\AdminFishController@list')->name("admin.fish.list");
 
+Route::get('/admin/fish/update', 'Admin\AdminFishController@update')->name("admin.fish.update");
+
+Route::post('/admin/fish/update_save', 'Admin\AdminFishController@updateSave')->name("admin.fish.update_save");
+
 Route::get('/customer/fish/list', 'Customer\CustomerFishController@list')->name("customer.fish.list");
 
 Route::post('/customer/fish/add-to-cart/{id}/{type}', 'Customer\CustomerCartController@addToCart')->name("customer.fish.add-to-cart");

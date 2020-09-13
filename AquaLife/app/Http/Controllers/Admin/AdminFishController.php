@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Fish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminFishController extends Controller
 {
@@ -26,7 +27,7 @@ class AdminFishController extends Controller
     public function list()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Fish list";
+        $data["title"] =  __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->get();
 
         return view('admin.fish.list')->with("data",$data);
@@ -36,16 +37,86 @@ class AdminFishController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Create fish";
+        $data["title"] =  __('fish_create.title');
         $data["fish"] = Fish::all();
 
         return view('admin.fish.create')->with("data",$data);
 
     }
 
+    public function update(Request $request)
+    {
+        $data = [];
+        $data["title"] = __('fish_update.title');
+
+        try{
+            $fish = Fish::findOrFail($request->input('id'));
+        }catch(ModelNotFoundException $e){
+            return redirect()->route('admin.fish.list');
+        }
+
+        $data["fish"] = $fish;
+
+        return view('admin.fish.update')->with("data", $data);
+    }
+
+    public function updateSave(Request $request){
+        $fish = Fish::findOrFail($request->input('id'));
+        $name = Fish::validate($request);
+        if($fish->getName() != $request->input('name')){
+            $fish->setName($request->input('name'));
+        }
+        if($fish->getSpecies() != $request->input('species')){
+            $fish->setSpecies($request->input('species'));
+        }
+        if($fish->getPrice() != $request->input('price')){
+            $fish->setPrice($request->input('price'));
+        }
+
+        if($fish->getFamily() != $request->input('family')){
+            $fish->setFamily($request->input('family'));
+        }
+
+        if($fish->getColor() != $request->input('color')){
+            $fish->setColor($request->input('color'));
+        }
+
+        if($fish->getSize() != $request->input('size')){
+            $fish->setSize($request->input('size'));
+        }
+
+        if($fish->getTemperament() != $request->input('temperament')){
+            $fish->setTemperament($request->input('temperament'));
+        }
+
+        if($fish->getInStock() != $request->input('in_stock')){
+            $fish->setInStock($request->input('in_stock'));
+        }
+
+        if($request->hasFile('new_image')){
+            File::delete(asset('/images/'.$fish->getImage()));
+            $file = $request->file('new_image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            $fish->setImage($name);
+        }
+
+        $fish->save();
+
+        return back()->with('success', __('fish_update.succesful'));
+
+    }
+
     public function save(Request $request)
     {
-         $imageName = Fish::validate($request);
+         Fish::validate($request);
+
+         if($request->hasFile('image')){
+            $file = $request->file('image');
+            $imageName = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $imageName);
+        }
+
          $newFish = new Fish();
          $newFish->setName($request->input('name'));
          $newFish->setSpecies($request->input('species'));
