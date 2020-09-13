@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Fish extends Model
 {
-    protected $fillable = ['name', 'species', 'price', 'family', 'color', 'size', 'temperament'];
+    protected $fillable = ['name', 'species', 'price', 'family', 'color', 'size', 'temperament', 'in_stock'];
 
     public function getId()
     {
@@ -133,15 +133,9 @@ class Fish extends Model
             "size" => ['required','string','min:1','max:255'],
             "temperament" => ['required','string','min:1','max:255'],
             "in_stock" => ['required', 'numeric'],
-            "image" => ['required', 'file']
+            "image" => ['required']
         ]);
 
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
-            return $name;
-        }
     }
 
 }

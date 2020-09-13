@@ -22,4 +22,5 @@ return [
     'temperament' => 'Fish temperament:',
     'stock' => 'Fish stock:',
     'delete' => 'Delete',
+    'update' => 'Update',
 ];

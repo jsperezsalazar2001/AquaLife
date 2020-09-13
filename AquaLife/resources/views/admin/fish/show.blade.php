@@ -23,11 +23,23 @@
                     <b>{{ __('fish_show.size') }} </b> {{ $data["fish"]->getSize() }}<br />
                     <b>{{ __('fish_show.temperament') }}</b> {{ $data["fish"]->getTemperament() }}<br />
                     <b>{{ __('fish_show.stock') }} </b> {{ $data["fish"]->getInStock() }}<br /><br /> 
-                    <form method="POST" action="{{ route('admin.fish.delete') }}">
-                        @csrf
-                        <input type="hidden" name="id" value="{{ $data['fish']->getId() }}" />
-                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('fish_show.delete') }}</button>
-                    </form>
+                    <div class="row row-cols-3">
+                        <div class="col">
+                            <form method="POST" action="{{ route('admin.fish.delete') }}">
+                                 @csrf
+                                <input type="hidden" name="id" value="{{ $data['fish']->getId() }}" />
+                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('fish_show.delete') }}</button>
+                            </form>
+                        </div>
+                        <div class="col">
+                        <form method="GET" action="{{ route('admin.fish.update') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $data['fish']->getId() }}" />
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('fish_show.update') }}</button>
+                            </form>
+                        </div>
+                        <div class="col-7"></div>
+                    </div>
                 </div>
             </div>
         </div>
