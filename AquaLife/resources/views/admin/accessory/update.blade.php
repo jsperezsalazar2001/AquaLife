@@ -82,8 +82,8 @@
                             <input type="hidden" class="form-control" name="image" value="{{ $data['accessory']->getImage() }}"/>  
                         </div>
                     </div><br />
-                    <div class="form-row">
-                        <div class="col">
+                    <div class="form-row justify-content-center">
+                        <div class="col" align="center">
                             <input type="submit" value="{{ __('accessory_update.input.update') }}" class="btn btn-primary"/>
                         </div>
                     </div>

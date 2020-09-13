@@ -23,4 +23,14 @@ return [
     'id' => 'ID',
     'about' => 'About',
     'title' => 'Accessories list',
+    'filter_by' => 'Filter by category',
+    'filter' => [
+        'filters' => 'Filters',
+        'ilumination' => 'Ilumination',
+        'heaters' => 'Heaters',
+        'feeders'=> 'Feeders',
+        'skimmers' => 'Skimmers',
+        'wo_filter' => 'Without filter',
+    ],
+    'no_accessories' => 'There are not accessories to show',
 ];

@@ -31,6 +31,8 @@ Route::get('/admin/accessory/list', 'Admin\AdminAccessoryController@list')->name
 
 Route::get('/customer/accessory/list', 'Customer\CustomerAccessoryController@list')->name("customer.accessory.list");
 
+Route::get('/customer/accessory/list_by/{value}', 'Customer\CustomerAccessoryController@listBy')->name("customer.accessory.list_by");
+
 Auth::routes();
 
 Route::get('/user/show','User\UserController@show')->name("user.show");

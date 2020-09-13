@@ -62,8 +62,8 @@
                             <input type="file" placeholder="{{ __('accessory_create.input.image') }}" name="image" value="{{ old('image') }}" required/><br /><br />
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col">
+                    <div class="form-row justify-content-center">
+                        <div class="col" align="center">
                             <input type="submit" value="{{ __('accessory_create.input.create') }}" class="btn btn-success"/>
                         </div>
                     </div>

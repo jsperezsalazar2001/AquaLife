@@ -20,12 +20,21 @@ class CustomerAccessoryController extends Controller
 
     public function list()
     {
-        $data = []; //to be sent to the view
-        $data["title"] = "Accessories list";
+        $data = []; 
+        $data["title"] = __('accessory_list.title');
         $data["accessories"] = Accessory::orderBy('id')->get();
 
         return view('customer.accessory.list')->with("data",$data);
 
+    }
+
+    public function listBy($value)
+    {
+        $data = [];
+        $data["title"] = __('accessory_list.title');
+        $data["accessories"] = Accessory::orderBy('id')->where('category', $value)->get();
+
+        return view('customer.accessory.list')->with("data",$data);
     }
 
 }
