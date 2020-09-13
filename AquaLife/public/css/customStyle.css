@@ -2,6 +2,15 @@
     font-weight: bold;
 }
 
+.layout-navbar{
+    background-color: #0097a7;
+}
+
+.logo{
+    width: 12%;
+    height: 7%;
+}
+
 .show_image{
     width: 25%;
     height: 25%;

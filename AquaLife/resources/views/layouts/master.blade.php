@@ -16,10 +16,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm layout-navbar">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home.index') }}">
-                    AquaLife
+                <a class="navbar-brand logo" href="{{ route('home.index') }}">
+                    <img src="{{ asset('/logos/logo_02.png') }}" alt="" loading="lazy" class="img-fluid">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
