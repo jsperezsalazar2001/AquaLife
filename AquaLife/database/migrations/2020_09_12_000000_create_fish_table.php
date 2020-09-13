@@ -20,8 +20,8 @@ class CreateFishTable extends Migration
             $table->text('family');
             $table->text('color');
             $table->unsignedDecimal('price', 19, 4);
-            $table->text('size');
-            $table->text('temperament');
+            $table->enum('size', ['Small', 'Medium', 'Large']);
+            $table->enum('temperament', ['Passive', 'Agressive']);
             $table->integer('in_stock');
             $table->text('image');
             $table->timestamps();
