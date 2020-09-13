@@ -19,6 +19,10 @@ Route::get('/admin/accessory/show/{id}', 'Admin\AdminAccessoryController@show')-
 
 Route::get('/admin/accessory/create', 'Admin\AdminAccessoryController@create')->name("admin.accessory.create");
 
+Route::get('/admin/accessory/update', 'Admin\AdminAccessoryController@update')->name("admin.accessory.update");
+
+Route::post('/admin/accessory/update_save', 'Admin\AdminAccessoryController@updateSave')->name("admin.accessory.update_save");
+
 Route::post('admin/accessory/save', 'Admin\AdminAccessoryController@save')->name("admin.accessory.save");
 
 Route::post('/admin/accessory/delete', 'Admin\AdminAccessoryController@delete')->name("admin.accessory.delete");
