@@ -39,7 +39,7 @@ class AdminAccessoryController extends Controller
     public function list()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Accessories list";
+        $data["title"] = __('accessory_list.title');
         $data["accessories"] = Accessory::orderBy('id')->get();
 
         return view('admin.accessory.list')->with("data",$data);
@@ -49,7 +49,7 @@ class AdminAccessoryController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Create accessory";
+        $data["title"] = __('accessory_create.title');
 
         return view('admin.accessory.create')->with("data",$data);
 
@@ -58,7 +58,7 @@ class AdminAccessoryController extends Controller
     public function update(Request $request)
     {
         $data = [];
-        $data["title"] = "Update accessory";
+        $data["title"] = __('accessory_update.title');
 
         try{
             $accessory = Accessory::findOrFail($request->input('id'));

@@ -31,6 +31,12 @@ return [
         'category' => 'Category',
         'priceHB' => 'Price must be greater than 0',
         'stockHB' => 'Stock must be greater than 0',
+        'new_image' => 'Select a new image',
+        'name' => 'Name',
+        'price' => 'Price',
+        'in_stock' => 'Quantity in stock',
+        'description' => 'Description',
     ],
     'succesful' => 'Accessory update successfully!',
+    'current_image' => 'Current image',
 ];

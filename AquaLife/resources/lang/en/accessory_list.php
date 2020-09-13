@@ -22,4 +22,5 @@ return [
     'name' => 'Name',
     'id' => 'ID',
     'about' => 'About',
+    'title' => 'Accessories list',
 ];

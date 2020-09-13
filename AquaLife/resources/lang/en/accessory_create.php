@@ -31,6 +31,11 @@ return [
         'category' => 'Category',
         'priceHB' => 'Price must be greater than 0',
         'stockHB' => 'Stock must be greater than 0',
+        'name' => 'Name',
+        'price' => 'Price',
+        'in_stock' => 'Quantity in stock',
+        'description' => 'Description',
+        'image' => 'Select an image',
     ],
     'succesful' => 'Item created successfully!',
 ];

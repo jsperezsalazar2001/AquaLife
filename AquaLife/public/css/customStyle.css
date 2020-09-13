@@ -7,6 +7,11 @@
     height: 25%;
 }
 
+.form_image{
+    width: 90%;
+    height: 100%;
+}
+
 .padding-20{
     padding: 20px;
 }
