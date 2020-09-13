@@ -1,15 +1,16 @@
 <?php
-// Created by: Juan Sebastián Pérez Salazar
+// Created by: Yhoan Alejandro Guzman
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Accessory;
+use App\Models\Fish;
 use App\Models\Order;
-class AccessoryOrder extends Model
+
+class FishOrder extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
-    //protected $fillable = ['quantity', 'subtotal', 'accessory_id'];
+    //protected $fillable = ['quantity', 'subtotal', 'fish_id'];
 
     public function getId()
     {
@@ -41,13 +42,13 @@ class AccessoryOrder extends Model
         $this->attributes['subtotal'] = $subtotal;
     }
 
-    public function getAccessoryId(){
-		return $this->attributes['accessory_id'];
+    public function getFishId(){
+		return $this->attributes['fish_id'];
 	}
 
-	public function setAccessoryId($accessory_id){
-		$this->attributes['accessory_id'] = $accessory_id;
-    }
+	public function setFishId($fish_id){
+		$this->attributes['fish_id'] = $fish_id;
+	}
     
     public function getOrderId(){
 		return $this->attributes['order_id'];
@@ -56,9 +57,13 @@ class AccessoryOrder extends Model
 	public function setOrderId($order_id){
 		$this->attributes['order_id'] = $order_id;
     }
-
+    
+	public function user(){
+		return $this->belongsTo(User::class);
+    }
+    
     public function accessory(){
-        return $this->belongsTo(Accessory::class);
+        return $this->belongsTo(Fish::class);
     }
 
     public function order(){

@@ -13,14 +13,6 @@ return [
     |
     */
 
-    'name' => 'Accessory name',
-    'category' => 'Accessory category',
-    'description' => 'Accessory description',
-    'price' => 'Accessory price',
-    'stock' => 'Accessory stock',
-    'delete' => 'Delete',
-    'update' => 'Update',
-    'favorite' => 'Add to Wish list',
-    'buy' => 'Add to',
-    'remove' => 'Remove from'
+    'name' => 'Order',
+    'success'=> 'Order completed successfully!',
 ];

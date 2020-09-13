@@ -24,7 +24,8 @@
                             <h5 class="card-title">{{ $fish->getName() }}</h5>
                             <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
                             <p class="card-text"><strong>{{ __('fish_show.size') }}</strong> {{ $fish->getSize() }}</p>
-                            <p class="card-text"><strong>{{ __('fish_show.temperament') }}</strong> {{ $fish->getTemperament() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.species') }}</strong> {{ $fish->getSpecies() }}</p>
+                            <p class="card-text"><strong>{{ __('fish_show.family') }}</strong> {{ $fish->getFamily() }}</p>
                             <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
                             @if($fish->getInStock() > 0)
                             <p class="card-text green-color">{{ __('fish_list.in_stock') }}</p>
@@ -40,7 +41,7 @@
                                     </div>
                                 </div>
                             </form><br/>
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('customer.fish.add-to-cart',['id'=> $fish->getId(), 'type' => 'fish']) }}" >
                                 @csrf
                                 <div class="row">
                                     <div class="col">
@@ -52,7 +53,7 @@
                             </form>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">{{ $fish->getSpecies() }}</small>
+                            <small class="text-muted">{{ $fish->getTemperament() }}</small>
                         </div>
                     </div>
                 @if(($loop->index + 1) == sizeof($data["fish"]))

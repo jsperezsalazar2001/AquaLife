@@ -51,3 +51,13 @@ Route::post('/admin/fish/delete', 'Admin\AdminFishController@delete')->name("adm
 Route::get('/admin/fish/list', 'Admin\AdminFishController@list')->name("admin.fish.list");
 
 Route::get('/customer/fish/list', 'Customer\CustomerFishController@list')->name("customer.fish.list");
+
+Route::post('/customer/fish/add-to-cart/{id}/{type}', 'Customer\CustomerCartController@addToCart')->name("customer.fish.add-to-cart");
+
+Route::post('/customer/accessory/add-to-cart/{id}/{type}', 'Customer\CustomerCartController@addToCart')->name("customer.accessory.add-to-cart");
+
+Route::post('/customer/remove-from-cart/{id}/{type}', 'Customer\CustomerCartController@removeFromCart')->name("customer.remove-from-cart");
+
+Route::get('/customer/cart', 'Customer\CustomerCartController@cart')->name("customer.cart");
+
+Route::post('/customer/cart/buy', 'Customer\CustomerCartController@buy')->name("customer.cart.buy");

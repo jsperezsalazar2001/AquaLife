@@ -28,4 +28,20 @@ class CustomerFishController extends Controller
 
     }
 
+    public function addToCart($id, Request $request)
+    {
+        $data = []; //to be sent to the view
+        $quantity = $request->quantity;
+        $fish = $request->session()->get("fish");
+        $fish[$id] = $quantity;
+        $request->session()->put('fish', $fish);
+        return back()->with('success', __('fish.succesful'));
+    }
+
+    public function removeFromCart(Request $request)
+    {
+        $request->session()->forget('fish');
+        return redirect()->route('customer.fish.list');
+    }
+
 }

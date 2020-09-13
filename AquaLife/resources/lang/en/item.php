@@ -13,14 +13,7 @@ return [
     |
     */
 
-    'name' => 'Accessory name',
-    'category' => 'Accessory category',
-    'description' => 'Accessory description',
-    'price' => 'Accessory price',
-    'stock' => 'Accessory stock',
-    'delete' => 'Delete',
-    'update' => 'Update',
-    'favorite' => 'Add to Wish list',
-    'buy' => 'Add to',
-    'remove' => 'Remove from'
+    'title' => 'Item',
+    'title_plural' => 'Items',
+    'successful' =>'Item added to cart successfully!'
 ];

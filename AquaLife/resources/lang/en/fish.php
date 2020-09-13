@@ -15,4 +15,5 @@ return [
 
     'title' => 'Fish',
     'title_plural' => 'Fish',
+    'successful' =>'Fish added to cart successfully!'
 ];

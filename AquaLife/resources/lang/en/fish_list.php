@@ -22,4 +22,5 @@ return [
     'buy' => 'Add to',
     'in_stock' => 'IN STOCK',
     'sold_out' => 'SOLD OUT',
+    'remove' => 'Remove from'
 ];
