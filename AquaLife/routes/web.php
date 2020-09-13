@@ -63,3 +63,9 @@ Route::post('/customer/remove-from-cart/{id}/{type}', 'Customer\CustomerCartCont
 Route::get('/customer/cart', 'Customer\CustomerCartController@cart')->name("customer.cart");
 
 Route::post('/customer/cart/buy', 'Customer\CustomerCartController@buy')->name("customer.cart.buy");
+
+Route::post('/customer/wishList/add', 'Customer\CustomerWishListController@add')->name("customer.wishList.add");
+
+Route::get('/customer/wishList/show/wishList', 'Customer\CustomerWishListController@show')->name("customer.wishList.show");
+
+Route::post('/customer/wishList/delete', 'Customer\CustomerWishListController@delete')->name("customer.wishList.delete");
