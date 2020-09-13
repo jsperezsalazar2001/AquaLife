@@ -22,5 +22,12 @@ return [
     'buy' => 'Add to',
     'in_stock' => 'IN STOCK',
     'sold_out' => 'SOLD OUT',
-    'remove' => 'Remove from'
+    'remove' => 'Remove from',
+    'filter_by' => 'Filter by temperament',
+    'filter' => [
+        'passive' => 'Passive',
+        'agressive' => 'Agressive',
+        'wo_filter' => 'Without filter',
+    ],
+    'no_fish' => 'There are not fish to show',
 ];

@@ -37,6 +37,7 @@ return [
         'stock' => 'Stock',
         'priceHB' => 'Price must be greater than 0',
         'stockHB' => 'Stock must be greater than 0',
+        'image' => 'Select an image',
     ],
     'temperament_options' => [
         'passive' => 'Passive',

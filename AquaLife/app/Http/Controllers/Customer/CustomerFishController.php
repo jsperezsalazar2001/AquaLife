@@ -21,11 +21,20 @@ class CustomerFishController extends Controller
     public function list()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Fish list";
+        $data["title"] = __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->get();
 
         return view('customer.fish.list')->with("data",$data);
 
+    }
+
+    public function listBy($value)
+    {
+        $data = [];
+        $data["title"] = __('fish_list.title');
+        $data["fish"] = Fish::orderBy('id')->where('temperament', $value)->get();
+
+        return view('customer.fish.list')->with("data",$data);
     }
 
     public function addToCart($id, Request $request)
