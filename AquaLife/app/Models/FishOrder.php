@@ -1,11 +1,11 @@
 <?php
-// Created by: Juan Sebastián Pérez Salazar
+// Created by: Yhoan Alejandro Guzman
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AccessoryOrder extends Model
+class FishOrder extends Model
 {
     //attributes id, name, category, price, created_at, updated_at
     protected $fillable = ['quantity', 'subtotal'];
@@ -41,7 +41,7 @@ class AccessoryOrder extends Model
     }
 
     public function accessory(){
-        return $this->belongsTo(Accessory::class);
+        return $this->belongsTo(Fish::class);
     }
 
     public function order(){
