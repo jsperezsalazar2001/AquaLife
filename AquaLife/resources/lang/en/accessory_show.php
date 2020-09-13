@@ -20,5 +20,6 @@ return [
     'stock' => 'Accessory stock',
     'delete' => 'Delete',
     'favorite' => 'Add to Wish list',
-    'buy' => 'Add to'
+    'buy' => 'Add to',
+    'remove' => 'Remove from'
 ];

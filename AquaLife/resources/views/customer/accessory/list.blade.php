@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                             </form><br/>
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('customer.accessory.add-to-cart',['id'=> $accessory->getId(), 'type' => 'accessory']) }}" >
                                 @csrf
                                 <div class="row">
                                     <div class="col">

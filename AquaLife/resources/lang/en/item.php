@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Fish',
-    'title_plural' => 'Fish',
-    'successful' =>'Fish added to cart successfully!'
+    'title' => 'Item',
+    'title_plural' => 'Items',
+    'successful' =>'Item added to cart successfully!'
 ];
