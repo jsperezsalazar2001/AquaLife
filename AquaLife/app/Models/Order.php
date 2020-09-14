@@ -84,7 +84,7 @@ class Order extends Model
         return $this->hasMany(FishOrder::class);
     }
 
-    public function accessory(){
+    public function accessories(){
         return $this->hasMany(AccessoryOrder::class);
     }
 

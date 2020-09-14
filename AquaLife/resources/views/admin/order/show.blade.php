@@ -19,6 +19,52 @@
                     <b>{{ __('order_show.status') }} </b> {{ $data["order"]->getStatus() }}<br />
                     <b>{{ __('order_show.created_at') }} </b> {{ $data["order"]->getCreatedAt() }}<br />
                     <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br />
+                    @if(!empty($data["fish"]))
+                    <b>{{ __('order_show.fish_ordered') }} </b><br />
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ __('fish_list.name') }}</th>
+                                <th scope="col">{{ __('fish_list.price') }}</th>
+                                <th scope="col">{{ __('order_show.quantity') }}</th>
+                                <th scope="col">{{ __('order_list.subtotal') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data["fish"] as $fish)
+                            <tr>
+                                <td>{{ $fish['name'] }}</td>
+                                <td>{{ $fish['price'] }}</td>
+                                <td>{{ $fish['quantity'] }}</td>
+                                <td>{{ $fish['subtotal'] }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
+                    @if(!empty($data["accessories"]))
+                    <b>{{ __('order_show.accessories_ordered') }} </b><br />
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ __('accessory_list.name') }}</th>
+                                <th scope="col">{{ __('accessory_list.price') }}</th>
+                                <th scope="col">{{ __('order_show.quantity') }}</th>
+                                <th scope="col">{{ __('order_list.subtotal') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data["accessories"] as $accessory)
+                            <tr>
+                                <td>{{ $accessory['name'] }}</td>
+                                <td>{{ $accessory['price'] }}</td>
+                                <td>{{ $accessory['quantity'] }}</td>
+                                <td>{{ $accessory['subtotal'] }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
                     <div class="row row-cols-3">
                         <div class="col">
                         <form method="GET" action="{{ route('admin.order.update') }}">
