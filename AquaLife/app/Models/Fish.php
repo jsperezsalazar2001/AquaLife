@@ -1,5 +1,6 @@
 <?php
 //Created by: Yhoan Alejandro Guzman
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;

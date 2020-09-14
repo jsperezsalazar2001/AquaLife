@@ -1,5 +1,5 @@
 <?php
-// Created by: Juan Sebastián Pérez Salazar
+// Created by: Yhoan Alejandro Guzman
 
 namespace App\Http\Controllers\Customer;
 
@@ -96,7 +96,7 @@ class CustomerCartController extends Controller
                 }
             }
         }
-        
+
         if($accessories){
             $keys = array_keys($accessories);
             for($i=0;$i<count($keys);$i++){

@@ -1,4 +1,5 @@
-<!-- Created by: Juan Sebastián Pérez Salazar -->
+
+<!-- Created by: Yhoan Alejandro Guzman -->
 
 @extends('layouts.master')
 
