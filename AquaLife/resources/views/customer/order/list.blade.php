@@ -23,7 +23,6 @@
                     <thead>
                         <tr>
                             <th scope="col">{{ __('order_list.id') }}</th>
-                            <th scope="col">{{ __('order_list.user_id') }}</th>
                             <th scope="col">{{ __('order_list.total_price') }}</th>
                             <th scope="col">{{ __('order_list.status') }}</th>
                             <th scope="col">{{ __('order_list.created_at') }}</th>
@@ -34,11 +33,10 @@
                         @foreach($data["order"] as $order)
                         <tr>
                             <td>{{ $order->getId() }}</td>
-                            <td>{{ $order->getUserId() }}</td>
                             <td>{{ $order->getTotalPrice() }}</td>
                             <td>{{ $order->getStatus() }}</td>
                             <td>{{ $order->getCreatedAt() }}</td>
-                            <td><a href="{{ route('admin.order.show', ['id'=>$order->getId()]) }}"> {{ __('order_list.more') }} <strong>{{ $order->getId() }}</strong></a></td>
+                            <td><a href="{{ route('customer.order.show', ['id'=>$order->getId()]) }}"> {{ __('order_list.more') }} <strong>{{ $order->getId() }}</strong></a></td>
                         </tr>
                         @endforeach
                     </tbody>

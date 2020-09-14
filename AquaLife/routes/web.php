@@ -37,6 +37,8 @@ Auth::routes();
 
 Route::get('/user/show','User\UserController@show')->name("user.show");
 
+Route::get('/user/show/{id}','User\UserController@adminShow')->name("admin.user.show");
+
 Route::get('/', 'HomeController@index')->name("home.index");
 
 Route::get('/admin/index', 'Admin\AdminHomeController@index')->name("admin.home.index");
@@ -86,3 +88,10 @@ Route::get('/admin/order/list', 'Admin\AdminOrderController@list')->name("admin.
 Route::get('/admin/order/update', 'Admin\AdminOrderController@update')->name("admin.order.update");
 
 Route::post('/admin/order/update_save', 'Admin\AdminOrderController@updateSave')->name("admin.order.update_save");
+
+
+Route::get('/customer/order/show/{id}', 'Customer\CustomerOrderController@show')->name("customer.order.show");
+
+Route::get('/customer/order/list', 'Customer\CustomerOrderController@list')->name("customer.order.list");
+
+Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
