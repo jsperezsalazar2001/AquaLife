@@ -80,7 +80,6 @@ Route::get('/customer/wishList/show/wishList', 'Customer\CustomerWishListControl
 
 Route::post('/customer/wishList/delete', 'Customer\CustomerWishListController@delete')->name("customer.wishList.delete");
 
-
 Route::get('/admin/order/show/{id}', 'Admin\AdminOrderController@show')->name("admin.order.show");
 
 Route::get('/admin/order/list', 'Admin\AdminOrderController@list')->name("admin.order.list");
@@ -95,3 +94,19 @@ Route::get('/customer/order/show/{id}', 'Customer\CustomerOrderController@show')
 Route::get('/customer/order/list', 'Customer\CustomerOrderController@list')->name("customer.order.list");
 
 Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
+
+Route::get('/admin/envaronmentalConditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmentalCondition.create");
+
+Route::post('/admin/envaronmentalConditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmentalCondition.save");
+
+Route::get('/admin/envaronmentalConditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmentalCondition.show");
+
+Route::post('/admin/envaronmentalConditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmentalCondition.delete");
+
+Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+
+Route::get('/admin/envaronmentalConditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmentalCondition.list");
+
+Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+
+Route::post('/admin/envaronmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");

@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\Fish;
 
 class EnvironmentalCondition extends Model
 {
@@ -76,15 +77,30 @@ class EnvironmentalCondition extends Model
         $this->attributes['hardness_hr'] = $hardness_hr;
     }
 
+    public function getFishId()
+    {
+        return $this->attributes['fish_id'];
+    }
+
+    public function setFishId($fish_id)
+    {
+        $this->attributes['fish_id'] = $fish_id;
+    }
+
     public static function validate(Request $request)
     {
         $request->validate([
-            "ph_lr" => ['required', 'numeric', 'gt:0'],
-            "ph_hr" => ['required', 'numeric', 'gt:0'],
-            "temperature_lr" => ['required', 'numeric', 'gt:0'],
-            "temperature_hr" => ['required', 'numeric', 'gt:0'],
-            "hardness_lr" => ['required', 'numeric', 'gt:0'],
-            "hardness_hr" => ['required', 'numeric', 'gt:0'],
+            "ph_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "ph_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "temperature_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "temperature_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "hardness_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "hardness_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "fish_id" => ['required','string','min:1','max:255'],
         ]);
+    }
+
+    public function fish(){
+        return $this->belongsTo(Fish::class);
     }
 }
