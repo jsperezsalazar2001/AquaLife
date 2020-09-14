@@ -22,4 +22,7 @@ return [
     'updated_at' => 'Order updated at:',
     'cancel' => 'Cancel order',
     'update' => 'Update',
+    'quantity' => 'Quantity',
+    'fish_ordered' => 'Fish ordered:',
+    'accessories_ordered' => 'Accessories ordered:',
 ];

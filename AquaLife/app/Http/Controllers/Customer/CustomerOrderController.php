@@ -20,8 +20,13 @@ class CustomerOrderController extends Controller
             return redirect()->route('home.index');
         }
 
-        $data["title"] = __('order_show.cancel').' '.$order->getId();
+        $accessories = $order->accessories()->select('accessory_orders.*', 'accessories.name', 'accessories.price')->join('accessories',  'accessory_orders.accessory_id', '=', 'accessories.id')->get();
+        $fish = $order->fish()->select('fish_orders.*', 'fish.name', 'fish.price')->join('fish',  'fish_orders.fish_id', '=', 'fish.id')->get();
+        $data["title"] = __('order_show.update').' '.$order->getId();
         $data["order"] = $order;
+        $data["accessories"] = $accessories;
+        $data["fish"] = $fish;
+        //dd($fish);
         return view('customer.order.show')->with("data",$data);
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Order;
+use App\Models\AccessoryOrder;
+use App\Models\FishOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -19,9 +21,12 @@ class AdminOrderController extends Controller
         }catch(ModelNotFoundException $e){
             return redirect()->route('home.index');
         }
-
+        $accessories = $order->accessories()->select('accessory_orders.*', 'accessories.name', 'accessories.price')->join('accessories',  'accessory_orders.accessory_id', '=', 'accessories.id')->get();
+        $fish = $order->fish()->select('fish_orders.*', 'fish.name', 'fish.price')->join('fish',  'fish_orders.fish_id', '=', 'fish.id')->get();
         $data["title"] = __('order_show.update').' '.$order->getId();
         $data["order"] = $order;
+        $data["accessories"] = $accessories;
+        $data["fish"] = $fish;
         return view('admin.order.show')->with("data",$data);
     }
 
@@ -52,7 +57,11 @@ class AdminOrderController extends Controller
     }
 
     public function updateSave(Request $request){
+
+
+
         $order = Order::findOrFail($request->input('id'));
+
         Order::validate($request);
         if($order->getStatus() != $request->input('status')){
             $order->setStatus($request->input('status'));

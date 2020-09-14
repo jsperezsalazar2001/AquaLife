@@ -15,6 +15,7 @@ return [
     'title' => 'Order list',
     'id' => 'ID',
     'total_price' => 'Total price',
+    'subtotal' => 'Subtotal',
     'status' => 'Status',
     'payment_type' => 'Payment type',
     'user_id' => 'User id',
