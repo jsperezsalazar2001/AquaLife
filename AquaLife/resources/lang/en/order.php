@@ -15,4 +15,10 @@ return [
 
     'name' => 'Order',
     'success'=> 'Order completed successfully!',
+    'title' => 'Order',
+    'title_plural' => 'Orders',
+    'user' => [
+        'title' => 'My order',
+        'title_plural' => 'My orders',
+    ],
 ];

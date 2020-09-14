@@ -12,15 +12,15 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'name' => 'Cart',
-    'payment_type'=> 'Payment type',
-    'buy'=> 'Buy',
-    'payment_options' => [
-        'credit' => 'Credit card',
-        'cash' => 'Cash',
-    ],
-    'not_enough_stock' => 'There are only :stock :item in stock.',
-    'type_not_found' => 'Type :type not recognized.',
-    'cart_is_empty' => 'Oops! it seems like your cart is empty.'
+    'title' => 'Order list',
+    'id' => 'ID',
+    'total_price' => 'Total price',
+    'status' => 'Status',
+    'payment_type' => 'Payment type',
+    'user_id' => 'User id',
+    'about' => 'About',
+    'more' => 'Go to order id#: ',
+    'order' => 'Order ',
+    'created_at' => 'Order date',
+    'no_orders' => 'There are not orders to show',
 ];

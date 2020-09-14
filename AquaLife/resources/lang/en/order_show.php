@@ -13,14 +13,13 @@ return [
     |
     */
 
-    'name' => 'Cart',
-    'payment_type'=> 'Payment type',
-    'buy'=> 'Buy',
-    'payment_options' => [
-        'credit' => 'Credit card',
-        'cash' => 'Cash',
-    ],
-    'not_enough_stock' => 'There are only :stock :item in stock.',
-    'type_not_found' => 'Type :type not recognized.',
-    'cart_is_empty' => 'Oops! it seems like your cart is empty.'
+    'id' => 'Order id:',
+    'user_id' => 'Order user id:',
+    'payment_type' => 'Payment type:',
+    'total_price' => 'Order price:',
+    'status' => 'Order status:',
+    'created_at' => 'Order created at:',
+    'updated_at' => 'Order updated at:',
+    'cancel' => 'Cancel order',
+    'update' => 'Update',
 ];

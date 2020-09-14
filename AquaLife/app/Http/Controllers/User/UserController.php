@@ -23,4 +23,19 @@ class UserController extends Controller
         $data["user"] = $user;
         return view('user.show')->with("data",$data);
     }
+
+    public function adminShow($id)
+    {
+        $data = []; //to be sent to the view
+        
+        try{
+            $user = User::findOrFail($id);
+        }catch(ModelNotFoundException $e){
+            return redirect()->route('home.index');
+        }
+
+        $data["title"] = $user->getName();
+        $data["user"] = $user;
+        return view('user.show')->with("data",$data);
+    }
 }

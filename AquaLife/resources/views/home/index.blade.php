@@ -10,7 +10,15 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    Test
+                @include('util.message')
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>

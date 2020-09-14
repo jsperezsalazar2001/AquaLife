@@ -13,14 +13,19 @@ return [
     |
     */
 
-    'name' => 'Cart',
-    'payment_type'=> 'Payment type',
-    'buy'=> 'Buy',
-    'payment_options' => [
-        'credit' => 'Credit card',
-        'cash' => 'Cash',
+    'title' => 'Update order',
+    'input' => [
+        'update' => 'Update',
     ],
-    'not_enough_stock' => 'There are only :stock :item in stock.',
-    'type_not_found' => 'Type :type not recognized.',
-    'cart_is_empty' => 'Oops! it seems like your cart is empty.'
+    'label' => [
+        'status' => 'Status',
+    ],
+    'status_options' => [
+        'completed' => 'Completed',
+        'canceled' => 'Canceled',
+        'delivering' => 'Delivering',
+        'pending' => 'Pending',
+    ],
+    'succesful' => 'Order updated successfully!',
+    'cancel_succesful' => 'Order canceled successfully!',
 ];

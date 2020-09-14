@@ -1,3 +1,4 @@
+<!-- Created by: Yhoan Alejandro Guzman -->
 @extends('layouts.master')
 
 @section("title", $data["title"])
@@ -45,7 +46,7 @@
                         <div class="form-row">
                             <div class="col">
                                 <label for="price"><strong>{{ __('fish_create.label.price') }}</strong></label>
-                                <input type="number" step="0.0001"class="form-control" name="price" value="{{ old('price') }}" placeholder="{{ __('fish_create.input.enter_price') }}" aria-describedby="priceHelpBlock" required>
+                                <input type="number" min="0.0001" step="0.0001"class="form-control" name="price" value="{{ old('price') }}" placeholder="{{ __('fish_create.input.enter_price') }}" aria-describedby="priceHelpBlock" required>
                                 <small id="priceHelpBlock" class="form-text text-muted">{{ __('fish_create.label.priceHB') }}</small><br />
                             </div>
                             <div class="col">

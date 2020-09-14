@@ -5,6 +5,7 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
@@ -41,6 +42,16 @@ class Order extends Model
         $this->attributes['total_price'] = $total_price;
     }
 
+    public function getStatus()
+    {
+        return $this->attributes['status'];
+    }
+
+    public function setStatus($status)
+    {
+        $this->attributes['status'] = $status;
+    }
+
     public function getCreatedAt()
     {
         return $this->attributes['created_at'];
@@ -49,6 +60,16 @@ class Order extends Model
     public function setCreatedAt($created_at)
     {
         $this->attributes['created_at'] = $created_at;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($updated_at)
+    {
+        $this->attributes['updated_at'] = $updated_at;
     }
 
     public function getUserId(){
@@ -69,5 +90,13 @@ class Order extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public static function validate(Request $request)
+    {
+        $request->validate([
+            "status" => ['required','string','min:1','max:255'],
+        ]);
+
     }
 }
