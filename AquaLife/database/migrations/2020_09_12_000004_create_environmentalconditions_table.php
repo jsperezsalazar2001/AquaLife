@@ -12,12 +12,14 @@ class CreateEnvironmentalconditionsTable extends Migration
     public function up(){
         Schema::create('environmental_conditions',function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->decimal('ph_lr', 10, 2);
-            $table->decimal('ph_hr', 10, 2);
-            $table->decimal('temperature_lr', 10, 2);
-            $table->decimal('temperature_hr', 10, 2);
-            $table->decimal('hardness_lr', 10, 2);
-            $table->decimal('hardness_hr', 10, 2);
+            $table->unsignedDecimal('ph_lr', 19, 2);
+            $table->unsignedDecimal('ph_hr', 19, 2);
+            $table->unsignedDecimal('temperature_lr', 19, 2);
+            $table->unsignedDecimal('temperature_hr', 19, 2);
+            $table->unsignedDecimal('hardness_lr', 19, 2);
+            $table->unsignedDecimal('hardness_hr', 19, 2);
+            $table->bigInteger('fish_id')->unsigned()->unique();
+            $table->foreign('fish_id')->references('id')->on('fish');
             $table->timestamps();
         });
     }
