@@ -40,8 +40,10 @@
                             @if(Auth::user()->getRole()=="Admin")
                             <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.environmentalCondition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.button_title') }} </a>
                             <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.title') }} </a>
                             <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.title') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.environmentalCondition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.button_title') }} </a>
                             @endif
                         @endif
                     </ul>

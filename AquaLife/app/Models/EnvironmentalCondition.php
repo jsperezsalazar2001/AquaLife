@@ -79,12 +79,12 @@ class EnvironmentalCondition extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            "ph_lr" => ['required', 'numeric', 'gt:0'],
-            "ph_hr" => ['required', 'numeric', 'gt:0'],
-            "temperature_lr" => ['required', 'numeric', 'gt:0'],
-            "temperature_hr" => ['required', 'numeric', 'gt:0'],
-            "hardness_lr" => ['required', 'numeric', 'gt:0'],
-            "hardness_hr" => ['required', 'numeric', 'gt:0'],
+            "ph_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "ph_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "temperature_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "temperature_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "hardness_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
+            "hardness_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
         ]);
     }
 }
