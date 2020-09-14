@@ -51,23 +51,14 @@
                                 @else
                                 <p class="card-text red-color">{{ __('accessory_list.sold_out') }}</p>
                                 @endif
-                                <form method="POST" action="">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
-                                            <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('accessory_show.favorite') }}</button>
-                                        </div>
-                                    </div>
-                                </form><br/>
                                 <form method="POST" action="{{ route('customer.accessory.add-to-cart',['id'=> $accessory->getId(), 'type' => 'accessory']) }}" >
                                     @csrf
                                     <div class="row">
                                         <div class="col">
-                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999"/>
-                                            <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
+                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
+                                            <input type="hidden" name="id" value="{{ $accessory->getId() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
-                                        <button type="submit" class="btn btn-info">{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        <button type="submit" class="btn btn-info" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} >{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
                                     </div>
                                 </form>
                             </div>

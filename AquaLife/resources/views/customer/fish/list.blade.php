@@ -76,10 +76,10 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col">
-                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999"/>
-                                            <input type="hidden" name="id" value="{{ $fish->getId() }}" />
+                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
+                                            <input type="hidden" name="id" value="{{ $fish->getId() }}" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
-                                        <button type="submit" class="btn btn-info">{{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        <button type="submit" class="btn btn-info" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} >{{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
                                     </div>
                                 </form>
                             </div>

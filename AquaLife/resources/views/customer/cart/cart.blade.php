@@ -9,6 +9,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @include('util.message')
+            @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+            @endif
         <div class="card">
         <div class="card-header">{{ __('cart.name') }}</div>
         <div class="card-body">
@@ -100,6 +109,7 @@
             @endforeach
             @endif
             <br>
+            @if(!empty($data["fish"]) or !empty($data["accessories"]))
             <form method="POST" action="{{ route('customer.cart.buy') }}" >
                 @csrf
                 <div class="row">
@@ -113,6 +123,7 @@
                         <button type="submit" class="btn btn-success">{{ __('cart.buy') }} <i class="fa fa-shopping-cart"></i></button>
                 </div>
             </form>
+            @endif
             <br>
             </div>
             </div>

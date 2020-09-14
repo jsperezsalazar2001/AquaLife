@@ -31,7 +31,7 @@ class CustomerCartController extends Controller
         if($this->typeExists($type)){
             $items = $request->session()->get($type);
         }else{
-            return back()->withErrors(['Type_not_found' => ['Site error.']]);
+            return back()->withErrors(__('cart.type_not_found',['type' => $type]));
         }
         $items[$id] = $quantity;
         $request->session()->put($type, $items);
@@ -45,7 +45,7 @@ class CustomerCartController extends Controller
             unset($items[$id]);
             $request->session()->put($type, $items);
         }else{ 
-            return back()->withErrors(['Type_not_found' => ['Site error.']]);
+            return back()->withErrors(__('cart.type_not_found',['type' => $type]));
         }
         return redirect()->route('customer.cart');
     }
@@ -54,6 +54,8 @@ class CustomerCartController extends Controller
     {
         $fish = $request->session()->get("fish");
         $accessories = $request->session()->get("accessory");
+        $data["title"] = "Cart";
+
         if($fish){
             $keys = array_keys($fish);
             $fishModels = Fish::find($keys);
@@ -65,11 +67,9 @@ class CustomerCartController extends Controller
             $data["accessories"] = $accessoryModels;
         }
         if($fish || $accessories){
-            $data["title"] = "Cart";
             return view('customer.cart.cart')->with("data",$data);
         }
-
-        return redirect()->route('home.index');
+        return view('customer.cart.cart')->with("data",$data)->withErrors(__('cart.cart_is_empty'));;
     }
 
     public function buy(Request $request)
@@ -84,11 +84,35 @@ class CustomerCartController extends Controller
 
         $totalPrice = 0;
 
+
         $fish = $request->session()->get("fish");
+        $accessories = $request->session()->get("accessory");
         if($fish){
             $keys = array_keys($fish);
             for($i=0;$i<count($keys);$i++){
                 $currentFish = Fish::find($keys[$i]);
+                if($currentFish->getInStock()-$fish[$keys[$i]] < 0){
+                    return back()->withErrors(__('cart.not_enough_stock',['stock' => $currentFish->getInStock(), 'item' => $currentFish->getName()]));
+                }
+            }
+        }
+        
+        if($accessories){
+            $keys = array_keys($accessories);
+            for($i=0;$i<count($keys);$i++){
+                $currentAccessory = Accessory::find($keys[$i]);
+                if($currentAccessory->getInStock()-$accessories[$keys[$i]] < 0){
+                    return back()->withErrors(__('cart.not_enough_stock',['stock' => $currentAccessory->getInStock(), 'item' => $currentAccessory->getName()]));
+                }
+            }
+        }
+
+        if($fish){
+            $keys = array_keys($fish);
+            for($i=0;$i<count($keys);$i++){
+                $currentFish = Fish::find($keys[$i]);
+                $currentFish->setInStock($currentFish->getInStock()-$fish[$keys[$i]]);
+                $currentFish->save();
                 $subTotal = $currentFish->getPrice()*$fish[$keys[$i]];
                 $fishOrder = new FishOrder();
                 $fishOrder->setFishId($keys[$i]);
@@ -102,11 +126,13 @@ class CustomerCartController extends Controller
             $request->session()->forget('fish');
         }
 
-        $accessories = $request->session()->get("accessory");
+
         if($accessories){
             $keys = array_keys($accessories);
             for($i=0;$i<count($keys);$i++){
                 $currentAccessory = Accessory::find($keys[$i]);
+                $currentAccessory->setInStock($currentAccessory->getInStock()-$accessories[$keys[$i]]);
+                $currentAccessory->save();
                 $subTotal = $currentAccessory->getPrice()*$accessories[$keys[$i]];
                 $accessoryOrder = new AccessoryOrder();
                 $accessoryOrder->setAccessoryId($keys[$i]);
@@ -114,6 +140,7 @@ class CustomerCartController extends Controller
                 $accessoryOrder->setQuantity($accessories[$keys[$i]]);
                 $accessoryOrder->setSubtotal($subTotal);
                 $accessoryOrder->save();
+
                 $totalPrice = $totalPrice + $subTotal;
             }
             $request->session()->forget('accessory');
@@ -122,7 +149,7 @@ class CustomerCartController extends Controller
         $order->setTotalPrice($totalPrice);
         $order->save();
 
-        return redirect()->route('home.index')->with('success', __('order.succesful'));
+        return redirect()->route('home.index')->with('success', __('order.success'));
     }
 
     public static function typeExists($type)

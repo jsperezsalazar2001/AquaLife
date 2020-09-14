@@ -20,4 +20,7 @@ return [
         'credit' => 'Credit card',
         'cash' => 'Cash',
     ],
+    'not_enough_stock' => 'There are only :stock :item in stock.',
+    'type_not_found' => 'Type :type not recognized.',
+    'cart_is_empty' => 'Oops! it seems like your cart is empty.'
 ];

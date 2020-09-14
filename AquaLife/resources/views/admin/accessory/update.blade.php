@@ -53,7 +53,7 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="price"><strong>{{ __('accessory_update.label.price') }}</strong></label><br />
-                            <input type="number" class="form-control" name="price" value="{{ $data['accessory']->getPrice() }}" min="1" step="0.0001" aria-describedby="priceHelpBlock" required/>
+                            <input type="number" class="form-control" name="price" value="{{ $data['accessory']->getPrice() }}" min="0.0001" step="0.0001" aria-describedby="priceHelpBlock" required/>
                             <small id="priceHelpBlock" class="form-text text-muted">{{ __('accessory_update.label.priceHB') }}</small><br />
                         </div>
                         <div class="col">
