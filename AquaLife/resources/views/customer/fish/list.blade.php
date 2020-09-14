@@ -8,6 +8,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @include('util.message')
+            @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+            @endif
             <div class="row">
                 <div class="btn-group col">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +85,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col">
-                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
+                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="{{ $fish->getInStock() }}" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
                                             <input type="hidden" name="id" value="{{ $fish->getId() }}" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
                                         <button type="submit" class="btn btn-info" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} > {{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>

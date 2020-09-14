@@ -8,6 +8,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @include('util.message')
+            @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+            @endif
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('accessory_list.filter_by') }}
@@ -55,7 +64,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col">
-                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="99999999" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
+                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="{{ $accessory->getInStock() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
                                             <input type="hidden" name="id" value="{{ $accessory->getId() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
                                         <button type="submit" class="btn btn-info" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} >{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>

@@ -35,7 +35,7 @@ class CustomerCartController extends Controller
         }
         $items[$id] = $quantity;
         $request->session()->put($type, $items);
-        return back()->with('success', __('item.succesful'));
+        return back()->with('success', __('item.successful'));
     }
 
     public function removeFromCart($id, $type, Request $request)
@@ -47,7 +47,7 @@ class CustomerCartController extends Controller
         }else{ 
             return back()->withErrors(__('cart.type_not_found',['type' => $type]));
         }
-        return redirect()->route('customer.cart');
+        return redirect()->route('customer.cart')->with('success', __('item.remove_successful'));
     }
 
     public function cart(Request $request)
@@ -81,7 +81,6 @@ class CustomerCartController extends Controller
         $order->setPaymentType($paymentType);
         $order->setUserId($userId);
         $order->setStatus('Pending');
-        $order->save();
 
         $totalPrice = 0;
 
@@ -108,6 +107,7 @@ class CustomerCartController extends Controller
             }
         }
 
+        $order->save();
         if($fish){
             $keys = array_keys($fish);
             for($i=0;$i<count($keys);$i++){
