@@ -15,5 +15,6 @@ return [
 
     'title' => 'Item',
     'title_plural' => 'Items',
-    'successful' =>'Item added to cart successfully!'
+    'successful' =>'Item added to cart successfully!',
+    'remove_successful' =>'Item removed from cart successfully!'
 ];
