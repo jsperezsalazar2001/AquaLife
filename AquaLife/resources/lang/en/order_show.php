@@ -20,6 +20,6 @@ return [
     'status' => 'Order status:',
     'created_at' => 'Order created at:',
     'updated_at' => 'Order updated at:',
-    'delete' => 'Delete',
+    'cancel' => 'Cancel order',
     'update' => 'Update',
 ];

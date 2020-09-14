@@ -62,6 +62,16 @@ class Order extends Model
         $this->attributes['created_at'] = $created_at;
     }
 
+    public function getUpdatedAt()
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($updated_at)
+    {
+        $this->attributes['updated_at'] = $updated_at;
+    }
+
     public function getUserId(){
 		return $this->attributes['user_id'];
 	}

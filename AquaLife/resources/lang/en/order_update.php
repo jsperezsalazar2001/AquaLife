@@ -27,4 +27,5 @@ return [
         'pending' => 'Pending',
     ],
     'succesful' => 'Order updated successfully!',
+    'cancel_succesful' => 'Order canceled successfully!',
 ];

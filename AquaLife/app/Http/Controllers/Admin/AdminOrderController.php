@@ -20,7 +20,7 @@ class AdminOrderController extends Controller
             return redirect()->route('home.index');
         }
 
-        $data["title"] = __('order_show.update').$order->getId();
+        $data["title"] = __('order_show.update').' '.$order->getId();
         $data["order"] = $order;
         return view('admin.order.show')->with("data",$data);
     }
@@ -60,7 +60,7 @@ class AdminOrderController extends Controller
 
         $order->save();
 
-        return back()->with('success', __('order_update.succesful'));
+        return redirect()->route('admin.order.list')->with('success', __('order_update.succesful'));
 
     }
 
