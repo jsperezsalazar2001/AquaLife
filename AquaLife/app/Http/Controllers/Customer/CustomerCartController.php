@@ -108,6 +108,7 @@ class CustomerCartController extends Controller
         }
 
         $order->save();
+        
         if($fish){
             $keys = array_keys($fish);
             for($i=0;$i<count($keys);$i++){
