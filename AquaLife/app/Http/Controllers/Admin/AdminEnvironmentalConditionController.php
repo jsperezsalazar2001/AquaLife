@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\EnvironmentalCondition;
+use App\Models\Fish;
 Use Exception;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,10 @@ class AdminEnvironmentalConditionController extends Controller
 
     public function create()
     {
-        $data = []; //to be sent to the view
+        $data = []; 
         $data["title"] = __('environmentalCondition_create.title');
-        $data["fish"] = EnvironmentalCondition::all();
+        $data["environmental_condition"] = EnvironmentalCondition::all();
+        $data["fish"] = Fish::all();
 
         return view('admin.environmentalCondition.create')->with("data",$data);
 
@@ -33,35 +35,45 @@ class AdminEnvironmentalConditionController extends Controller
     {
          EnvironmentalCondition::validate($request);
 
-         $newFish = new EnvironmentalCondition();
-         $newFish->setPhLR($request->input('ph_lr'));
-         $newFish->setPhHR($request->input('ph_hr'));
-         $newFish->setTemperatureLR($request->input('temperature_lr'));
-         $newFish->setTemperatureHR($request->input('temperature_hr'));
-         $newFish->setHardnessLR($request->input('hardness_lr'));
-         $newFish->setHardnessHR($request->input('hardness_hr'));
-         $newFish->save();
+        try{
+            $newEnvironmentalCondition = new EnvironmentalCondition();
+            $newEnvironmentalCondition->setPhLR($request->input('ph_lr'));
+            $newEnvironmentalCondition->setPhHR($request->input('ph_hr'));
+            $newEnvironmentalCondition->setTemperatureLR($request->input('temperature_lr'));
+            $newEnvironmentalCondition->setTemperatureHR($request->input('temperature_hr'));
+            $newEnvironmentalCondition->setHardnessLR($request->input('hardness_lr'));
+            $newEnvironmentalCondition->setHardnessHR($request->input('hardness_hr'));
+            $newEnvironmentalCondition->setFishId($request->input('fish_id'));
+            $newEnvironmentalCondition->save();
+        }catch(Exception $e){
+            return back()->with('fail', __('environmentalCondition_create.fail'));
+        }
+         
          return back()->with('success', __('environmentalCondition_create.succesful'));
     }
 
     public function show($id)
     {
-        $data = []; //to be sent to the view
+        $data = []; 
         
         try{
             $environmental_condition = EnvironmentalCondition::findOrFail($id);
-        }catch(ModelNotFoundException $e){
+            $fish = Fish::where("id",$environmental_condition->getFishId())->select('name')->get();
+            $fishName = $fish->pluck('name')->get(0);
+            
+        }catch(Exception $e){
             return redirect()->route('home.index');
         }
-
+        
         $data["title"] =  __('environmentalCondition_show.title');;
         $data["environmental_condition"] = $environmental_condition;
+        $data["fish_name"] = $fishName;
         return view('admin.environmentalCondition.show')->with("data",$data);
     }
 
     public function delete(Request $request){
-        $fish = EnvironmentalCondition::find($request['id']);
-        $fish->delete();
+        $environmental_condition = EnvironmentalCondition::find($request['id']);
+        $environmental_condition->delete();
         return redirect()->route('admin.environmentalCondition.list');
     }
 
@@ -74,51 +86,54 @@ class AdminEnvironmentalConditionController extends Controller
         return view('admin.environmentalCondition.list')->with("data",$data);
     }
 
+    public function update(Request $request)
+    {
+        $data = [];
+        $data["title"] = __('environmentalCondition_update.title');
+
+        try{
+            $environmental_condition = EnvironmentalCondition::findOrFail($request->input('id'));
+        }catch(Exception $e){
+            return redirect()->route('admin.environmentalCondition.list');
+        }
+
+        $data["environmental_condition"] = $environmental_condition;
+
+        return view('admin.environmentalCondition.update')->with("data", $data);
+    }
+
     public function updateSave(Request $request){
-        /*
-        $fish = Fish::findOrFail($request->input('id'));
-        $name = Fish::validate($request);
-        if($fish->getName() != $request->input('name')){
-            $fish->setName($request->input('name'));
-        }
-        if($fish->getSpecies() != $request->input('species')){
-            $fish->setSpecies($request->input('species'));
-        }
-        if($fish->getPrice() != $request->input('price')){
-            $fish->setPrice($request->input('price'));
-        }
 
-        if($fish->getFamily() != $request->input('family')){
-            $fish->setFamily($request->input('family'));
+        try{
+            $environmental_condition = EnvironmentalCondition::findOrFail($request->input('id'));
+            EnvironmentalCondition::validate($request);
+        }catch(Exception $e){
+            return redirect()->route('admin.environmentalCondition.list');
         }
-
-        if($fish->getColor() != $request->input('color')){
-            $fish->setColor($request->input('color'));
+        
+        if($environmental_condition->getPhLR() != $request->input('ph_lr')){
+            $environmental_condition->setPhLR($request->input('ph_lr'));
         }
-
-        if($fish->getSize() != $request->input('size')){
-            $fish->setSize($request->input('size'));
+        if($environmental_condition->getPhHR() != $request->input('ph_hr')){
+            $environmental_condition->setPhHR($request->input('ph_hr'));
         }
-
-        if($fish->getTemperament() != $request->input('temperament')){
-            $fish->setTemperament($request->input('temperament'));
+        if($environmental_condition->getTemperatureLR() != $request->input('temperature_lr')){
+            $environmental_condition->setTemperatureLR($request->input('temperature_lr'));
         }
-
-        if($fish->getInStock() != $request->input('in_stock')){
-            $fish->setInStock($request->input('in_stock'));
+        if($environmental_condition->getTemperatureHR() != $request->input('temperature_hr')){
+            $environmental_condition->setTemperatureHR($request->input('temperature_hr'));
         }
-
-        if($request->hasFile('new_image')){
-            File::delete(asset('/images/'.$fish->getImage()));
-            $file = $request->file('new_image');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
-            $fish->setImage($name);
+        if($environmental_condition->getHardnessLR() != $request->input('hardness_lr')){
+            $environmental_condition->setHardnessLR($request->input('hardness_lr'));
         }
+        if($environmental_condition->getHardnessHR() != $request->input('hardness_hr')){
+            $environmental_condition->setHardnessHR($request->input('hardness_hr'));
+        }
+        
 
-        $fish->save();
-        */
-        return back()->with('success', __('fish_update.succesful'));
+        $environmental_condition->save();
+        
+        return back()->with('success', __('environmentalCondition_update.succesful'));
 
     }
 }

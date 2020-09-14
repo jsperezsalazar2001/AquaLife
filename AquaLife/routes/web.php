@@ -91,3 +91,5 @@ Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalCon
 Route::get('/admin/envaronmentalConditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmentalCondition.list");
 
 Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+
+Route::post('/admin/envaronmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");

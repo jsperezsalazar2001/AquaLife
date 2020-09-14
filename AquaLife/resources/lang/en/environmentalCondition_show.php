@@ -20,6 +20,7 @@ return [
     'temperature_HR' => 'Temperature Higher Range',
     'hardness_LR' => 'Hardness Lower Range',
     'hardness_HR' => 'Hardness Higher Range',
+    'fish' => 'Fish',
     'delete' => 'Delete',
     'update' => 'Update',
 ];

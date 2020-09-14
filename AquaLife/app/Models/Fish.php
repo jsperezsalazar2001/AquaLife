@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\EnvironmentalCondition;
 
 class Fish extends Model
 {
@@ -136,6 +137,10 @@ class Fish extends Model
             "image" => ['required']
         ]);
 
+    }
+
+    public function environmentalCondition(){
+        return $this->hasOne(EnvironmentalCondition::class);
     }
 
 }

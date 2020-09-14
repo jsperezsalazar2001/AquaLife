@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'button_title' => 'E.C create',
-    'title' => 'Create environmental condition',
+    'title' => 'Update environmental condition',
     'input' => [
         'ph_LR' => 'Enter PH Lower Range',
         'ph_HR' => 'Enter PH Higher Range',
@@ -22,6 +21,7 @@ return [
         'temperature_HR' => 'Enter temperature Higher Range',
         'hardness_LR' => 'Enter hardness Lower Range',
         'hardness_HR' => 'Enter hardness Higher Range',
+        'update' => 'Update',
     ],
     'label' => [
         'ph_LR' => 'PH Lower Range',
@@ -36,9 +36,7 @@ return [
         'temperatureLrHB' => 'Temperature Lower Range must be greater than 0',
         'hardnessHrHB' => 'Hardness Higher Range must be greater than 0',
         'hardnessLrHB' => 'Hardness Lower Range must be greater than 0',
-        'fish' => 'Fish',
     ],
-    'succesful' => 'Environmental condition created successfully!',
-    'create' => 'Create environmental condition',
-    'fail' => 'Failed create environmental condition',
+    'succesful' => 'Fish updated successfully!',
+    'current_image' => 'Current image',
 ];
