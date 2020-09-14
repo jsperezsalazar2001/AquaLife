@@ -80,6 +80,7 @@ class CustomerCartController extends Controller
         $order->setTotalPrice("0");
         $order->setPaymentType($paymentType);
         $order->setUserId($userId);
+        $order->setStatus('Pending');
         $order->save();
 
         $totalPrice = 0;

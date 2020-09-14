@@ -9,23 +9,25 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('fish_list.title') }}</div>
+                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('order_list.title') }}</div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">{{ __('fish_list.id') }}</th>
-                            <th scope="col">{{ __('fish_list.name') }}</th>
-                            <th scope="col">{{ __('fish_list.price') }}</th>
-                            <th scope="col">{{ __('fish_list.about') }} <i class="fa fa-info-circle"></i></th>
+                            <th scope="col">{{ __('order_list.id') }}</th>
+                            <th scope="col">{{ __('order_list.total_price') }}</th>
+                            <th scope="col">{{ __('order_list.status') }}</th>
+                            <th scope="col">{{ __('order_list.created_at') }}</th>
+                            <th scope="col">{{ __('order_list.about') }} <i class="fa fa-info-circle"></i></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data["fish"] as $fish)
+                        @foreach($data["order"] as $order)
                         <tr>
-                            <td>{{ $fish->getId() }}</td>
-                            <td>{{ $fish->getName() }}</td>
-                            <td>{{ $fish->getPrice() }}</td>
-                            <td><a href="{{ route('admin.fish.show', ['id'=>$fish->getId()]) }}"> {{ __('fish_list.more') }} <strong>{{ $fish->getName() }}</strong></a></td>
+                            <td>{{ $order->getId() }}</td>
+                            <td>{{ $order->getTotalPrice() }}</td>
+                            <td>{{ $order->getStatus() }}</td>
+                            <td>{{ $order->getCreatedAt() }}</td>
+                            <td><a href="{{ route('admin.order.show', ['id'=>$order->getId()]) }}"> {{ __('order_list.more') }} <strong>{{ $order->getId() }}</strong></a></td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -20,7 +20,7 @@ class AdminOrderController extends Controller
             return redirect()->route('home.index');
         }
 
-        $data["title"] = $order->getName();
+        $data["title"] = __('order_show.update').$order->getId();
         $data["order"] = $order;
         return view('admin.order.show')->with("data",$data);
     }
@@ -55,7 +55,7 @@ class AdminOrderController extends Controller
         $order = Order::findOrFail($request->input('id'));
         Order::validate($request);
         if($order->getStatus() != $request->input('status')){
-            $order->setName($request->input('status'));
+            $order->setStatus($request->input('status'));
         }
 
         $order->save();

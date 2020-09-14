@@ -13,14 +13,13 @@ return [
     |
     */
 
-    'name' => 'Fish name:',
-    'species' => 'Fish species:',
-    'family' => 'Fish family:',
-    'color' => 'Fish color:',
-    'price' => 'Fish price:',
-    'size' => 'Fish size:',
-    'temperament' => 'Fish temperament:',
-    'stock' => 'Fish stock:',
+    'id' => 'Order id:',
+    'user_id' => 'Order user id:',
+    'payment_type' => 'Payment type:',
+    'total_price' => 'Order price:',
+    'status' => 'Order status:',
+    'created_at' => 'Order created at:',
+    'updated_at' => 'Order updated at:',
     'delete' => 'Delete',
     'update' => 'Update',
 ];
