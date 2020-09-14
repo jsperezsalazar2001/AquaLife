@@ -77,3 +77,12 @@ Route::post('/customer/wishList/add', 'Customer\CustomerWishListController@add')
 Route::get('/customer/wishList/show/wishList', 'Customer\CustomerWishListController@show')->name("customer.wishList.show");
 
 Route::post('/customer/wishList/delete', 'Customer\CustomerWishListController@delete')->name("customer.wishList.delete");
+
+
+Route::get('/admin/order/show/{id}', 'Admin\AdminOrderController@show')->name("admin.order.show");
+
+Route::get('/admin/order/list', 'Admin\AdminOrderController@list')->name("admin.order.list");
+
+Route::get('/admin/order/update', 'Admin\AdminOrderController@update')->name("admin.order.update");
+
+Route::post('/admin/order/update_save', 'Admin\AdminOrderController@updateSave')->name("admin.order.update_save");

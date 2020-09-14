@@ -42,6 +42,7 @@
                             <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.title') }} </a>
                             <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.title') }} </a>
+                            <a class="navbar-brand" href="{{ route('admin.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.title_plural') }} </a>
                             @endif
                         @endif
                     </ul>

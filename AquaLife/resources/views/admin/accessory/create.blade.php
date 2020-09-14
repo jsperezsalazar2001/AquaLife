@@ -41,7 +41,7 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="name"><strong>{{ __('accessory_create.label.price') }}</strong></label><br />
-                            <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.price') }}" name="price" value="{{ old('price') }}" min="1" step="0.0001" aria-describedby="priceHelpBlock" required/>
+                            <input type="number" class="form-control" placeholder="{{ __('accessory_create.input.price') }}" name="price" value="{{ old('price') }}" min="0.0001" step="0.0001" aria-describedby="priceHelpBlock" required/>
                             <small id="priceHelpBlock" class="form-text text-muted">{{ __('accessory_create.label.priceHB') }}</small><br />
                         </div>
                         <div class="col">
