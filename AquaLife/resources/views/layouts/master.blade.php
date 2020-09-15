@@ -33,7 +33,7 @@
                             @if(Auth::user()->getRole()=="Customer")
                             <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-fish"></i> {{ __('fish.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.wishList.show') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.wishList.list') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.order.list') }}"> <i class="fas fa-file-invoice"></i> {{ __('order.user.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> {{ __('cart.name') }} </a>
                             @endif
