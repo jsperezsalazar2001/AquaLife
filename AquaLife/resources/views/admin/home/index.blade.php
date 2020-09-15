@@ -1,4 +1,4 @@
-<!-- Created by: Daniel Felipe Gómez Martínez -->
+<!-- Created by: Juan Sebastián Pérez Salazar -->
 @extends('layouts.master')
 
 @section('content')

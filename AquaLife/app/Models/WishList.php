@@ -1,5 +1,5 @@
 <?php
-// Created by: Daniel Felipe Gomez MArtinez
+// Created by: Daniel Felipe Gomez Martinez
 
 namespace App\Models;
 
