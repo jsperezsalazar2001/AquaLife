@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+Use Exception;
 use App\Models\Order;
 use App\Models\AccessoryOrder;
 use App\Models\FishOrder;
@@ -31,7 +31,7 @@ class AdminOrderController extends Controller
         
         try{
             $order = Order::findOrFail($id);
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('home.index');
         }
         $accessories = $order->accessories()->select('accessory_orders.*', 'accessories.name', 'accessories.price')->join('accessories',  'accessory_orders.accessory_id', '=', 'accessories.id')->get();
@@ -68,7 +68,7 @@ class AdminOrderController extends Controller
 
         try{
             $order = Order::findOrFail($request->input('id'));
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('admin.order.list');
         }
 

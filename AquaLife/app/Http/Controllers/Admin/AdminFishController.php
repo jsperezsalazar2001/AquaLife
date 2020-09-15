@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+Use Exception;
 use App\Models\Fish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +28,7 @@ class AdminFishController extends Controller
         
         try{
             $fish = Fish::findOrFail($id);
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('home.index');
         }
 
@@ -64,7 +64,7 @@ class AdminFishController extends Controller
 
         try{
             $fish = Fish::findOrFail($request->input('id'));
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('admin.fish.list');
         }
 

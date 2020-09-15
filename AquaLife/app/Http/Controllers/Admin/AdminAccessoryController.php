@@ -9,6 +9,7 @@ use App\Models\Accessory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+Use Exception;
 
 
 class AdminAccessoryController extends Controller
@@ -31,7 +32,7 @@ class AdminAccessoryController extends Controller
         
         try{
             $accessory = Accessory::findOrFail($id);
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('home.index');
         }
 
@@ -66,7 +67,7 @@ class AdminAccessoryController extends Controller
 
         try{
             $accessory = Accessory::findOrFail($request->input('id'));
-        }catch(ModelNotFoundException $e){
+        }catch(Exception $e){
             return redirect()->route('admin.accessory.list');
         }
 

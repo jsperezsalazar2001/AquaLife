@@ -8,6 +8,7 @@ use App\Models\Fish;
 use App\Models\EnvironmentalCondition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+Use Exception;
 
 class CustomerFishController extends Controller
 {

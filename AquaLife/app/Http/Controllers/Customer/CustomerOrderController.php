@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+Use Exception;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -28,8 +28,8 @@ class CustomerOrderController extends Controller
         $data = []; //to be sent to the view
         
         try{
-            $order = Order::findOrFail($id);
-        }catch(ModelNotFoundException $e){
+            $order = Order::where('user_id', Auth::user()->getId())->findOrFail($id);
+        }catch(Exception $e){
             return redirect()->route('home.index');
         }
 
@@ -46,7 +46,7 @@ class CustomerOrderController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] =  __('order_list.title');
-        $data["order"] = order::orderBy('created_at', 'DESC')->get();
+        $data["order"] = order::orderBy('created_at', 'DESC')->where('user_id', Auth::user()->getId())->get();
 
         return view('customer.order.list')->with("data",$data);
 
@@ -56,7 +56,7 @@ class CustomerOrderController extends Controller
     {
         $data = [];
         $data["title"] =  __('order_list.title');
-        $data["order"] = Order::orderBy('created_at', 'DESC')->where('status', $value)->get();
+        $data["order"] = Order::orderBy('created_at', 'DESC')->where('status', $value)->where('user_id', Auth::user()->getId())->get();
 
         return view('customer.order.list')->with("data",$data);
     }
