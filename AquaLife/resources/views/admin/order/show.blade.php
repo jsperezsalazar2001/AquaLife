@@ -26,8 +26,9 @@
                         <b>{{ __('order_show.status') }} </b><strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
                     @endif
                     <b>{{ __('order_show.created_at') }} </b> {{ $data["order"]->getCreatedAt() }}<br />
-                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br /><br />
-                    @if(!empty($data["fish"]))
+                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br />
+                    @if(!empty($data["fish"]) and count($data["fish"]) > 0)
+                    <br />
                     <b>{{ __('order_show.fish_ordered') }} </b><br />
                         <table class="table table-striped">
                         <thead>
@@ -51,7 +52,7 @@
                     </table>
                     @endif
                     <br />
-                    @if(!empty($data["accessories"]))
+                    @if(!empty($data["accessories"]) and count($data["accessories"]) > 0)
                     <b>{{ __('order_show.accessories_ordered') }} </b><br />
                         <table class="table table-striped">
                         <thead>
