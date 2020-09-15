@@ -90,14 +90,14 @@ class CustomerFishController extends Controller
         
         $data["title"] = "Your match list";
         $list_fish = EnvironmentalCondition::where([
-        ["ph_lr",'>',$lower_ph],
-        ["ph_lr",'<',$higher_ph],
+        ["ph_lr",'>=',$lower_ph],
+        ["ph_lr",'<=',$higher_ph],
         ["id",'!=',$id_fish]])->orWhere([
-        ["ph_hr",'>',$lower_ph],
-        ["ph_hr",'<',$higher_ph],
+        ["ph_hr",'>=',$lower_ph],
+        ["ph_hr",'<=',$higher_ph],
         ["id",'!=',$id_fish]])->orWhere([
-        ["ph_lr",'<',$lower_ph],
-        ["ph_hr",'>',$lower_ph],
+        ["ph_lr",'<=',$lower_ph],
+        ["ph_hr",'>=',$lower_ph],
         ["id",'!=',$id_fish]])->select('fish_id','temperature_lr','hardness_lr','temperature_hr','hardness_hr')->get();
 
         foreach ($list_fish as $ListFishs_check) {
@@ -109,20 +109,20 @@ class CustomerFishController extends Controller
 
             if (in_array($id_fish_check, $id_array_fish)) {
                 if ((
-                    ($lower_temperature_check > $lower_temperature) and 
-                    ($lower_temperature_check < $higher_temperature)) or 
-                    (($higher_temperature_check > $lower_temperature) and 
-                    ($higher_temperature_check < $higher_temperature)) or
-                    (($lower_temperature_check < $lower_temperature) and 
-                    ($higher_temperature_check > $lower_temperature))) {
+                    ($lower_temperature_check >= $lower_temperature) and 
+                    ($lower_temperature_check <= $higher_temperature)) or 
+                    (($higher_temperature_check >= $lower_temperature) and 
+                    ($higher_temperature_check <= $higher_temperature)) or
+                    (($lower_temperature_check <= $lower_temperature) and 
+                    ($higher_temperature_check >= $lower_temperature))) {
 
                     if ((
-                        ($lower_hardness_check > $lower_hardness) and 
-                        ($lower_hardness_check < $higher_hardness)) or 
-                        (($higher_hardness_check > $lower_hardness) and 
-                        ($higher_hardness_check < $higher_hardness)) or
-                        (($lower_hardness_check < $lower_hardness) and 
-                        ($higher_hardness_check > $lower_hardness))) {
+                        ($lower_hardness_check >= $lower_hardness) and 
+                        ($lower_hardness_check <= $higher_hardness)) or 
+                        (($higher_hardness_check >= $lower_hardness) and 
+                        ($higher_hardness_check <= $higher_hardness)) or
+                        (($lower_hardness_check <= $lower_hardness) and 
+                        ($higher_hardness_check >= $lower_hardness))) {
                         array_push($id_array, $id_fish_check);
                     }
                 }
