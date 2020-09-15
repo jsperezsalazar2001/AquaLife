@@ -84,6 +84,8 @@ Route::get('/admin/order/show/{id}', 'Admin\AdminOrderController@show')->name("a
 
 Route::get('/admin/order/list', 'Admin\AdminOrderController@list')->name("admin.order.list");
 
+Route::get('/admin/order/list_by_status/{value}', 'Admin\AdminOrderController@listByStatus')->name("admin.order.list_by_status");
+
 Route::get('/admin/order/update', 'Admin\AdminOrderController@update')->name("admin.order.update");
 
 Route::post('/admin/order/update_save', 'Admin\AdminOrderController@updateSave')->name("admin.order.update_save");
@@ -92,6 +94,8 @@ Route::post('/admin/order/update_save', 'Admin\AdminOrderController@updateSave')
 Route::get('/customer/order/show/{id}', 'Customer\CustomerOrderController@show')->name("customer.order.show");
 
 Route::get('/customer/order/list', 'Customer\CustomerOrderController@list')->name("customer.order.list");
+
+Route::get('/customer/order/list_by_status/{value}', 'Customer\CustomerOrderController@listByStatus')->name("customer.order.list_by_status");
 
 Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
 

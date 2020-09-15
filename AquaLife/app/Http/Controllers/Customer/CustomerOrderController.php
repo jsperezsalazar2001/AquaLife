@@ -35,11 +35,10 @@ class CustomerOrderController extends Controller
 
         $accessories = $order->accessories()->select('accessory_orders.*', 'accessories.name', 'accessories.price')->join('accessories',  'accessory_orders.accessory_id', '=', 'accessories.id')->get();
         $fish = $order->fish()->select('fish_orders.*', 'fish.name', 'fish.price')->join('fish',  'fish_orders.fish_id', '=', 'fish.id')->get();
-        $data["title"] = __('order_show.update').' '.$order->getId();
+        $data["title"] = __('order_update.title').' '.$order->getId();
         $data["order"] = $order;
         $data["accessories"] = $accessories;
         $data["fish"] = $fish;
-        //dd($fish);
         return view('customer.order.show')->with("data",$data);
     }
 
@@ -47,10 +46,19 @@ class CustomerOrderController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] =  __('order_list.title');
-        $data["order"] = order::orderBy('id')->get();
+        $data["order"] = order::orderBy('created_at', 'DESC')->get();
 
         return view('customer.order.list')->with("data",$data);
 
+    }
+
+    public function listByStatus($value)
+    {
+        $data = [];
+        $data["title"] =  __('order_list.title');
+        $data["order"] = Order::orderBy('created_at', 'DESC')->where('status', $value)->get();
+
+        return view('customer.order.list')->with("data",$data);
     }
 
 
