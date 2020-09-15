@@ -36,7 +36,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('wishListFish.delete') }}</button>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i> {{ __('wishListFish.delete') }}</button>
                                     </div>
                                 </div>
                             </form><br/>
