@@ -81,12 +81,12 @@ class CustomerFishController extends Controller
         }
 
         $id_fish = $environmental_condition_fish->pluck('id');       
-        $lower_ph = $environmental_condition_fish->pluck('ph_lr');
-        $higher_ph = $environmental_condition_fish->pluck('ph_hr');
-        $lower_temperature = $environmental_condition_fish->pluck('temperature_lr');
-        $higher_temperature = $environmental_condition_fish->pluck('temperature_hr');
-        $lower_hardness = $environmental_condition_fish->pluck('hardness_lr');
-        $higher_hardness = $environmental_condition_fish->pluck('hardness_hr');
+        $lower_ph = $environmental_condition_fish->pluck('ph_lr')[0];
+        $higher_ph = $environmental_condition_fish->pluck('ph_hr')[0];
+        $lower_temperature = $environmental_condition_fish->pluck('temperature_lr')[0];
+        $higher_temperature = $environmental_condition_fish->pluck('temperature_hr')[0];
+        $lower_hardness = $environmental_condition_fish->pluck('hardness_lr')[0];
+        $higher_hardness = $environmental_condition_fish->pluck('hardness_hr')[0];
         
         $data["title"] = "Your match list";
         $list_fish = EnvironmentalCondition::where([
@@ -95,6 +95,9 @@ class CustomerFishController extends Controller
         ["id",'!=',$id_fish]])->orWhere([
         ["ph_hr",'>',$lower_ph],
         ["ph_hr",'<',$higher_ph],
+        ["id",'!=',$id_fish]])->orWhere([
+        ["ph_lr",'<',$lower_ph],
+        ["ph_hr",'>',$lower_ph],
         ["id",'!=',$id_fish]])->select('fish_id','temperature_lr','hardness_lr','temperature_hr','hardness_hr')->get();
 
         foreach ($list_fish as $ListFishs_check) {
@@ -106,15 +109,20 @@ class CustomerFishController extends Controller
 
             if (in_array($id_fish_check, $id_array_fish)) {
                 if ((
-                    ($lower_temperature_check > $lower_temperature[0]) and 
-                    ($lower_temperature_check < $higher_temperature[0])) or 
-                    (($higher_temperature_check > $lower_temperature[0]) and 
-                    ($higher_temperature_check < $higher_temperature[0]))) {
+                    ($lower_temperature_check > $lower_temperature) and 
+                    ($lower_temperature_check < $higher_temperature)) or 
+                    (($higher_temperature_check > $lower_temperature) and 
+                    ($higher_temperature_check < $higher_temperature)) or
+                    (($lower_temperature_check < $lower_temperature) and 
+                    ($higher_temperature_check > $lower_temperature))) {
+
                     if ((
-                        ($lower_hardness_check > $lower_hardness[0]) and 
-                        ($lower_hardness_check < $higher_hardness[0])) or 
-                        (($higher_hardness_check > $lower_hardness[0]) and 
-                        ($higher_hardness_check < $higher_hardness[0]))) {
+                        ($lower_hardness_check > $lower_hardness) and 
+                        ($lower_hardness_check < $higher_hardness)) or 
+                        (($higher_hardness_check > $lower_hardness) and 
+                        ($higher_hardness_check < $higher_hardness)) or
+                        (($lower_hardness_check < $lower_hardness) and 
+                        ($higher_hardness_check > $lower_hardness))) {
                         array_push($id_array, $id_fish_check);
                     }
                 }
