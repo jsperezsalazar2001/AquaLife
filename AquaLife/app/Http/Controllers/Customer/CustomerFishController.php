@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fish;
+use App\Models\EnvironmentalCondition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerFishController extends Controller
 {
@@ -14,6 +16,9 @@ class CustomerFishController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Admin"){
+                return redirect()->route('home.index');
+            }
             return $next($request);
         });
     }
@@ -60,6 +65,65 @@ class CustomerFishController extends Controller
     {
         $request->session()->forget('fish');
         return redirect()->route('customer.fish.list');
+    }
+
+    public function match($id){
+        $data=[];
+        $id_array=[];
+        $id_array_fish=[];
+
+        try{ 
+            $fish = Fish::where([["temperament",'Passive']])->select('id')->get();
+            $id_array_fish = $fish->pluck('id')->toArray();
+            $environmental_condition_fish = EnvironmentalCondition::where([['fish_id',$id]])->get();
+        }catch(Exception $e){
+            return redirect()->route('home.index');
+        }
+
+        $id_fish = $environmental_condition_fish->pluck('id');       
+        $lower_ph = $environmental_condition_fish->pluck('ph_lr');
+        $higher_ph = $environmental_condition_fish->pluck('ph_hr');
+        $lower_temperature = $environmental_condition_fish->pluck('temperature_lr');
+        $higher_temperature = $environmental_condition_fish->pluck('temperature_hr');
+        $lower_hardness = $environmental_condition_fish->pluck('hardness_lr');
+        $higher_hardness = $environmental_condition_fish->pluck('hardness_hr');
+        
+        $data["title"] = "Your match list";
+        $list_fish = EnvironmentalCondition::where([
+        ["ph_lr",'>',$lower_ph],
+        ["ph_lr",'<',$higher_ph],
+        ["id",'!=',$id_fish]])->orWhere([
+        ["ph_hr",'>',$lower_ph],
+        ["ph_hr",'<',$higher_ph],
+        ["id",'!=',$id_fish]])->select('fish_id','temperature_lr','hardness_lr','temperature_hr','hardness_hr')->get();
+
+        foreach ($list_fish as $ListFishs_check) {
+            $id_fish_check = $ListFishs_check['fish_id'];
+            $lower_temperature_check = $ListFishs_check['temperature_lr'];
+            $higher_temperature_check = $ListFishs_check['temperature_hr'];
+            $lower_hardness_check = $ListFishs_check['hardness_lr'];
+            $higher_hardness_check = $ListFishs_check['hardness_hr'];
+
+            if (in_array($id_fish_check, $id_array_fish)) {
+                if ((
+                    ($lower_temperature_check > $lower_temperature[0]) and 
+                    ($lower_temperature_check < $higher_temperature[0])) or 
+                    (($higher_temperature_check > $lower_temperature[0]) and 
+                    ($higher_temperature_check < $higher_temperature[0]))) {
+                    if ((
+                        ($lower_hardness_check > $lower_hardness[0]) and 
+                        ($lower_hardness_check < $higher_hardness[0])) or 
+                        (($higher_hardness_check > $lower_hardness[0]) and 
+                        ($higher_hardness_check < $higher_hardness[0]))) {
+                        array_push($id_array, $id_fish_check);
+                    }
+                }
+            }
+        }
+        
+        $data["fish"] = Fish::whereIn('id', $id_array)->get();
+
+        return view('customer.fish.match')->with("data",$data);
     }
 
 }

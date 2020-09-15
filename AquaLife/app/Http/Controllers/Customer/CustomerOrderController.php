@@ -7,9 +7,22 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerOrderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Admin"){
+                return redirect()->route('home.index');
+            }
+            return $next($request);
+        });
+    }
+    
     public function show($id)
     {
         $data = []; //to be sent to the view

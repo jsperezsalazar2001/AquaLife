@@ -110,3 +110,5 @@ Route::get('/admin/envaronmentalConditions/list', 'Admin\AdminEnvironmentalCondi
 Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
 
 Route::post('/admin/envaronmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");
+
+Route::get('/customer/customerFishController/match/{id}', 'Customer\CustomerFishController@match')->name("customer.fish.match");

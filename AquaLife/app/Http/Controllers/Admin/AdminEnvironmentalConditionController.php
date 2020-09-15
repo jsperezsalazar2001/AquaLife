@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\EnvironmentalCondition;
 use App\Models\Fish;
+use Illuminate\Support\Facades\Auth;
 Use Exception;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,9 @@ class AdminEnvironmentalConditionController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Customer"){
+                return redirect()->route('home.index');
+            }
             return $next($request);
         });
     }

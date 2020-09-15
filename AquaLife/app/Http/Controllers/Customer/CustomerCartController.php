@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\FishOrder;
 use App\Models\AccessoryOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerCartController extends Controller
 {
@@ -19,6 +20,9 @@ class CustomerCartController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Admin"){
+                return redirect()->route('home.index');
+            }
             return $next($request);
         });
     }

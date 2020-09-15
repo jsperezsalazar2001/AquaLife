@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Accessory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 
@@ -17,6 +18,9 @@ class AdminAccessoryController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Customer"){
+                return redirect()->route('home.index');
+            }
             return $next($request);
         });
     }
