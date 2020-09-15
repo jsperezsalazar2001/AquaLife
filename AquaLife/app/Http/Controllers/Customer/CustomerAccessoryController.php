@@ -22,14 +22,6 @@ class CustomerAccessoryController extends Controller
         });
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            return $next($request);
-        });
-    }
-
     public function list()
     {
         $data = []; 
