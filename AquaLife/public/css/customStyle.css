@@ -1,3 +1,9 @@
+body{
+    background-image: url('../logos/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .card-header{
     font-weight: bold;
 }

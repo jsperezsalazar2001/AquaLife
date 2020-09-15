@@ -17,8 +17,8 @@
                         </div>
                     @endforeach
             @endif
-            <div class="card">
-                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('order_list.title') }}</div>
+            <div class="card bg-light">
+                <div class="card-header c-header"><i class="fa fa-list-ul"></i> {{ __('order_list.title') }}</div>
                 <table class="table table-striped">
                     <thead>
                         <tr>

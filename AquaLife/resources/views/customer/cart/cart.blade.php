@@ -52,12 +52,14 @@
                                         @endif
                                         <form method="POST" action="{{ route('customer.remove-from-cart',['id'=> $fish->getId(), 'type' => 'fish']) }}" >
                                             @csrf
-                                            <div class="row">
-                                                <div class="col">
-                                                    <input type="number" class="form-control" name="quantity" value="{{ Session::get('fish')[$fish->getId()] }}" step="1" min="1" max="99999999" disabled/>
+                                            <div class="form-group row">
+                                                <div class="col-5">
+                                                    <input type="number" class="form-control col-12" name="quantity" value="{{ Session::get('fish')[$fish->getId()] }}" step="1" min="1" max="99999999" disabled/>
                                                     <input type="hidden" name="id" value="{{ $fish->getId() }}" />
                                                 </div>
-                                                <button type="submit" class="btn btn-danger">{{ __('fish_list.remove') }} <i class="fa fa-shopping-cart"></i></button>
+                                                <div class="col-7">
+                                                    <button type="submit" class="btn btn-danger col-12">{{ __('fish_list.remove') }} <i class="fa fa-shopping-cart"></i></button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -96,12 +98,14 @@
                                         @endif<br/>
                                         <form method="POST" action="{{ route('customer.remove-from-cart',['id'=> $accessory->getId(), 'type' => 'accessory']) }}" >
                                             @csrf
-                                            <div class="row">
-                                                <div class="col">
-                                                <input type="number" class="form-control" name="quantity" value="{{ Session::get('accessory')[$accessory->getId()] }}" step="1" min="1" max="99999999" disabled/>
+                                            <div class="form-group row">
+                                                <div class="col-5">
+                                                    <input type="number" class="form-control col-12" name="quantity" value="{{ Session::get('accessory')[$accessory->getId()] }}" step="1" min="1" max="99999999" disabled/>
                                                     <input type="hidden" name="id" value="{{ $accessory->getId() }}" />
                                                 </div>
-                                                <button type="submit" class="btn btn-danger">{{ __('accessory_show.remove') }} <i class="fa fa-shopping-cart"></i></button>
+                                                <div class="col-7">
+                                                    <button type="submit" class="btn btn-danger col-12">{{ __('accessory_show.remove') }} <i class="fa fa-shopping-cart"></i></button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>

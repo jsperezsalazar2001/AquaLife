@@ -34,9 +34,9 @@
                             <form method="POST" action="{{ route('customer.wishList.delete') }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-12">
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-minus" aria-hidden="true"></i> {{ __('wishListFish.delete') }}</button>
+                                        <button type="submit" class="btn btn-danger col-12"><i class="fa fa-minus" aria-hidden="true"></i> {{ __('wishListFish.delete') }}</button>
                                     </div>
                                 </div>
                             </form><br/>

@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
         @include('util.message')
             @if($errors->any())
                     @foreach($errors->all() as $error)
@@ -75,9 +75,9 @@
                                 <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId()]) }}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-12">
                                             <input type="hidden" name="id"/>
-                                            <button type="submit" class="btn btn-primary"><i class="fa fa-anchor" aria-hidden="true"></i> {{ __('fish_list.match') }}</button>
+                                            <button type="submit" class="btn btn-primary col-12"><i class="fa fa-anchor" aria-hidden="true"></i> {{ __('fish_list.match') }}</button>
                                         </div>
                                     </div>
                                 </form><br/>
