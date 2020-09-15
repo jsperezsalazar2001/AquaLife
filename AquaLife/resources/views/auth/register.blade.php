@@ -44,8 +44,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('user_create.label.email_address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('user_create.input.email_address') }}" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                <small id="priceHelpBlock" class="form-text text-muted">{{ __('user_create.label.confirm_email_address') }}</small><br />
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('user_create.input.email_address') }}" name="email" value="{{ old('email') }}" required autocomplete="email" aria-describedby="emailHelpBlock">
+                                <small id="emailHelpBlock" class="form-text text-muted">{{ __('user_create.label.confirm_email_address') }}</small>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -55,14 +55,12 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('user_create.label.password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('user_create.input.password') }}" name="password" required autocomplete="new-password">
-                                <small id="priceHelpBlock" class="form-text text-muted">{{ __('user_create.label.passwordHB') }}</small><br />
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="{{ __('user_create.input.password') }}" name="password" required autocomplete="new-password" aria-describedby="passwordHelpBlock">
+                                <small id="passwordHelpBlock" class="form-text text-muted">{{ __('user_create.label.passwordHB') }}</small>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -76,8 +74,8 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('user_create.label.confirm_password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ __('user_create.input.confirm_password') }}" required autocomplete="new-password">
-                                <small id="priceHelpBlock" class="form-text text-muted">{{ __('user_create.label.passwordHB') }}</small><br />
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ __('user_create.input.confirm_password') }}" required autocomplete="new-password" aria-describedby="passwordHelpBlock">
+                                <small id="passwordHelpBlock" class="form-text text-muted">{{ __('user_create.label.passwordHB') }}</small><br />
                             </div>
                         </div>
 

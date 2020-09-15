@@ -13,7 +13,7 @@ return [
     |
     */
     
-    'button_title' => 'E.C list',
+    'title_plural' => 'E.Cs',
     'title' => 'Environmental conditions list',
     'id' => 'ID',
     'ph_LR' => 'PH Lower Range',

@@ -36,9 +36,17 @@
                             <td>{{ $order->getId() }}</td>
                             <td>{{ $order->getUserId() }}</td>
                             <td>{{ $order->getTotalPrice() }}</td>
-                            <td>{{ $order->getStatus() }}</td>
+                            @if($order->getStatus() == "Completed")
+                                <td class="order-completed"><i class="fa fa-check"></i> {{ $order->getStatus() }}</td>
+                            @elseif($order->getStatus() == "Pending")
+                                <td class="order-pending"><i class="fa fa-clock"></i> {{ $order->getStatus() }}</td>
+                            @elseif($order->getStatus() == "Delivering")
+                                <td class="order-delivering"><i class="fa fa-truck"></i> {{ $order->getStatus() }}</td>
+                            @elseif($order->getStatus() == "Canceled")
+                                <td class="order-canceled"><i class="fa fa-times"></i> {{ $order->getStatus() }}</td>
+                            @endif
                             <td>{{ $order->getCreatedAt() }}</td>
-                            <td><a href="{{ route('admin.order.show', ['id'=>$order->getId()]) }}"> {{ __('order_list.more') }} <strong>{{ $order->getId() }}</strong></a></td>
+                            <td><a href="{{ route('admin.order.show', ['id'=>$order->getId()]) }}"> {{ __('order_list.more') }} </a></td>
                         </tr>
                         @endforeach
                     </tbody>

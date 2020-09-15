@@ -51,19 +51,9 @@
                             <small id="priceHelpBlock" class="form-text text-muted">{{ __('fish_update.label.priceHB') }}</small><br />
                         </div>
                         <div class="col">
-                            <label for="size"><strong>{{ __('fish_update.label.size') }}</strong></label>
-                            <select name="size" class="form-control" required>
-                                <option value="{{ $data['fish']->getSize() }}">{{ $data["fish"]->getSize() }}</option>
-                                @if($data["fish"]->getSize() != "Small")
-                                <option value="Small">{{ __('fish_update.size_options.small') }}</option>
-                                @endif
-                                @if($data["fish"]->getSize() != "Medium")
-                                <option value="Medium">{{ __('fish_update.size_options.medium') }}</option>
-                                @endif
-                                @if($data["fish"]->getSize() != "Large")
-                                <option value="Large">{{ __('fish_update.size_options.large') }}</option>
-                                @endif
-                            </select>
+                            <label for="in_stock"><strong>{{ __('fish_update.label.in_stock') }}</strong></label><br />
+                            <input type="number" class="form-control" name="in_stock" value="{{ $data['fish']->getInStock() }}" min="1" aria-describedby="stockHelpBlock" required/>
+                            <small id="stockHelpBlock" class="form-text text-muted">{{ __('fish_update.label.stockHB') }}</small><br />
                         </div>
                     </div>
 
@@ -80,14 +70,22 @@
                                 @endif
                             </select>
                         </div>
-                    </div><br />
-                    <div class="form-row">
                         <div class="col">
-                            <label for="in_stock"><strong>{{ __('fish_update.label.in_stock') }}</strong></label><br />
-                            <input type="number" class="form-control" name="in_stock" value="{{ $data['fish']->getInStock() }}" min="1" aria-describedby="stockHelpBlock" required/>
-                            <small id="stockHelpBlock" class="form-text text-muted">{{ __('fish_update.label.stockHB') }}</small><br />
+                            <label for="size"><strong>{{ __('fish_update.label.size') }}</strong></label>
+                            <select name="size" class="form-control" required>
+                                <option value="{{ $data['fish']->getSize() }}">{{ $data["fish"]->getSize() }}</option>
+                                @if($data["fish"]->getSize() != "Small")
+                                <option value="Small">{{ __('fish_update.size_options.small') }}</option>
+                                @endif
+                                @if($data["fish"]->getSize() != "Medium")
+                                <option value="Medium">{{ __('fish_update.size_options.medium') }}</option>
+                                @endif
+                                @if($data["fish"]->getSize() != "Large")
+                                <option value="Large">{{ __('fish_update.size_options.large') }}</option>
+                                @endif
+                            </select>
                         </div>
-                    </div>
+                    </div><br />
                     
                     <div class="form-row justify-content-center">
                         <div class="col">
@@ -102,8 +100,8 @@
                             <input type="hidden" class="form-control" name="image" value="{{ $data['fish']->getImage() }}"/>  
                         </div>
                     </div><br />
-                    <div class="form-row">
-                        <div class="col">
+                    <div class="form-row justify-content-center">
+                        <div class="col" align="center">
                             <input type="submit" value="{{ __('fish_update.input.update') }}" class="btn btn-primary"/>
                         </div>
                     </div>

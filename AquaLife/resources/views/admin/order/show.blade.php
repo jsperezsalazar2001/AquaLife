@@ -16,9 +16,17 @@
                     <a href="{{ route('admin.user.show', ['id'=>$data['order']->getUserId()]) }}"><b>{{ __('order_show.user_id') }} </b> {{ $data["order"]->getUserId() }}<br /></a>
                     <b>{{ __('order_show.payment_type') }} </b> {{ $data["order"]->getPaymentType() }}<br />
                     <b>{{ __('order_show.total_price') }} </b> {{ $data["order"]->getTotalPrice() }}<br />
-                    <b>{{ __('order_show.status') }} </b> {{ $data["order"]->getStatus() }}<br />
+                    @if($data["order"]->getStatus() == "Completed")
+                        <b>{{ __('order_show.status') }} </b><strong class="order-completed"><i class="fa fa-check"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                    @elseif($data["order"]->getStatus() == "Pending")
+                        <b>{{ __('order_show.status') }} </b><strong class="order-pending"><i class="fa fa-clock"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                    @elseif($data["order"]->getStatus() == "Delivering")
+                        <b>{{ __('order_show.status') }} </b><strong class="order-delivering"><i class="fa fa-truck"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                    @elseif($data["order"]->getStatus() == "Canceled")
+                        <b>{{ __('order_show.status') }} </b><strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                    @endif
                     <b>{{ __('order_show.created_at') }} </b> {{ $data["order"]->getCreatedAt() }}<br />
-                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br />
+                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br /><br />
                     @if(!empty($data["fish"]))
                     <b>{{ __('order_show.fish_ordered') }} </b><br />
                         <table class="table table-striped">
@@ -42,6 +50,7 @@
                         </tbody>
                     </table>
                     @endif
+                    <br />
                     @if(!empty($data["accessories"]))
                     <b>{{ __('order_show.accessories_ordered') }} </b><br />
                         <table class="table table-striped">
@@ -70,7 +79,12 @@
                         <form method="GET" action="{{ route('admin.order.update') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('order_show.update') }}</button>
+                                @if($data["order"]->getStatus() == 'Canceled')
+                                    <button type="submit" class="btn btn-primary" disabled><i class="fa fa-pencil-alt"></i> {{ __('order_show.update') }}</button>
+                                @else
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('order_show.update') }}</button>
+                                @endif
+                                
                             </form>
                         </div>
                         <div class="col-7"></div>

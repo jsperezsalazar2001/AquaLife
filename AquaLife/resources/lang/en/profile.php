@@ -14,4 +14,6 @@ return [
     */
 
     'title' => 'Profile',
+    'lists' => 'Lists',
+    'create' => 'Create',
 ];

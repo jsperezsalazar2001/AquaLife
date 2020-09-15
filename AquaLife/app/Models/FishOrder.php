@@ -62,7 +62,7 @@ class FishOrder extends Model
 		return $this->belongsTo(User::class);
     }
     
-    public function accessory(){
+    public function fish(){
         return $this->belongsTo(Fish::class);
     }
 

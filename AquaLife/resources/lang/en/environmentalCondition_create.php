@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'button_title' => 'E.C create',
+    'navbar_title' => 'E.C',
     'title' => 'Create environmental condition',
     'input' => [
         'ph_LR' => 'Enter PH Lower Range',

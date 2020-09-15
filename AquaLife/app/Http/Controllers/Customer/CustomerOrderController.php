@@ -45,6 +45,23 @@ class CustomerOrderController extends Controller
         $order = Order::findOrFail($request->input('id'));
         $order->setStatus('Canceled');
         $order->save();
+
+        $accessory_orders = $order->accessories;
+        
+        foreach($accessory_orders as $accessory_order){
+            $accessory = $accessory_order->accessory;
+            $accessory->setInStock($accessory->getInStock() + $accessory_order->getQuantity());
+            $accessory->save();
+        }
+
+        $fish_orders = $order->fish;
+
+        foreach($fish_orders as $fish_order){
+            $fish = $fish_order->fish;
+            $fish->setInStock($fish->getInStock() + $fish_order->getQuantity());
+            $fish->save();
+        }
+
         return redirect()->route('customer.order.list')->with('success', __('order_update.cancel_succesful'));
 
     }

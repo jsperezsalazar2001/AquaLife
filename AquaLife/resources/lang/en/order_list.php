@@ -20,7 +20,7 @@ return [
     'payment_type' => 'Payment type',
     'user_id' => 'User id',
     'about' => 'About',
-    'more' => 'Go to order id#: ',
+    'more' => 'More details',
     'order' => 'Order ',
     'created_at' => 'Order date',
     'no_orders' => 'There are not orders to show',

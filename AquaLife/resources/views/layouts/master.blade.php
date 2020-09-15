@@ -30,22 +30,37 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future Left Side Links -->
                         @if (!Auth::guest())
-                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{ __('profile.title') }} </a>
                             @if(Auth::user()->getRole()=="Customer")
                             <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-fish"></i> {{ __('fish.title_plural') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.wishList.show') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.order.list') }}"> <i class="fas fa-file-invoice"></i> {{ __('order.user.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> {{ __('cart.name') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.wishList.show') }}"> <i class="fa fa-list-ul"></i> {{ __('fish.title_wish_list') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.user.title_plural') }} </a>
                             @endif
                             @if(Auth::user()->getRole()=="Admin")
-                            <a class="navbar-brand" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.environmentalCondition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.button_title') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.title') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.title') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.environmentalCondition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.button_title') }} </a>
-                            <a class="navbar-brand" href="{{ route('admin.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.title_plural') }} </a>
+                            <li class="navbar-brand dropdown">
+                                <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-list-ul"></i> {{ __('profile.lists') }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmentalCondition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.title_plural') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.title_plural') }} </a>
+                                </div>
+                            </li>
+                            <li class="navbar-brand dropdown">
+                                <a class="navbar-brand dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-plus"></i> {{ __('profile.create') }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.navbar_title') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.navbar_title') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmentalCondition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.navbar_title') }} </a>
+                                </div>
+                            </li>
+                            
+                            
                             @endif
                         @endif
                     </ul>
@@ -53,6 +68,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Future authentication Links --> 
+                        @if (!Auth::guest())
+                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{ __('profile.title') }} </a>
+                        @endif
                          @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

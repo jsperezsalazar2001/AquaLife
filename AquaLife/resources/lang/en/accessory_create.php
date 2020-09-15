@@ -14,6 +14,7 @@ return [
     */
 
     'title' => 'Create accessory',
+    'navbar_title' => 'Accessory',
     'input' => [
         'name' => 'Enter name',
         'filters' => 'Filters',

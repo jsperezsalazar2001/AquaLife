@@ -14,6 +14,7 @@ return [
     */
 
     'title' => 'Create fish',
+    'navbar_title' => 'Fish',
     'input' => [
         'enter_name' => 'Enter name',
         'enter_species' => 'Enter species',

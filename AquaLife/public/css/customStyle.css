@@ -34,3 +34,19 @@
     color: red;
     font: bold;
 }
+
+.order-completed{
+    color: green;
+}
+
+.order-pending{
+    color: orange;
+}
+
+.order-delivering{
+    color: gray;
+}
+
+.order-canceled {
+    color: red;
+}

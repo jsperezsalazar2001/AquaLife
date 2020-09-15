@@ -38,7 +38,7 @@
                                 @if($data["order"]->getStatus() != "Pending")
                                 <option value="Pending">{{ __('order_update.status_options.pending') }}</option>
                                 @endif
-                                @if($data["order"]->getStatus() != "Canceled")
+                                @if(($data["order"]->getStatus() != "Canceled") && ($data["order"]->getStatus() != "Completed"))
                                 <option value="Canceled">{{ __('order_update.status_options.canceled') }}</option>
                                 @endif 
                             </select>
