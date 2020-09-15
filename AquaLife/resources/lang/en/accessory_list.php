@@ -22,7 +22,6 @@ return [
     'name' => 'Name',
     'id' => 'ID',
     'about' => 'About',
-    'title' => 'Accessories list',
     'filter_by' => 'Filter by category',
     'filter' => [
         'filters' => 'Filters',

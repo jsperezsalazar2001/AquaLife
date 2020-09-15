@@ -17,7 +17,7 @@
                         </div>
                     @endforeach
             @endif
-            <div class="btn-group">
+            <div class="btn-group col-6">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('accessory_list.filter_by') }}
                 </button>
@@ -62,12 +62,14 @@
                                 @endif
                                 <form method="POST" action="{{ route('customer.accessory.add-to-cart',['id'=> $accessory->getId(), 'type' => 'accessory']) }}" >
                                     @csrf
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="{{ $accessory->getInStock() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
+                                    <div class="form-group row">
+                                        <div class="col-6">
+                                            <input type="number" class="form-control col-12" name="quantity" value="1" step="1" min="1" max="{{ $accessory->getInStock() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
                                             <input type="hidden" name="id" value="{{ $accessory->getId() }}" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
-                                        <button type="submit" class="btn btn-info" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} >{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        <div class="col-6">
+                                            <button type="submit" class="btn btn-info col-12" {{ $accessory->getInStock() > 0 ? '' : 'disabled' }} >{{ __('accessory_show.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

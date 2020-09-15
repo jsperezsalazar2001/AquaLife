@@ -22,9 +22,10 @@
 
             @if(!empty($data["fish"]) || !empty($data["accessories"]))
                 <div class="card">
-                    <div class="card-header">{{ __('cart.name') }}</div>
+                    <div class="card-header"><i class="fa fa-shopping-cart"></i> {{ __('cart.name') }}</div>
                     <div class="card-body">
                     @if(!empty($data["fish"]))
+                        <h4 class="card-title" align="center">{{ __('fish_create.navbar_title') }}</h4><br />
                         @foreach($data["fish"] as $fish)
                             @if($loop->index == 0)
                             <div class="card-deck">
@@ -70,6 +71,8 @@
                         @endforeach
                     @endif
                     @if(!empty($data["accessories"]))
+                    <br />
+                    <h4 class="card-title" align="center">{{ __('accessory_list.title') }}</h4><br />
                         @foreach($data["accessories"] as $accessory)
                             @if($loop->index == 0)
                             <div class="card-deck">
@@ -113,20 +116,30 @@
                         @endif
                         <br>
                         @if(!empty($data["fish"]) or !empty($data["accessories"]))
-                        <form method="POST" action="{{ route('customer.cart.buy') }}" >
+                        <form method="POST" action="{{ route('customer.cart.buy') }}">
                             @csrf
-                            <div class="row">
+                            <div class="form-group row align-items-end">
                                 <div class="col-6">
-                                    <label for="payment_type">{{ __('cart.payment_type') }}</label>
-                                    <select class="form-control" name="payment_type">
-                                        <option value="Credit card" selected>{{ __('cart.payment_options.credit') }}</option>
-                                        <option value="Cash">{{ __('cart.payment_options.cash') }}</option>
-                                    </select>
+                                    <div class="row justify-content-center">
+                                        <div class="col-12" align="center">
+                                            <label for="payment_type">{{ __('cart.payment_type') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <select class="form-control" name="payment_type">
+                                                <option value="Credit card" selected>{{ __('cart.payment_options.credit') }}</option>
+                                                <option value="Cash">{{ __('cart.payment_options.cash') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">{{ __('cart.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-success col-12">{{ __('cart.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                </div>
                             </div>
                         </form>
-                    @endif
+                        @endif
                         <br>
                         </div>
                     </div>

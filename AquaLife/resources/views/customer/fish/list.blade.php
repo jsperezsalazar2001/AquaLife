@@ -75,20 +75,22 @@
                                 <form method="POST" action="{{ route('customer.wishList.add') }}">
                                     @csrf
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-12">
                                             <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                            <button type="submit" class="btn btn-warning"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
+                                            <button type="submit" class="btn btn-warning col-12"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
                                         </div>
                                     </div>
                                 </form><br/>
                                 <form method="POST" action="{{ route('customer.fish.add-to-cart',['id'=> $fish->getId(), 'type' => 'fish']) }}" >
                                     @csrf
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-6">
                                             <input type="number" class="form-control" name="quantity" value="1" step="1" min="1" max="{{ $fish->getInStock() }}" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
                                             <input type="hidden" name="id" value="{{ $fish->getId() }}" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} />
                                         </div>
-                                        <button type="submit" class="btn btn-info" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} > {{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        <div class="col-6">
+                                            <button type="submit" class="btn btn-info col-12" {{ $fish->getInStock() > 0 ? '' : 'disabled' }} > {{ __('fish_list.buy') }} <i class="fa fa-shopping-cart"></i></button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
