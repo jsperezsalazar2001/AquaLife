@@ -24,4 +24,12 @@ return [
     'order' => 'Order ',
     'created_at' => 'Order date',
     'no_orders' => 'There are not orders to show',
+    'filter_by_status' => 'Filter orders by status',
+    'filter' => [
+        'completed' => 'Completed',
+        'canceled' => 'Canceled',
+        'delivering' => 'Delivering',
+        'pending' => 'Pending',
+        'wo_filter' => 'Without filter',
+    ],
 ];

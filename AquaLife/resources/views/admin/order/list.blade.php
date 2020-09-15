@@ -17,6 +17,28 @@
                         </div>
                     @endforeach
             @endif
+            <div class="row">
+                <div class="btn-group col">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('order_list.filter_by_status') }}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('admin.order.list_by_status', ['value'=>'Completed']) }}">{{ __('order_list.filter.completed') }}</a>
+                        <a class="dropdown-item" href="{{ route('admin.order.list_by_status', ['value'=>'Canceled']) }}">{{ __('order_list.filter.canceled') }}</a>
+                        <a class="dropdown-item" href="{{ route('admin.order.list_by_status', ['value'=>'Delivering']) }}">{{ __('order_list.filter.delivering') }}</a>
+                        <a class="dropdown-item" href="{{ route('admin.order.list_by_status', ['value'=>'Pending']) }}">{{ __('order_list.filter.pending') }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('admin.order.list') }}">{{ __('order_list.filter.wo_filter') }}</a>
+                    </div>
+                </div>
+            </div><br />
+            @if(sizeof($data["order"]) < 1)
+                <div class="card-deck justify-content-center">
+                    <div class="alert alert-primary" role="alert" align="center">
+                        {{ __('order_list.no_orders') }}
+                    </div>
+                </div>
+            @else
             <div class="card">
                 <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('order_list.title') }}</div>
                 <table class="table table-striped">
@@ -52,6 +74,7 @@
                     </tbody>
                 </table>
             </div>
+            @endif
         </div>
     </div>
 </div>
