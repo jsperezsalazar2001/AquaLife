@@ -72,6 +72,15 @@
                                 @else
                                 <p class="card-text red-color">{{ __('fish_list.sold_out') }}</p>
                                 @endif
+                                <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId()]) }}">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="hidden" name="id"/>
+                                            <button type="submit" class="btn btn-primary"><i class="fa fa-anchor" aria-hidden="true"></i> {{ __('fish_list.match') }}</button>
+                                        </div>
+                                    </div>
+                                </form><br/>
                                 <form method="POST" action="{{ route('customer.wishList.add') }}">
                                     @csrf
                                     <div class="row">

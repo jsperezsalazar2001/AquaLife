@@ -6,10 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Fish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class AdminFishController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Customer"){
+                return redirect()->route('home.index');
+            }
+            return $next($request);
+        });
+    }
+
     public function show($id)
     {
         $data = []; //to be sent to the view

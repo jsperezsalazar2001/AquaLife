@@ -14,5 +14,5 @@ return [
     */
 
     'succesful' => 'Item add successfully to your wish list!',
-    'delete' => 'Delete',
+    'delete' => 'remove from wishList',
 ];

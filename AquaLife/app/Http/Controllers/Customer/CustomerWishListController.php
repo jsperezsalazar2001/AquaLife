@@ -17,6 +17,9 @@ class CustomerWishListController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="Admin"){
+                return redirect()->route('home.index');
+            }
             return $next($request);
         });
     }

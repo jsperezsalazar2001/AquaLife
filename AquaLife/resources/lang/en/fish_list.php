@@ -19,6 +19,7 @@ return [
     'about' => 'About',
     'more' => 'More about',
     'favorite' => 'Add to Wish list',
+    'match' => 'Find match',
     'buy' => 'Add to',
     'in_stock' => 'IN STOCK',
     'sold_out' => 'SOLD OUT',
