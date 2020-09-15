@@ -8,6 +8,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('util.message')
+            @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>{{ $error }}</strong>
+                        </div>
+                    @endforeach
+            @endif
             @foreach($data["fish"] as $fish)
                 @if($loop->index == 0)
                 <div class="card-deck">

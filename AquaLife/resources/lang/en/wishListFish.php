@@ -15,4 +15,5 @@ return [
 
     'succesful' => 'Item add successfully to your wish list!',
     'delete' => 'remove from wishList',
+    'wish_list_is_empty' => 'Oops! it seems like your wish list is empty.',
 ];
