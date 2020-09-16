@@ -4,6 +4,12 @@ body{
     background-size: cover;
 }
 
+.welcome{
+    color: white;
+    font-family: 'new times roman';
+    font-style: italic;
+}
+
 .card-header{
     font-weight: bold;
 }
