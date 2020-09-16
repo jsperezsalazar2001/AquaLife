@@ -28,7 +28,7 @@
                         <div class="col">
                             <label for="ph_lr"><strong>{{ __('environmentalCondition_update.label.ph_LR') }}</strong></label><br />
                             <input type="number" class="form-control" name="ph_lr" value="{{ $data['environmental_condition']->getPhLR() }}" min="0.01" step="0.01" aria-describedby="priceHelpBlock" required/>
-                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.phHrLB') }}</small><br />
+                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.phLrHB') }}</small><br />
                         </div>
 
                         <div class="col">
@@ -42,7 +42,7 @@
                         <div class="col">
                             <label for="temperature_lr"><strong>{{ __('environmentalCondition_update.label.temperature_LR') }}</strong></label><br />
                             <input type="number" class="form-control" name="temperature_lr" value="{{ $data['environmental_condition']->getTemperatureLR() }}" min="0.01" step="0.01" aria-describedby="priceHelpBlock" required/>
-                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.temperatureHrLB') }}</small><br />
+                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.temperatureLrHB') }}</small><br />
                         </div>
 
                         <div class="col">
@@ -56,7 +56,7 @@
                         <div class="col">
                             <label for="hardness_lr"><strong>{{ __('environmentalCondition_update.label.hardness_LR') }}</strong></label><br />
                             <input type="number" class="form-control" name="hardness_lr" value="{{ $data['environmental_condition']->getHardnessLR() }}" min="0.01" step="0.01" aria-describedby="priceHelpBlock" required/>
-                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.hardnessHrLB') }}</small><br />
+                            <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_update.label.hardnessLrHB') }}</small><br />
                         </div>
 
                         <div class="col">

@@ -14,9 +14,9 @@
                     <b>{{ __('environmentalCondition_show.ph_LR') }}</b> {{ $data["environmental_condition"]->getPhLR() }}<br />
                     <b>{{ __('environmentalCondition_show.ph_HR') }} </b> {{ $data["environmental_condition"]->getPhHR() }}<br />
                     <b>{{ __('environmentalCondition_show.temperature_LR') }} </b> {{ $data["environmental_condition"]->getTemperatureLR() }}<br />
-                    <b>{{ __('environmentalCondition_show.temperature_HR') }} </b> {{ $data["environmental_condition"]->getTemperatureLR() }}<br />
+                    <b>{{ __('environmentalCondition_show.temperature_HR') }} </b> {{ $data["environmental_condition"]->getTemperatureHR() }}<br />
                     <b>{{ __('environmentalCondition_show.hardness_LR') }} </b> {{ $data["environmental_condition"]->getHardnessLR() }}<br />
-                    <b>{{ __('environmentalCondition_show.hardness_HR') }} </b> {{ $data["environmental_condition"]->getHardnessLR() }}<br />
+                    <b>{{ __('environmentalCondition_show.hardness_HR') }} </b> {{ $data["environmental_condition"]->getHardnessHR() }}<br />
                     <b>{{ __('environmentalCondition_show.fish') }}</b> {{ $data["fish_name"] }}<br /><br /> 
                     <div class="row row-cols-3">
                         <div class="col">
