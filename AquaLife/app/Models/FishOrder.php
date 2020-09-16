@@ -9,8 +9,7 @@ use App\Models\Order;
 
 class FishOrder extends Model
 {
-    //attributes id, name, category, price, created_at, updated_at
-    //protected $fillable = ['quantity', 'subtotal', 'fish_id'];
+    //attributes id, quantity, category, subtotal, fish_id, 'order_id', created_at, updated_at
 
     public function getId()
     {
@@ -56,10 +55,6 @@ class FishOrder extends Model
 
 	public function setOrderId($order_id){
 		$this->attributes['order_id'] = $order_id;
-    }
-    
-	public function user(){
-		return $this->belongsTo(User::class);
     }
     
     public function fish(){

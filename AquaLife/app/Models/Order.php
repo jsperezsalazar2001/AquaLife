@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 
 class Order extends Model
 {
-    //attributes id, name, category, price, created_at, updated_at
-    //protected $fillable = ['payment_type', 'total_price'];
+    //attributes id, payment_type, total_price, status, user_id, created_at, updated_at
 
     public function getId()
     {

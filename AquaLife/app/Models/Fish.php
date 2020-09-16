@@ -6,9 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\EnvironmentalCondition;
+use App\Models\FishOrder;
 
 class Fish extends Model
 {
+    //attributes id, name, species, price, family, color, size, temperament, in_stock, created_at, updated_at
     protected $fillable = ['name', 'species', 'price', 'family', 'color', 'size', 'temperament', 'in_stock'];
 
     public function getId()
@@ -91,7 +93,6 @@ class Fish extends Model
         $this->attributes['temperament'] = $temperament;
     }
 
-    
     public function getInStock()
     {
         return $this->attributes['in_stock'];
@@ -142,6 +143,10 @@ class Fish extends Model
 
     public function environmentalCondition(){
         return $this->hasOne(EnvironmentalCondition::class);
+    }
+
+    public function fishOrders(){
+        return $this->hasMany(FishOrder::class);
     }
 
 }
