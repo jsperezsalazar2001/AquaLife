@@ -43,7 +43,6 @@ Route::get('/', 'HomeController@index')->name("home.index");
 
 Route::get('/admin/index', 'Admin\AdminHomeController@index')->name("admin.home.index");
 
-
 Route::get('/admin/fish/show/{id}', 'Admin\AdminFishController@show')->name("admin.fish.show");
 
 Route::get('/admin/fish/create', 'Admin\AdminFishController@create')->name("admin.fish.create");
@@ -90,7 +89,6 @@ Route::get('/admin/order/update', 'Admin\AdminOrderController@update')->name("ad
 
 Route::post('/admin/order/update_save', 'Admin\AdminOrderController@updateSave')->name("admin.order.update_save");
 
-
 Route::get('/customer/order/show/{id}', 'Customer\CustomerOrderController@show')->name("customer.order.show");
 
 Route::get('/customer/order/list', 'Customer\CustomerOrderController@list')->name("customer.order.list");
@@ -99,20 +97,20 @@ Route::get('/customer/order/list_by_status/{value}', 'Customer\CustomerOrderCont
 
 Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
 
-Route::get('/admin/envaronmentalConditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmentalCondition.create");
+Route::get('/admin/environmentalConditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmentalCondition.create");
 
-Route::post('/admin/envaronmentalConditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmentalCondition.save");
+Route::post('/admin/environmentalConditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmentalCondition.save");
 
-Route::get('/admin/envaronmentalConditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmentalCondition.show");
+Route::get('/admin/environmentalConditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmentalCondition.show");
 
-Route::post('/admin/envaronmentalConditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmentalCondition.delete");
+Route::post('/admin/environmentalConditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmentalCondition.delete");
 
-Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+Route::get('/admin/environmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
 
-Route::get('/admin/envaronmentalConditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmentalCondition.list");
+Route::get('/admin/environmentalConditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmentalCondition.list");
 
-Route::get('/admin/envaronmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+Route::get('/admin/environmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
 
-Route::post('/admin/envaronmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");
+Route::post('/admin/environmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");
 
 Route::get('/customer/customerFishController/match/{id}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
