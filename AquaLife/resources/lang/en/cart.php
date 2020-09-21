@@ -15,6 +15,7 @@ return [
 
     'name' => 'Cart',
     'payment_type'=> 'Payment type',
+    'total'=> 'Total: ',
     'buy'=> 'Buy',
     'payment_options' => [
         'credit' => 'Credit card',

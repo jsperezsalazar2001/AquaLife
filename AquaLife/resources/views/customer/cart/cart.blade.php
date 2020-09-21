@@ -123,6 +123,14 @@
                         <form method="POST" action="{{ route('customer.cart.buy') }}">
                             @csrf
                             <div class="form-group row align-items-end">
+                                <div class="col-3">
+                                    <p class="card-text "><strong>{{ __('cart.total') }}</strong></p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="card-text green-color">{{ $data["total"] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row align-items-end">
                                 <div class="col-6">
                                     <div class="row justify-content-center">
                                         <div class="col-12" align="center">

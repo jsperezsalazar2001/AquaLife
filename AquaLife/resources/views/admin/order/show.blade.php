@@ -40,12 +40,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data["fish"] as $fish)
+                            @foreach($data["fish"] as $fishOrder)
                             <tr>
-                                <td>{{ $fish['name'] }}</td>
-                                <td>{{ $fish['price'] }}</td>
-                                <td>{{ $fish['quantity'] }}</td>
-                                <td>{{ $fish['subtotal'] }}</td>
+                                <td>{{ $fishOrder->fish->getName() }}sf</td>
+                                <td>{{ $fishOrder->fish->getPrice() }}</td>
+                                <td>{{ $fishOrder->getquantity() }}</td>
+                                <td>{{ $fishOrder->getSubtotal() }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -64,12 +64,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data["accessories"] as $accessory)
+                            @foreach($data["accessories"] as $accessoryOrder)
                             <tr>
-                                <td>{{ $accessory['name'] }}</td>
-                                <td>{{ $accessory['price'] }}</td>
-                                <td>{{ $accessory['quantity'] }}</td>
-                                <td>{{ $accessory['subtotal'] }}</td>
+                                <td>{{ $accessoryOrder->accessory->getName() }}</td>
+                                <td>{{ $accessoryOrder->accessory->getPrice() }}</td>
+                                <td>{{ $accessoryOrder->getquantity() }}</td>
+                                <td>{{ $accessoryOrder->getSubtotal() }}</td>
                             </tr>
                             @endforeach
                         </tbody>

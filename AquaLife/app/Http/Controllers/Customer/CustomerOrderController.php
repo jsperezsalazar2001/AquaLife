@@ -33,8 +33,8 @@ class CustomerOrderController extends Controller
             return redirect()->route('home.index');
         }
 
-        $accessories = $order->accessories()->select('accessory_orders.*', 'accessories.name', 'accessories.price')->join('accessories',  'accessory_orders.accessory_id', '=', 'accessories.id')->get();
-        $fish = $order->fish()->select('fish_orders.*', 'fish.name', 'fish.price')->join('fish',  'fish_orders.fish_id', '=', 'fish.id')->get();
+        $accessories = $order->accessories()->get();
+        $fish = $order->fish()->get();
         $data["title"] = __('order_update.title').' '.$order->getId();
         $data["order"] = $order;
         $data["accessories"] = $accessories;
