@@ -27,29 +27,29 @@ class CustomerCartController extends Controller
         });
     }
 
-    public function addToCart($id, $type, Request $request)
+    public function addToCart($id, $item_type, Request $request)
     {
         $data = []; //to be sent to the view
         $quantity = $request->quantity;
         
-        if($this->typeExists($type)){
-            $items = $request->session()->get($type);
+        if($this->typeExists($item_type)){
+            $items = $request->session()->get($item_type);
         }else{
-            return back()->withErrors(__('cart.type_not_found',['type' => $type]));
+            return back()->withErrors(__('cart.type_not_found',['type' => $item_type]));
         }
         $items[$id] = $quantity;
-        $request->session()->put($type, $items);
+        $request->session()->put($item_type, $items);
         return back()->with('success', __('item.successful'));
     }
 
-    public function removeFromCart($id, $type, Request $request)
+    public function removeFromCart($id, $item_type, Request $request)
     {
-        if($this->typeExists($type)){
-            $items = $request->session()->get($type);
+        if($this->typeExists($item_type)){
+            $items = $request->session()->get($item_type);
             unset($items[$id]);
-            $request->session()->put($type, $items);
+            $request->session()->put($item_type, $items);
         }else{ 
-            return back()->withErrors(__('cart.type_not_found',['type' => $type]));
+            return back()->withErrors(__('cart.type_not_found',['type' => $item_type]));
         }
         return redirect()->route('customer.cart')->with('success', __('item.remove_successful'));
     }
@@ -59,18 +59,30 @@ class CustomerCartController extends Controller
         $fish = $request->session()->get("fish");
         $accessories = $request->session()->get("accessory");
         $data["title"] = "Cart";
-
+        $totalPrice = 0;
         if($fish){
             $keys = array_keys($fish);
             $fishModels = Fish::find($keys);
             $data["fish"] = $fishModels;
+            for($i=0;$i<count($keys);$i++){
+                $currentFish = Fish::find($keys[$i]);
+                $subTotal = $currentFish->getPrice()*$fish[$keys[$i]];
+                $totalPrice = $totalPrice + $subTotal;
+            }
         }
         if($accessories){
             $keys = array_keys($accessories);
             $accessoryModels = Accessory::find($keys);
             $data["accessories"] = $accessoryModels;
+            for($i=0;$i<count($keys);$i++){
+                $currentAccessory = Accessory::find($keys[$i]);
+                $subTotal = $currentAccessory->getPrice()*$accessories[$keys[$i]];
+                $totalPrice = $totalPrice + $subTotal;
+            }
         }
+        $data["total"] = $totalPrice;
         if($fish || $accessories){
+            //dd($data);
             return view('customer.cart.cart')->with("data",$data);
         }
         return view('customer.cart.cart')->with("data",$data)->withErrors(__('cart.cart_is_empty'));;
