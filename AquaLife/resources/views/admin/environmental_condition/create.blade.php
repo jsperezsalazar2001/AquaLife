@@ -20,7 +20,7 @@
                     @endforeach
                 @endif
 
-                <form method="POST" id="create-form" action="{{ route('admin.environmentalCondition.save') }}" enctype="multipart/form-data">
+                <form method="POST" id="create-form" action="{{ route('admin.environmental_condition.save') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-row">
                         <div class="col">

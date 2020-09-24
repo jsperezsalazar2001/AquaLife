@@ -20,7 +20,7 @@
                     @endforeach
                 @endif
 
-                <form method="POST" action="{{ route('admin.environmentalCondition.update_save') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.environmental_condition.update_save') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{ $data['environmental_condition']->getId() }}" />
                     <input type="hidden" name="fish_id" value="{{ $data['environmental_condition']->getFishId() }}" />

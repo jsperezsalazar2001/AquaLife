@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                                 </form><br/>
-                                <form method="POST" action="{{ route('customer.wishList.add') }}">
+                                <form method="POST" action="{{ route('customer.wish_list.add') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
