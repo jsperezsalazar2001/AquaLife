@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\Fish;
 use App\Models\EnvironmentalCondition;
+use App\Models\WishListFish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 Use Exception;
@@ -29,6 +30,9 @@ class CustomerFishController extends Controller
         $data = []; //to be sent to the view
         $data["title"] = __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->get();
+        $fishWish = WishListFish::orderBy('fish_id')->select('fish_id')->get();
+        $data["fishWishList"] = $fishWish->pluck('fish_id')->toArray();
+        $data["notFishWishList"] = Fish::whereNotIn('id', $data["fishWishList"])->select('id')->get();
 
         return view('customer.fish.list')->with("data",$data);
 
@@ -39,6 +43,9 @@ class CustomerFishController extends Controller
         $data = [];
         $data["title"] = __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->where('temperament', $value)->get();
+        $fishWish = WishListFish::orderBy('fish_id')->select('fish_id')->get();
+        $data["fishWishList"] = $fishWish->pluck('fish_id')->toArray();
+        $data["notFishWishList"] = Fish::whereNotIn('id', $data["fishWishList"])->select('id')->get();
 
         return view('customer.fish.list')->with("data",$data);
     }
@@ -48,6 +55,9 @@ class CustomerFishController extends Controller
         $data = [];
         $data["title"] = __('fish_list.title');
         $data["fish"] = Fish::orderBy('id')->where('size', $value)->get();
+        $fishWish = WishListFish::orderBy('fish_id')->select('fish_id')->get();
+        $data["fishWishList"] = $fishWish->pluck('fish_id')->toArray();
+        $data["notFishWishList"] = Fish::whereNotIn('id', $data["fishWishList"])->select('id')->get();
 
         return view('customer.fish.list')->with("data",$data);
     }
