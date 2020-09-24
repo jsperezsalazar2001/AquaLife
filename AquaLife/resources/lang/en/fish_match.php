@@ -13,8 +13,5 @@ return [
     |
     */
 
-    'address' => 'User address',
-    'email' => 'User email',
-    'role' => 'User role',
-    'update' => 'Update',
+    'aggresive' => 'Be carefully this fish is aggressive',
 ];

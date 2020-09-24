@@ -16,6 +16,14 @@
                     <b>{{ __('user_show.email') }}:</b> {{ $data["user"]->getEmail() }}<br />
                     <b>{{ __('user_show.role') }}:</b> {{ $data["user"]->getRole() }}<br /><br />
                 </div>
+
+                <div class="col">
+                    <form method="GET" action="{{ route('user.update') }}">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $data['user']->getId() }}" />
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('user_show.update') }}</button>
+                        </form>
+                </div><br>
             </div>
         </div>
     </div>

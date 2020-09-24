@@ -72,7 +72,7 @@
                                 @else
                                 <p class="card-text red-color">{{ __('fish_list.sold_out') }}</p>
                                 @endif
-                                <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId()]) }}">
+                                <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId(),'temperament'=>$fish->getTemperament()]) }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">

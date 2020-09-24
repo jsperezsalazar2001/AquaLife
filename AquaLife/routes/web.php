@@ -37,6 +37,10 @@ Auth::routes();
 
 Route::get('/user/show','User\UserController@show')->name("user.show");
 
+Route::get('/user/update', 'User\UserController@update')->name("user.update");
+
+Route::post('/user/update/update_save', 'User\UserController@updateSave')->name("user.update_save");
+
 Route::get('/user/show/{id}','User\UserController@adminShow')->name("admin.user.show");
 
 Route::get('/', 'HomeController@index')->name("home.index");
@@ -111,4 +115,4 @@ Route::get('/admin/environmental_conditions/list', 'Admin\AdminEnvironmentalCond
 
 Route::post('/admin/environmental_conditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmental_condition.update_save");
 
-Route::get('/customer/fish/match/{id}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
+Route::get('/customer/fish/match/{id}/{temperament}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
