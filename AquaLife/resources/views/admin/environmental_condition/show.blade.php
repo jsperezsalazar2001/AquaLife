@@ -20,14 +20,14 @@
                     <b>{{ __('environmentalCondition_show.fish') }}</b> {{ $data["fish_name"] }}<br /><br /> 
                     <div class="row row-cols-3">
                         <div class="col">
-                            <form method="POST" action="{{ route('admin.environmentalCondition.delete') }}">
+                            <form method="POST" action="{{ route('admin.environmental_condition.delete') }}">
                                  @csrf
                                 <input type="hidden" name="id" value="{{ $data['environmental_condition']->getId() }}" />
                              <button type="submit" class="btn btn-danger"><i class="fa fa-trash-alt"></i> {{ __('environmentalCondition_show.delete') }}</button>
                             </form>
                         </div>
                         <div class="col">
-                        <form method="GET" action="{{ route('admin.environmentalCondition.update') }}">
+                        <form method="GET" action="{{ route('admin.environmental_condition.update') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['environmental_condition']->getId() }}" />
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('environmentalCondition_show.update') }}</button>

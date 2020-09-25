@@ -40,7 +40,7 @@
                             @else
                             <p class="card-text red-color">{{ __('fish_list.sold_out') }}</p>
                             @endif
-                            <form method="POST" action="{{ route('customer.wishList.delete') }}">
+                            <form method="POST" action="{{ route('customer.wish_list.delete') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">

@@ -51,7 +51,7 @@
                             @if(Auth::user()->getRole()=="Customer")
                             <a class="navbar-brand" href="{{ route('customer.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.fish.list') }}"> <i class="fa fa-fish"></i> {{ __('fish.title_plural') }} </a>
-                            <a class="navbar-brand" href="{{ route('customer.wishList.list') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.wish_list.list') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.order.list') }}"> <i class="fas fa-file-invoice"></i> {{ __('order.user.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> {{ __('cart.name') }} </a>
                             @endif
@@ -63,7 +63,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
-                                    <a class="dropdown-item" href="{{ route('admin.environmentalCondition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.title_plural') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.title_plural') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.title_plural') }} </a>
                                 </div>
                             </li>
@@ -74,7 +74,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.navbar_title') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.navbar_title') }} </a>
-                                    <a class="dropdown-item" href="{{ route('admin.environmentalCondition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.navbar_title') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.navbar_title') }} </a>
                                 </div>
                             </li>
                             

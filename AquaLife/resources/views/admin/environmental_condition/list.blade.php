@@ -32,7 +32,7 @@
                             <td>{{ $environmental_condition->getTemperatureHR() }}</td>
                             <td>{{ $environmental_condition->getHardnessLR() }}</td>
                             <td>{{ $environmental_condition->getHardnessHR() }}</td>
-                            <td><a href="{{ route('admin.environmentalCondition.show', ['id'=>$environmental_condition->getId()]) }}"> {{ __('environmentalCondition_list.more') }} <strong>{{ $environmental_condition->getId() }}</strong></a></td>
+                            <td><a href="{{ route('admin.environmental_condition.show', ['id'=>$environmental_condition->getId()]) }}"> {{ __('environmentalCondition_list.more') }} <strong>{{ $environmental_condition->getId() }}</strong></a></td>
                         </tr>
                         @endforeach
                     </tbody>
