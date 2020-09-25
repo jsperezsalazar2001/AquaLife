@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class User extends Authenticatable
 {
@@ -89,5 +91,12 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-
+    public static function validate(Request $request)
+    {
+        $request->validate([
+            "name" => ['required','string','min:1','max:255'],
+            'address_user' => ['required', 'string', 'max:255'],
+            'email' => ['required','email',Rule::unique('users')->ignore($request->id)],
+        ]);
+    }
 }

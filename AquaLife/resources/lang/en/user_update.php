@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Register',
+    'title' => 'Update user information',
     'input' => [
         'name' => 'Name',
         'address' => 'Address',
@@ -32,5 +32,6 @@ return [
         'confirm_email_address' => 'The e-mail address require @',
         'passwordHB' => 'The password requires more than 8 characters',
     ],
-    'create' => 'Register',
+    'update' => 'Update',
+    'succesful' => 'Succesful',
 ];

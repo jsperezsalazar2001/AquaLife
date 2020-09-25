@@ -72,7 +72,7 @@
                                 @else
                                 <p class="card-text red-color">{{ __('fish_list.sold_out') }}</p>
                                 @endif
-                                <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId()]) }}">
+                                <form method="GET" action="{{ route('customer.fish.match', ['id'=>$fish->getId(),'temperament'=>$fish->getTemperament()]) }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -81,12 +81,16 @@
                                         </div>
                                     </div>
                                 </form><br/>
-                                <form method="POST" action="{{ route('customer.wishList.add') }}">
+                                <form method="POST" action="{{ route('customer.wish_list.add') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
                                             <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                            <button type="submit" class="btn btn-warning col-12"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
+                                            @foreach ($data["notFishWishList"] as $notFish)
+                                                @if($notFish->getId() ==$fish->getId())
+                                                <button type="submit" class="btn btn-warning col-12"><i class="fa fa-star"></i> {{ __('fish_list.favorite') }}</button>
+                                                @endif
+                                            @endforeach 
                                         </div>
                                     </div>
                                 </form><br/>

@@ -55,9 +55,9 @@ class CustomerWishListController extends Controller
         $data["fish"] = Fish::whereIn('id', $idArray)->get();
 
         if (empty($data["fish"]->toArray())) {
-            return view('customer.wishList.list')->with("data",$data)->withErrors(__('wishListFish.wish_list_is_empty'));;
+            return view('customer.wish_list.list')->with("data",$data)->withErrors(__('wishListFish.wish_list_is_empty'));;
         }
-        return view('customer.wishList.list')->with("data",$data);
+        return view('customer.wish_list.list')->with("data",$data);
     }
 
     public function delete(Request $request){
@@ -69,7 +69,7 @@ class CustomerWishListController extends Controller
         }
         $wish_list->delete();
         
-        return redirect()->route('customer.wishList.list');
+        return redirect()->route('customer.wish_list.list');
     }
 
 }

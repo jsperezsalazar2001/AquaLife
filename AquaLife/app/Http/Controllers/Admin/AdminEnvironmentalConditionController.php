@@ -31,7 +31,7 @@ class AdminEnvironmentalConditionController extends Controller
         $data["environmental_condition"] = EnvironmentalCondition::all();
         $data["fish"] = Fish::all();
 
-        return view('admin.environmentalCondition.create')->with("data",$data);
+        return view('admin.environmental_condition.create')->with("data",$data);
 
     }
 
@@ -72,13 +72,13 @@ class AdminEnvironmentalConditionController extends Controller
         $data["title"] =  __('environmentalCondition_show.title');;
         $data["environmental_condition"] = $environmental_condition;
         $data["fish_name"] = $fishName;
-        return view('admin.environmentalCondition.show')->with("data",$data);
+        return view('admin.environmental_condition.show')->with("data",$data);
     }
 
     public function delete(Request $request){
         $environmental_condition = EnvironmentalCondition::find($request['id']);
         $environmental_condition->delete();
-        return redirect()->route('admin.environmentalCondition.list');
+        return redirect()->route('admin.environmental_condition.list');
     }
 
     public function list()
@@ -87,7 +87,7 @@ class AdminEnvironmentalConditionController extends Controller
         $data["title"] =  __('environmentalCondition_list.title');
         $data["environmental_condition"] = EnvironmentalCondition::orderBy('id')->get();
 
-        return view('admin.environmentalCondition.list')->with("data",$data);
+        return view('admin.environmental_condition.list')->with("data",$data);
     }
 
     public function update(Request $request)
@@ -98,12 +98,12 @@ class AdminEnvironmentalConditionController extends Controller
         try{
             $environmental_condition = EnvironmentalCondition::findOrFail($request->input('id'));
         }catch(Exception $e){
-            return redirect()->route('admin.environmentalCondition.list');
+            return redirect()->route('admin.environmental_condition.list');
         }
 
         $data["environmental_condition"] = $environmental_condition;
 
-        return view('admin.environmentalCondition.update')->with("data", $data);
+        return view('admin.environmental_condition.update')->with("data", $data);
     }
 
     public function updateSave(Request $request){
@@ -112,7 +112,7 @@ class AdminEnvironmentalConditionController extends Controller
             $environmental_condition = EnvironmentalCondition::findOrFail($request->input('id'));
             EnvironmentalCondition::validate($request);
         }catch(Exception $e){
-            return redirect()->route('admin.environmentalCondition.list');
+            return redirect()->route('admin.environmental_condition.list');
         }
         
         if($environmental_condition->getPhLR() != $request->input('ph_lr')){

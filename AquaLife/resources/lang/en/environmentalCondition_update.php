@@ -37,6 +37,5 @@ return [
         'hardnessHrHB' => 'Hardness Higher Range must be greater than 0',
         'hardnessLrHB' => 'Hardness Lower Range must be greater than 0',
     ],
-    'succesful' => 'Fish updated successfully!',
-    'current_image' => 'Current image',
+    'succesful' => 'Environmental Codition updated successfully!',
 ];

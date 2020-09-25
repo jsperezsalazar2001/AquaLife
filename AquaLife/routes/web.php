@@ -37,6 +37,10 @@ Auth::routes();
 
 Route::get('/user/show','User\UserController@show')->name("user.show");
 
+Route::get('/user/update', 'User\UserController@update')->name("user.update");
+
+Route::post('/user/update/update_save', 'User\UserController@updateSave')->name("user.update_save");
+
 Route::get('/user/show/{id}','User\UserController@adminShow')->name("admin.user.show");
 
 Route::get('/', 'HomeController@index')->name("home.index");
@@ -73,11 +77,11 @@ Route::get('/customer/cart', 'Customer\CustomerCartController@cart')->name("cust
 
 Route::post('/customer/cart/buy', 'Customer\CustomerCartController@buy')->name("customer.cart.buy");
 
-Route::post('/customer/wishList/add', 'Customer\CustomerWishListController@add')->name("customer.wishList.add");
+Route::post('/customer/wish_list/add', 'Customer\CustomerWishListController@add')->name("customer.wish_list.add");
 
-Route::get('/customer/wishList/show/wishList', 'Customer\CustomerWishListController@show')->name("customer.wishList.list");
+Route::get('/customer/wish_list/list', 'Customer\CustomerWishListController@show')->name("customer.wish_list.list");
 
-Route::post('/customer/wishList/delete', 'Customer\CustomerWishListController@delete')->name("customer.wishList.delete");
+Route::post('/customer/wish_list/delete', 'Customer\CustomerWishListController@delete')->name("customer.wish_list.delete");
 
 Route::get('/admin/order/show/{id}', 'Admin\AdminOrderController@show')->name("admin.order.show");
 
@@ -97,20 +101,18 @@ Route::get('/customer/order/list_by_status/{value}', 'Customer\CustomerOrderCont
 
 Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
 
-Route::get('/admin/environmentalConditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmentalCondition.create");
+Route::get('/admin/environmental_conditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmental_condition.create");
 
-Route::post('/admin/environmentalConditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmentalCondition.save");
+Route::post('/admin/environmental_conditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmental_condition.save");
 
-Route::get('/admin/environmentalConditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmentalCondition.show");
+Route::get('/admin/environmental_conditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmental_condition.show");
 
-Route::post('/admin/environmentalConditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmentalCondition.delete");
+Route::post('/admin/environmental_conditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmental_condition.delete");
 
-Route::get('/admin/environmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+Route::get('/admin/environmental_conditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmental_condition.update");
 
-Route::get('/admin/environmentalConditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmentalCondition.list");
+Route::get('/admin/environmental_conditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmental_condition.list");
 
-Route::get('/admin/environmentalConditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmentalCondition.update");
+Route::post('/admin/environmental_conditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmental_condition.update_save");
 
-Route::post('/admin/environmentalConditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmentalCondition.update_save");
-
-Route::get('/customer/customerFishController/match/{id}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
+Route::get('/customer/fish/match/{id}/{temperament}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
