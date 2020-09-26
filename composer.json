@@ -1,0 +1,5 @@
+{
+    "require": {
+        "davejamesmiller/laravel-breadcrumbs": "5.x"
+    }
+}

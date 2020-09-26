@@ -6,7 +6,7 @@
 @section("title", $data["title"])
 
 @section('content')
-
+<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top">{{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -153,6 +153,19 @@
                         </form>
                         @endif
                         <br>
+                        <hr/>
+                        <div class="form-group row align-items-end">
+                                <div class="col-6">
+                                    <form action="{{ route('customer.fish.list') }}">
+                                        <input type="submit" value="{{ __('navigation.go_back_to_fish_list') }}" class="btn btn-info"/>
+                                    </form>
+                                </div>
+                                <div class="col-6">
+                                    <form action="{{ route('customer.accessory.list') }}">
+                                        <input type="submit" value="{{ __('navigation.go_back_to_accessory_list') }}" class="btn btn-info"/>
+                                    </form>
+                                </div>
+                        </div>
                         </div>
                     </div>
                 </div>
