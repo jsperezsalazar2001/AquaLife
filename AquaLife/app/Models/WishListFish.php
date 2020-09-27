@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class WishListFish extends Pivot
 {
+	//attributes id, wish_list_id, fish_id, created_at, updated_at
     public function getId(){
 		return $this->attributes['id'];
 	}

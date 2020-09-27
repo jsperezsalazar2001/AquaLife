@@ -107,8 +107,6 @@ Route::post('/admin/environmental_conditions/save', 'Admin\AdminEnvironmentalCon
 
 Route::get('/admin/environmental_conditions/show/{id}', 'Admin\AdminEnvironmentalConditionController@show')->name("admin.environmental_condition.show");
 
-Route::post('/admin/environmental_conditions/delete', 'Admin\AdminEnvironmentalConditionController@delete')->name("admin.environmental_condition.delete");
-
 Route::get('/admin/environmental_conditions/update', 'Admin\AdminEnvironmentalConditionController@update')->name("admin.environmental_condition.update");
 
 Route::get('/admin/environmental_conditions/list', 'Admin\AdminEnvironmentalConditionController@list')->name("admin.environmental_condition.list");

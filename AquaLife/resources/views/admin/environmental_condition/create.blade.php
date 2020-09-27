@@ -58,16 +58,6 @@
                             <small id="priceHelpBlock" class="form-text text-muted">{{ __('environmentalCondition_create.label.hardnessHrHB') }}</small><br />
                         </div>
                     </div><br>
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="size"><strong>{{ __('environmentalCondition_create.label.fish') }}</strong></label>
-                                <select class="form-control" name="fish_id">
-                                    @foreach($data["fish"] as $fish)
-                                       <option value="{{$fish->getId()}}"  selected>{{ $fish->getName() }}</option>
-                                    @endforeach
-                                </select>
-                        </div>
-                    </div><br>
                     <div class="form-row justify-content-center">
                         <div class="col" align="center">
                             <input type="submit" value="{{ __('environmentalCondition_create.create') }}" class="btn btn-success"/>

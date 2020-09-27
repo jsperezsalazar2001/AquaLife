@@ -18,8 +18,7 @@ class CreateEnvironmentalconditionsTable extends Migration
             $table->unsignedDecimal('temperature_hr', 19, 2);
             $table->unsignedDecimal('hardness_lr', 19, 2);
             $table->unsignedDecimal('hardness_hr', 19, 2);
-            $table->bigInteger('fish_id')->unsigned()->unique();
-            $table->foreign('fish_id')->references('id')->on('fish');
+            $table->bigInteger('fish_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }
