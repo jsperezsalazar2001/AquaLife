@@ -96,7 +96,7 @@ class EnvironmentalCondition extends Model
             "temperature_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
             "hardness_lr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
             "hardness_hr" => ['required', 'numeric', 'gt:0','between:0.0001,999999999999999.9999'],
-            "fish_id" => ['required','string','min:1','max:255'],
+            #"fish_id" => ['required','string','min:1','max:255'],
         ]);
     }
 

@@ -77,15 +77,28 @@
                                 <label for="name"><strong>{{ __('fish_create.label.image') }}</strong></label><br />
                                 <input type="file" placeholder="{{ __('fish_create.input.select_image') }}" name="image" value="{{ old('image') }}" required/><br /><br/>
                             </div>
-                        </div>
+                            <div class="col">
+                                <label for="size"><strong>{{ __('fish_create.label.envoronmental_condition') }}</strong></label>
+                                <select class="form-control" name="environmental_condition_id">
+                                    @foreach($data["environmental_condition"] as $environmental_condition)
+                                       <option  value="{{$environmental_condition->getId()}}"  selected> {{ $environmental_condition->getId() }}
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.ph_LR') }}</b> {{ $environmental_condition->getPhLR() }}  </option>
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.ph_HR') }} </b> {{ $environmental_condition->getPhHR() }}</option>
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.temperature_LR') }} </b> {{ $environmental_condition->getTemperatureLR() }}</option>
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.temperature_HR') }} </b> {{ $environmental_condition->getTemperatureHR() }}</option>
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.hardness_LR') }} </b> {{ $environmental_condition->getHardnessLR() }}</option>
+                                        <option disabled><b>{{ __('fish_create.environmental_conditions.hardness_HR') }} </b> {{ $environmental_condition->getHardnessHR() }}</option>
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div><br>
                         <div class="form-row justify-content-center">
                             <div class="col" align="center">
                                 <input type="submit" value="{{ __('fish_create.input.create') }}" class="btn btn-success" />
                             </div>
                         </div>
-                        
                     </form>
-
                 </div>
             </div>
         </div>

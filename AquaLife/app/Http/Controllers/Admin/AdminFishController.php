@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 Use Exception;
 use App\Models\Fish;
+use App\Models\EnvironmentalCondition;
+use App\Models\WishListFish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -52,7 +54,10 @@ class AdminFishController extends Controller
         $data = []; //to be sent to the view
         $data["title"] =  __('fish_create.title');
         $data["fish"] = Fish::all();
-
+        $data["environmental_condition"] = EnvironmentalCondition::where([["fish_id",0]])->get();
+        if (empty($data["environmental_condition"]->toArray())) {
+            return redirect()->route('admin.environmental_condition.create')->withErrors(__('fish_create.create_environmental_condition'));;
+        }
         return view('admin.fish.create')->with("data",$data);
 
     }
@@ -140,13 +145,24 @@ class AdminFishController extends Controller
          $newFish->setTemperament($request->input('temperament'));
          $newFish->setInStock($request->input('in_stock'));
          $newFish->setImage($imageName);
+         $newFish->setEnvironmentalConditionId($request->input('environmental_condition_id'));
          $newFish->save();
-         return back()->with('success', __('fish_create.succesful'));
+         $environmental_condition = EnvironmentalCondition::findOrFail($request->input('environmental_condition_id'));
+         $environmental_condition->setFishId($newFish->getId());
+         $environmental_condition->save();
+         return redirect()->route('admin.fish.list')->with('success', __('fish_create.succesful'));
     }
 
     public function delete(Request $request){
-        $fish = Fish::find($request['id']);
-        $fish->delete();
+        
+        try{
+            $fish = Fish::find($request['id']);
+            WishListFish::where('fish_id',$request['id'])->delete();
+            EnvironmentalCondition::where('fish_id',$request['id'])->delete();
+            $fish->delete();
+        }catch(Exception $e){
+            return redirect()->route('admin.fish.list');
+        }
         return redirect()->route('admin.fish.list');
     }
 

@@ -14,7 +14,8 @@ use App\User;
  */
 class WishList extends  Model
 {
-	protected $fillable = ['user_id','fish_id']; // add 'fish_id'
+	//attributes id, user_id, fish_id, created_at, updated_at
+	protected $fillable = ['user_id','fish_id']; 
 	
 	public function getId(){
 		return $this->attributes['id'];

@@ -24,6 +24,7 @@ class CreateFishTable extends Migration
             $table->enum('temperament', ['Passive', 'Agressive']);
             $table->integer('in_stock');
             $table->text('image');
+            $table->bigInteger('environmental_condition_id')->unsigned()->default(0);
             $table->timestamps();
         });
     }

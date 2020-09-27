@@ -47,7 +47,6 @@ class AdminEnvironmentalConditionController extends Controller
             $newEnvironmentalCondition->setTemperatureHR($request->input('temperature_hr'));
             $newEnvironmentalCondition->setHardnessLR($request->input('hardness_lr'));
             $newEnvironmentalCondition->setHardnessHR($request->input('hardness_hr'));
-            $newEnvironmentalCondition->setFishId($request->input('fish_id'));
             $newEnvironmentalCondition->save();
         }catch(Exception $e){
             return back()->with('fail', __('environmentalCondition_create.fail'));
@@ -73,12 +72,6 @@ class AdminEnvironmentalConditionController extends Controller
         $data["environmental_condition"] = $environmental_condition;
         $data["fish_name"] = $fishName;
         return view('admin.environmental_condition.show')->with("data",$data);
-    }
-
-    public function delete(Request $request){
-        $environmental_condition = EnvironmentalCondition::find($request['id']);
-        $environmental_condition->delete();
-        return redirect()->route('admin.environmental_condition.list');
     }
 
     public function list()

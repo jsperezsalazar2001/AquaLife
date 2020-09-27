@@ -79,13 +79,17 @@ class CustomerFishController extends Controller
                 return redirect()->route('home.index');
             }
 
-            $id_fish = $environmental_condition_fish->pluck('id');       
-            $lower_ph = $environmental_condition_fish->pluck('ph_lr')[0];
-            $higher_ph = $environmental_condition_fish->pluck('ph_hr')[0];
-            $lower_temperature = $environmental_condition_fish->pluck('temperature_lr')[0];
-            $higher_temperature = $environmental_condition_fish->pluck('temperature_hr')[0];
-            $lower_hardness = $environmental_condition_fish->pluck('hardness_lr')[0];
-            $higher_hardness = $environmental_condition_fish->pluck('hardness_hr')[0];
+            try{
+                $id_fish = $environmental_condition_fish->pluck('id');       
+                $lower_ph = $environmental_condition_fish->pluck('ph_lr')[0];
+                $higher_ph = $environmental_condition_fish->pluck('ph_hr')[0];
+                $lower_temperature = $environmental_condition_fish->pluck('temperature_lr')[0];
+                $higher_temperature = $environmental_condition_fish->pluck('temperature_hr')[0];
+                $lower_hardness = $environmental_condition_fish->pluck('hardness_lr')[0];
+                $higher_hardness = $environmental_condition_fish->pluck('hardness_hr')[0];
+            }catch(Exception $e){
+                return back()->with('fail', __('fish_match.not_environmental_condition'));
+            }
         
             $data["title"] = "Your match list";
             $list_fish = EnvironmentalCondition::where([
@@ -130,10 +134,13 @@ class CustomerFishController extends Controller
         
            $data["fish"] = Fish::whereIn('id', $id_array)->get();
 
-           return view('customer.fish.match')->with("data",$data);
+           if(empty($data["fish"]->toArray())){
+            return back()->with('fail', __('fish_match.no_one'));
+           }else{
+            return view('customer.fish.match')->with("data",$data);
+           }
         }else{
             return back()->with('fail', __('fish_match.aggresive'));
         }
     }
-
 }

@@ -10,7 +10,7 @@ use App\Models\FishOrder;
 
 class Fish extends Model
 {
-    //attributes id, name, species, price, family, color, size, temperament, in_stock, created_at, updated_at
+    //attributes id, name, species, price, family, color, size, temperament, in_stock, environmental_condition_id created_at, updated_at
     protected $fillable = ['name', 'species', 'price', 'family', 'color', 'size', 'temperament', 'in_stock'];
 
     public function getId()
@@ -111,6 +111,16 @@ class Fish extends Model
     public function setImage($image)
     {
         $this->attributes['image'] = $image;
+    }
+
+    public function getEnvironmentalConditionId()
+    {
+        return $this->attributes['environmental_condition_id'];
+    }
+
+    public function setEnvironmentalConditionId($environmental_condition_id)
+    {
+        $this->attributes['environmental_condition_id'] = $environmental_condition_id;
     }
 
     public function getWishlistId(){
