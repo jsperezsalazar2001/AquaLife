@@ -3,6 +3,10 @@
 
 @section("title", $data["title"])
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('admin.environmental_condition.update', $data["environmental_condition"]) }}
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -17,7 +17,7 @@
                         </div>
                     @endforeach
             @endif
-            <div class="btn-group col-6">
+            <div class="btn-group col-12">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('accessory_list.filter_by') }}
                 </button>
