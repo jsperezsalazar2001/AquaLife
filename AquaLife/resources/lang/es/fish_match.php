@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'no_one' => 'The environmental conditions from this fish can not match with others fish',
-    'not_environmental_condition'=> 'This fish does not have environmental condition ',
-    'aggresive' => 'Be carefully this fish is aggressive',
+    'no_one' => 'Las condiciones ambientales de este pez no son compatibles con la de los otros peces',
+    'not_environmental_condition'=> 'Este pez no tine condiciones ambientales',
+    'aggresive' => '¡Ojo! este pez tiene temperamento agresivo por lo tanto debe ir solo',
 ];

@@ -13,14 +13,14 @@ return [
     |
     */
 
-    'title' => 'Environmental condition',
-    'ph_LR' => 'PH Lower Range',
-    'ph_HR' => 'PH Higher Range',
-    'temperature_LR' => 'Temperature Lower Range',
-    'temperature_HR' => 'Temperature Higher Range',
-    'hardness_LR' => 'Hardness Lower Range',
-    'hardness_HR' => 'Hardness Higher Range',
-    'fish' => 'Fish',
-    'delete' => 'Delete',
-    'update' => 'Update',
+    'title' => 'Condiciones ambientales',
+    'ph_LR' => 'Valor mínimo del PH',
+    'ph_HR' => 'Valor máximo del PH',
+    'temperature_LR' => 'Valor mínimo de la temperatura',
+    'temperature_HR' => 'Valor máximo de la temperatura',
+    'hardness_LR' => 'Valor mínimo de la dureza del agua',
+    'hardness_HR' => 'Valor máximo de la dureza del agua',
+    'fish' => 'Pescado',
+    'delete' => 'Borrar',
+    'update' => 'Actualizar',
 ];

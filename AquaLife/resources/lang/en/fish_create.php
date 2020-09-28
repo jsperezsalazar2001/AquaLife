@@ -58,6 +58,6 @@ return [
         'hardness_LR' => 'Hardness Lower Range',
         'hardness_HR' => 'Hardness Higher Range',
     ],
-    'create_environmental_condition' => 'Please create first an environmental condition to you can create a fish',
+    'create_environmental_condition' => 'Please create first an environmental condition to create a fish',
     'succesful' => 'Item created successfully!',
 ];
