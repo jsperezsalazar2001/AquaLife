@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'title' => 'Item',
-    'title_plural' => 'Items',
-    'successful' =>'Item added to cart successfully!',
-    'remove_successful' =>'Item removed from cart successfully!'
+    'title' => 'ítem',
+    'title_plural' => 'ítems',
+    'successful' =>'¡Ítem añadido al carro exitosamente!',
+    'remove_successful' =>'¡Ítem removido del carro exitosamente!'
 ];

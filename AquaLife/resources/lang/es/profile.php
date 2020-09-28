@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Profile',
-    'lists' => 'Lists',
-    'create' => 'Create',
+    'title' => 'Perfil',
+    'lists' => 'Listas',
+    'create' => 'Crear',
 ];

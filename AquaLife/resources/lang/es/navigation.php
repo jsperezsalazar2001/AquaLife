@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'go_to_top' => 'Go to Top',
-    'go_back_to_fish_list' => 'Go back to fish list',
-    'go_back_to_accessory_list' => 'Go back to accessory list',
+    'go_to_top' => 'Ir al inicio',
+    'go_back_to_fish_list' => 'Volver a la lista de peces',
+    'go_back_to_accessory_list' => 'Volver a la lista de accesorios',
 ];

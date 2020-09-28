@@ -13,20 +13,20 @@ return [
     |
     */
 
-    'title' => 'Update order',
+    'title' => 'Actualizar Orden',
     'input' => [
-        'update' => 'Update',
+        'update' => 'Actualizar',
     ],
     'label' => [
-        'status' => 'Status',
+        'status' => 'Estado',
     ],
     'status_options' => [
-        'completed' => 'Completed',
-        'canceled' => 'Canceled',
-        'delivering' => 'Delivering',
-        'pending' => 'Pending',
+        'completed' => 'Completado',
+        'canceled' => 'Cancelado',
+        'delivering' => 'En camino',
+        'pending' => 'Pendiente',
     ],
-    'succesful' => 'Order updated successfully!',
-    'fish_ordered' => 'Fish ordered:',
-    'cancel_succesful' => 'Order canceled successfully!',
+    'succesful' => '¡Orden actualizada exitosamente!',
+    'fish_ordered' => 'Peces ordenados:',
+    'cancel_succesful' => '¡Orden cancelada exitosamente!',
 ];

@@ -13,16 +13,16 @@ return [
     |
     */
 
-    'id' => 'Order id:',
-    'user_id' => 'Order user id:',
-    'payment_type' => 'Payment type:',
-    'total_price' => 'Order price:',
-    'status' => 'Order status:',
-    'created_at' => 'Order created at:',
-    'updated_at' => 'Order updated at:',
-    'cancel' => 'Cancel order',
-    'update' => 'Update',
-    'quantity' => 'Quantity',
-    'fish_ordered' => 'Fish ordered:',
-    'accessories_ordered' => 'Accessories ordered:',
+    'id' => 'Id de la orden:',
+    'user_id' => 'Id del usuario:',
+    'payment_type' => 'Tipo de pago:',
+    'total_price' => 'Precio de la orden:',
+    'status' => 'Estado de la orden:',
+    'created_at' => 'Orden creada el:',
+    'updated_at' => 'Orden actualizada el:',
+    'cancel' => 'Cancelar orden',
+    'update' => 'Actualizar',
+    'quantity' => 'Cantidad',
+    'fish_ordered' => 'Peces ordenados:',
+    'accessories_ordered' => 'Accesorios ordenados:',
 ];

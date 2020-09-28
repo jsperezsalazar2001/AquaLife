@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'address' => 'User address',
-    'email' => 'User email',
-    'role' => 'User role',
-    'update' => 'Update',
+    'address' => 'Dirección de usuario',
+    'email' => 'E-mail del usuario',
+    'role' => 'Rol del usuario',
+    'update' => 'Actualizar',
 ];

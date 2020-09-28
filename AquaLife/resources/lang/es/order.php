@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'name' => 'Order',
-    'success'=> 'Order completed successfully!',
-    'title' => 'Order',
-    'title_plural' => 'Orders',
+    'name' => 'Orden',
+    'success'=> '¡Orden completada exitosamente!',
+    'title' => 'Orden',
+    'title_plural' => 'Ordenes',
     'user' => [
-        'title' => 'My order',
-        'title_plural' => 'My orders',
+        'title' => 'Mi orden',
+        'title_plural' => 'Mis ordenes',
     ],
 ];

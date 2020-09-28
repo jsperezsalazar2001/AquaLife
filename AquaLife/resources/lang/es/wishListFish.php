@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'succesful' => 'Item add successfully to your wish list!',
-    'delete' => 'remove from wishList',
-    'wish_list_is_empty' => 'Oops! it seems like your wish list is empty.',
+    'succesful' => '¡Ítem añadido exitosamente a tus favoritos!',
+    'delete' => 'Remover de favoritos',
+    'wish_list_is_empty' => '!Ay pá! Parece que tu lista de favoritos está vacía.',
 ];
