@@ -12,18 +12,18 @@
     <div class="row justify-content-center">
         <div class="col-md-22">
             <div class="card">
-                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.title') }}</div>
+                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('environmental_condition_list.title') }}</div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">{{ __('environmentalCondition_list.id') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.ph_LR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.ph_HR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.temperature_LR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.temperature_HR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.hardness_LR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.hardness_HR') }}</th>
-                            <th scope="col">{{ __('environmentalCondition_list.about') }} <i class="fa fa-info-circle"></i></th>
+                            <th scope="col">{{ __('environmental_condition_list.id') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.ph_LR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.ph_HR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.temperature_LR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.temperature_HR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.hardness_LR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.hardness_HR') }}</th>
+                            <th scope="col">{{ __('environmental_condition_list.about') }} <i class="fa fa-info-circle"></i></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@
                             <td>{{ $environmental_condition->getTemperatureHR() }}</td>
                             <td>{{ $environmental_condition->getHardnessLR() }}</td>
                             <td>{{ $environmental_condition->getHardnessHR() }}</td>
-                            <td><a href="{{ route('admin.environmental_condition.show', ['id'=>$environmental_condition->getId()]) }}"> {{ __('environmentalCondition_list.more') }} <strong>{{ $environmental_condition->getId() }}</strong></a></td>
+                            <td><a href="{{ route('admin.environmental_condition.show', ['id'=>$environmental_condition->getId()]) }}"> {{ __('environmental_condition_list.more') }} <strong>{{ $environmental_condition->getId() }}</strong></a></td>
                         </tr>
                         @endforeach
                     </tbody>

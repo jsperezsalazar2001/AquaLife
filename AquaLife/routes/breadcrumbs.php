@@ -74,13 +74,13 @@ Breadcrumbs::for('admin.accessory.update', function ($trail, $accessory) {
 // Home > create EC
 Breadcrumbs::for('admin.environmental_condition.create', function ($trail) {
     $trail->parent('home');
-    $trail->push(__('environmentalCondition_create.title'), route('admin.environmental_condition.create'));
+    $trail->push(__('environmental_condition_create.title'), route('admin.environmental_condition.create'));
 });
 
 // Home > EC list
 Breadcrumbs::for('admin.environmental_condition.list', function ($trail) {
     $trail->parent('home');
-    $trail->push(__('environmentalCondition_list.title'), route('admin.environmental_condition.list'));
+    $trail->push(__('environmental_condition_list.title'), route('admin.environmental_condition.list'));
 });
  
 // Home > EC list > EC
@@ -92,5 +92,5 @@ Breadcrumbs::for('admin.environmental_condition.show', function ($trail, $enviro
 // Home > EC list > EC > Update EC
 Breadcrumbs::for('admin.environmental_condition.update', function ($trail, $environmental_condition) {
     $trail->parent('admin.environmental_condition.show', $environmental_condition);
-    $trail->push(__('environmentalCondition_update.title'), route('admin.environmental_condition.update', $environmental_condition));
+    $trail->push(__('environmental_condition_update.title'), route('admin.environmental_condition.update', $environmental_condition));
 });
