@@ -17,4 +17,5 @@ return [
     'email' => 'User email',
     'role' => 'User role',
     'update' => 'Update',
+    'back' => 'Back'
 ];

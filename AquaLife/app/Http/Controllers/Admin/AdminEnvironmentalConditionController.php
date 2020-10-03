@@ -27,7 +27,7 @@ class AdminEnvironmentalConditionController extends Controller
     public function create()
     {
         $data = []; 
-        $data["title"] = __('environmentalCondition_create.title');
+        $data["title"] = __('environmental_condition_create.title');
         $data["environmental_condition"] = EnvironmentalCondition::all();
         $data["fish"] = Fish::all();
 
@@ -49,10 +49,10 @@ class AdminEnvironmentalConditionController extends Controller
             $newEnvironmentalCondition->setHardnessHR($request->input('hardness_hr'));
             $newEnvironmentalCondition->save();
         }catch(Exception $e){
-            return back()->with('fail', __('environmentalCondition_create.fail'));
+            return back()->with('fail', __('environmental_condition_create.fail'));
         }
          
-         return back()->with('success', __('environmentalCondition_create.succesful'));
+         return back()->with('success', __('environmental_condition_create.succesful'));
     }
 
     public function show($id)
@@ -68,7 +68,7 @@ class AdminEnvironmentalConditionController extends Controller
             return redirect()->route('home.index');
         }
         
-        $data["title"] =  __('environmentalCondition_show.title');;
+        $data["title"] =  __('environmental_condition_show.title');;
         $data["environmental_condition"] = $environmental_condition;
         $data["fish_name"] = $fishName;
         return view('admin.environmental_condition.show')->with("data",$data);
@@ -77,7 +77,7 @@ class AdminEnvironmentalConditionController extends Controller
     public function list()
     {
         $data = []; //to be sent to the view
-        $data["title"] =  __('environmentalCondition_list.title');
+        $data["title"] =  __('environmental_condition_list.title');
         $data["environmental_condition"] = EnvironmentalCondition::orderBy('id')->get();
 
         return view('admin.environmental_condition.list')->with("data",$data);
@@ -86,7 +86,7 @@ class AdminEnvironmentalConditionController extends Controller
     public function update(Request $request)
     {
         $data = [];
-        $data["title"] = __('environmentalCondition_update.title');
+        $data["title"] = __('environmental_condition_update.title');
 
         try{
             $environmental_condition = EnvironmentalCondition::findOrFail($request->input('id'));
@@ -130,7 +130,7 @@ class AdminEnvironmentalConditionController extends Controller
 
         $environmental_condition->save();
         
-        return back()->with('success', __('environmentalCondition_update.succesful'));
+        return back()->with('success', __('environmental_condition_update.succesful'));
 
     }
 }

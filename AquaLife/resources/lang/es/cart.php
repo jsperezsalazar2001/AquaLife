@@ -13,15 +13,15 @@ return [
     |
     */
 
-    'name' => 'Cart',
-    'payment_type'=> 'Payment type',
+    'name' => 'Carro',
+    'payment_type'=> 'Tipo de pago',
     'total'=> 'Total: ',
-    'buy'=> 'Buy',
+    'buy'=> 'Comprar',
     'payment_options' => [
-        'credit' => 'Credit card',
-        'cash' => 'Cash',
+        'credit' => 'Tarjeta de credito',
+        'cash' => 'Efectivo',
     ],
-    'not_enough_stock' => 'There are only :stock :item in stock.',
-    'type_not_found' => 'Type :type not recognized.',
-    'cart_is_empty' => 'Oops! it seems like your cart is empty.'
+    'not_enough_stock' => 'Solo hay :stock :item en stock.',
+    'type_not_found' => 'Tipo :type no reconocido.',
+    'cart_is_empty' => '¡Oops! parece que el carro está vacio.'
 ];

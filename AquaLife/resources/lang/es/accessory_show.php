@@ -13,14 +13,14 @@ return [
     |
     */
 
-    'name' => 'Accessory name',
-    'category' => 'Accessory category',
-    'description' => 'Accessory description',
-    'price' => 'Accessory price',
-    'stock' => 'Accessory stock',
-    'delete' => 'Delete',
-    'update' => 'Update',
-    'favorite' => 'Add to Wish list',
-    'buy' => 'Add to',
-    'remove' => 'Remove from'
+    'name' => 'Nombre del accesorio',
+    'category' => 'Categoria del accesorio',
+    'description' => 'Descripción del accesorio',
+    'price' => 'Precio accesorio',
+    'stock' => 'Accesorios en Stock',
+    'delete' => 'Borrar',
+    'update' => 'Actualizar',
+    'favorite' => 'Añadir a favoritos',
+    'buy' => 'Añadir a',
+    'remove' => 'Remover de'
 ];

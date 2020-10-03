@@ -5,6 +5,7 @@
 @section("title", $data["title"])
 
 @section('content')
+<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top">{{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -45,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <input type="hidden" name="id" value="{{ $fish->getId() }}" />
-                                        <button type="submit" class="btn btn-danger col-12"><i class="fa fa-minus" aria-hidden="true"></i> {{ __('wishListFish.delete') }}</button>
+                                        <button type="submit" class="btn btn-danger col-12"><i class="fa fa-minus" aria-hidden="true"></i> {{ __('wish_list_fish.delete') }}</button>
                                     </div>
                                 </div>
                             </form><br/>
@@ -58,6 +59,14 @@
                 </div>
                 @endif
             @endforeach
+            <br>
+            <div class="d-flex justify-content-center">
+                <div >
+                    <form action="{{ route('customer.fish.list') }}">
+                        <input type="submit" value="{{ __('navigation.go_back_to_fish_list') }}" class="btn btn-info"/>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

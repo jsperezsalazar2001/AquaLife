@@ -37,7 +37,7 @@ class CustomerWishListController extends Controller
             return redirect()->route('customer.fish.list');
         }
 
-        return back()->with('success', __('wishListFish.succesful'));
+        return back()->with('success', __('wish_list_fish.succesful'));
 
     }
 
@@ -55,7 +55,7 @@ class CustomerWishListController extends Controller
         $data["fish"] = Fish::whereIn('id', $idArray)->get();
 
         if (empty($data["fish"]->toArray())) {
-            return view('customer.wish_list.list')->with("data",$data)->withErrors(__('wishListFish.wish_list_is_empty'));;
+            return view('customer.wish_list.list')->with("data",$data)->withErrors(__('wish_list_fish.wish_list_is_empty'));;
         }
         return view('customer.wish_list.list')->with("data",$data);
     }

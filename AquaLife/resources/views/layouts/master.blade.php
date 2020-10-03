@@ -63,7 +63,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('admin.accessory.list') }}"> <i class="fa fa-list-ul"></i> {{ __('accessory.title_plural') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.fish.list') }}"> <i class="fas fa-list-ul"></i> {{ __('fish.title_plural') }} </a>
-                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmentalCondition_list.title_plural') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.list') }}"> <i class="fa fa-list-ul"></i> {{ __('environmental_condition_list.title_plural') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.order.list') }}"> <i class="fas fa-list-ul"></i> {{ __('order.title_plural') }} </a>
                                 </div>
                             </li>
@@ -74,7 +74,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('admin.accessory.create') }}"> <i class="fa fa-plus"></i> {{ __('accessory_create.navbar_title') }} </a>
                                     <a class="dropdown-item" href="{{ route('admin.fish.create') }}"> <i class="fas fa-plus"></i> {{ __('fish_create.navbar_title') }} </a>
-                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmentalCondition_create.navbar_title') }} </a>
+                                    <a class="dropdown-item" href="{{ route('admin.environmental_condition.create') }}"> <i class="fas fa-plus"></i> {{ __('environmental_condition_create.navbar_title') }} </a>
                                 </div>
                             </li>
                             
