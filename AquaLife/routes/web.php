@@ -114,3 +114,5 @@ Route::get('/admin/environmental_conditions/list', 'Admin\AdminEnvironmentalCond
 Route::post('/admin/environmental_conditions/update_save', 'Admin\AdminEnvironmentalConditionController@updateSave')->name("admin.environmental_condition.update_save");
 
 Route::get('/customer/fish/match/{id}/{temperament}', 'Customer\CustomerFishController@match')->name("customer.fish.match");
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'User\LanguageController@switchLang']);

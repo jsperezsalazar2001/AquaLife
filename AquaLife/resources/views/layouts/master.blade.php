@@ -86,9 +86,20 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Future authentication Links --> 
-                        @if (!Auth::guest())
-                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{ __('profile.title') }} </a>
-                        @endif
+                        <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                    {{ Config::get('languages')[App::getLocale()] }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @foreach (Config::get('languages') as $lang => $language)
+                                        @if ($lang != App::getLocale())
+                                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                                {{$language}}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                        </li>
                          @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -116,7 +127,10 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest          
+                        @endguest
+                        @if (!Auth::guest())
+                            <a class="navbar-brand" href="{{ route('user.show') }}"> <i class="fa fa-user-circle" aria-hidden="true"></i> {{ __('profile.title') }} </a>
+                        @endif          
                     </ul>
                 </div>
             </div>
