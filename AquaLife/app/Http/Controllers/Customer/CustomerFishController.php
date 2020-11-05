@@ -29,6 +29,7 @@ class CustomerFishController extends Controller
     {
         $data = []; //to be sent to the view
         $data["title"] = __('fish_list.title');
+        $data["information"] = session()->get('data');
         $wish_list_id =Auth::user()->getWishlistId();
         $data["fish"] = Fish::orderBy('id')->get();
         $fish_wish = WishListFish::where([["wish_list_id",$wish_list_id]])->select('fish_id')->get();

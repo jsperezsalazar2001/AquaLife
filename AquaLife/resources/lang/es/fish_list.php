@@ -35,4 +35,6 @@ return [
         'wo_filter' => 'Sin filtro',
     ],
     'no_fish' => 'No hay peces para mostrar',
+    'temperature' => 'Estamos a',
+    'city'=> '°C en la ciudad de '
 ];
