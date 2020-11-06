@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/fish', 'Api\FishApi@index')->name("api.fish.index");
+Route::get('/fish/{id}', 'Api\FishApi@show')->name("api.fish.show");
