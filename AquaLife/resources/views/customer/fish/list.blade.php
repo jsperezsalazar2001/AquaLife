@@ -6,7 +6,7 @@
 <button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top">{{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
         @include('util.message')
             @if($errors->any())
                     @foreach($errors->all() as $error)
@@ -17,6 +17,9 @@
                     @endforeach
             @endif
             <div class="row">
+                <div class="btn-group col">
+                    {{ __('fish_list.temperature') }} {{$data["information"][0]["temperature"]}} {{ __('fish_list.city')}} {{ $data["information"][0]["city"] }} 
+                </div>
                 <div class="btn-group col">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ __('fish_list.filter_by_temp') }}
