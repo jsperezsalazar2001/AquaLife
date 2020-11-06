@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/fish', 'Api\FishApi@index')->name("api.fish.index");
 Route::get('/fish/{id}', 'Api\FishApi@show')->name("api.fish.show");
+Route::get('/accessories', 'Api\AccessoryApi@index')->name("api.accessory.index");
+Route::get('/accessories/{id}', 'Api\AccessoryApi@show')->name("api.accessory.show");
