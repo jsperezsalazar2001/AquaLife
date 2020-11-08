@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
+use App\Interfaces\OrderBill;
 Use Exception;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -85,6 +86,28 @@ class CustomerOrderController extends Controller
 
         return redirect()->route('customer.order.list')->with('success', __('order_update.cancel_succesful'));
 
+    }
+
+    public function bill(Request $request){
+        $data = []; //to be sent to the view
+
+        try{
+            $order = Order::where('user_id', Auth::user()->getId())->findOrFail($request->input('id'));
+        }catch(Exception $e){
+            return redirect()->route('home.index');
+        }
+
+        $accessories = $order->accessories()->get();
+        $fish = $order->fish()->get();
+        $data["title"] = __('order_update.title').' '.$order->getId();
+        $data["order"] = $order;
+        $data["accessories"] = $accessories;
+        $data["fish"] = $fish;
+
+        $bill = $request->input('bill');
+
+        $generateOrderBill = app()->makeWith(OrderBill::class, ['array_bill' => $bill]);
+        return $generateOrderBill->generateBill($data);
     }
 
 }

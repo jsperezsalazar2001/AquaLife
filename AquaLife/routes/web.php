@@ -101,6 +101,8 @@ Route::get('/customer/order/list_by_status/{value}', 'Customer\CustomerOrderCont
 
 Route::post('/customer/order/cancel', 'Customer\CustomerOrderController@cancel')->name("customer.order.cancel");
 
+Route::post('/customer/order/download', 'Customer\CustomerOrderController@bill')->name("customer.order.download");
+
 Route::get('/admin/environmental_conditions/create', 'Admin\AdminEnvironmentalConditionController@create')->name("admin.environmental_condition.create");
 
 Route::post('/admin/environmental_conditions/save', 'Admin\AdminEnvironmentalConditionController@save')->name("admin.environmental_condition.save");
@@ -120,3 +122,4 @@ Route::get('lang/{lang}', 'User\LanguageController@switchLang')->name("lang.swit
 Route::get('/weather', 'Api\WeatherApi@showWeather')->name("weather.show");
 
 Route::get('/customer/clothes', 'Customer\CustomerClothesController@list')->name("customer.clothes.list");
+
