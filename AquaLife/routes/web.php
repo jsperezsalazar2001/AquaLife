@@ -120,3 +120,6 @@ Route::get('/customer/fish/match/{id}/{temperament}', 'Customer\CustomerFishCont
 Route::get('lang/{lang}', 'User\LanguageController@switchLang')->name("lang.switch");
 
 Route::get('/weather', 'Api\WeatherApi@showWeather')->name("weather.show");
+
+Route::get('/customer/clothes', 'Customer\CustomerClothesController@list')->name("customer.clothes.list");
+
