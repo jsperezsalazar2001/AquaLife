@@ -14,5 +14,5 @@ return [
     */
 
     'title' => 'Accessory',
-    'title_plural' => 'Accessoriessssss',
+    'title_plural' => 'Accessories',
 ];
