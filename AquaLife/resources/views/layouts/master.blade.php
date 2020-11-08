@@ -54,6 +54,7 @@
                             <a class="navbar-brand" href="{{ route('customer.wish_list.list') }}"> <i class="fa fa-bookmark"></i> {{ __('fish.title_wish_list') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.order.list') }}"> <i class="fas fa-file-invoice"></i> {{ __('order.user.title_plural') }} </a>
                             <a class="navbar-brand" href="{{ route('customer.cart') }}"> <i class="fa fa-shopping-cart"></i> {{ __('cart.name') }} </a>
+                            <a class="navbar-brand" href="{{ route('customer.clothes.list') }}"> <i class="fa fa-tshirt"></i> {{ __('clothes.title') }} </a>
                             @endif
                             @if(Auth::user()->getRole()=="Admin")
                             <li class="navbar-brand dropdown">
