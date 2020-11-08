@@ -75,7 +75,30 @@
                     @endif
                     <div class="row row-cols-3">
                         <div class="col">
-                        <form method="POST" action="{{ route('customer.order.cancel') }}">
+                            <form method="POST" action="{{ route('customer.order.download') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />
+                                @if(($data["order"]->getStatus() != 'Completed'))
+                                <select disabled>
+                                    <option value="pdf">PDF</option>
+                                    <option value="excel">Excel</option>
+                                </select>
+                                <button type="submit" class="btn btn-success" disabled><i class="fa fa-close"></i> {{ __('order_show.cancel') }}</button>
+                                @else
+                                <input name="id" value="{{ $data['order']->getId() }}" hidden>
+                                <select name="bill">
+                                    <option value="pdf">PDF</option>
+                                    <option value="excel">Excel</option>
+                                </select>
+                                <button type="submit" class="btn btn-success" formtarget="_blank"><i class="fa fa-close"></i> {{ __('order_show.cancel') }}</button>
+                                @endif
+                            </form>
+                        </div>
+                        <div class="col-7"></div>
+                    </div>
+                    <div class="row row-cols-3">
+                        <div class="col">
+                            <form method="POST" action="{{ route('customer.order.cancel') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />
                                 @if(($data["order"]->getStatus() == 'Canceled') || ($data["order"]->getStatus() == 'Delivering') || ($data["order"]->getStatus() == 'Completed'))
