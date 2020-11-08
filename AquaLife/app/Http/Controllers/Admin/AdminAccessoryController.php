@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 Use Exception;
 
-
 class AdminAccessoryController extends Controller
 {
 

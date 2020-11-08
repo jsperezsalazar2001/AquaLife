@@ -14,5 +14,5 @@ return [
     */
 
     'title' => 'Aqualife',
-    'welcome' => 'Welcome to Aqualife Fish Store!'
+    'welcome' => 'Welcome to Aqualife Fish Store! Cambió?'
 ];
