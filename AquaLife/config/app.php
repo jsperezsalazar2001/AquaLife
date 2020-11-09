@@ -177,6 +177,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         App\Providers\OrderBillServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*

@@ -97,8 +97,13 @@ class CustomerOrderController extends Controller
             return redirect()->route('home.index');
         }
 
+        $current_order = session()->get('id_current_order');
+        $current_order[0] = $request->input('id');
+        session()->put('id_current_order', $current_order);
+
         $accessories = $order->accessories()->get();
         $fish = $order->fish()->get();
+        $data['filename'] = time()."_".Auth::user()->getName();
         $data["title"] = __('order_update.title').' '.$order->getId();
         $data["order"] = $order;
         $data["accessories"] = $accessories;

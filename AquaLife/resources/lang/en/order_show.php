@@ -21,6 +21,7 @@ return [
     'created_at' => 'Order created at:',
     'updated_at' => 'Order updated at:',
     'cancel' => 'Cancel order',
+    'download' => 'Download order',
     'update' => 'Update',
     'quantity' => 'Quantity',
     'fish_ordered' => 'Fish ordered:',
