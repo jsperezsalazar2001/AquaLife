@@ -13,6 +13,7 @@
                 <div class="col-md-8">
                     <h4>{{ __('clothes.top5msm') }}</h1>
                 </div>
+                @if(!empty($data["clothes"]))
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -29,6 +30,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                @else
+                    <p>{{ __('clothes.error') }}</p>
+                @endif
                 <form action="http://ec2-3-89-29-196.compute-1.amazonaws.com/public/index" target="_blank">
                     <button type="submit" class="btn btn-primary">{{ __('clothes.visit') }}</button>
                 </form>
