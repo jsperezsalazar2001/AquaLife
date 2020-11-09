@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\OrderBill;
+use App\Util\OrderExcelBill;
 use App\Util\OrderPDFBill;
 
 class OrderBillServiceProvider extends ServiceProvider
@@ -18,6 +19,8 @@ class OrderBillServiceProvider extends ServiceProvider
         $this->app->bind(OrderBill::class, function ($app, $parameters){
             if($parameters['array_bill'] == "pdf"){
                 return new OrderPDFBill();    
+            }else if($parameters['array_bill'] == "excel"){
+                return new OrderExcelBill();
             }
         });
     }

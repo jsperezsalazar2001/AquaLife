@@ -21,6 +21,7 @@ return [
     'created_at' => 'Orden creada el:',
     'updated_at' => 'Orden actualizada el:',
     'cancel' => 'Cancelar orden',
+    'download' => 'Descargar orden',
     'update' => 'Actualizar',
     'quantity' => 'Cantidad',
     'fish_ordered' => 'Peces ordenados:',

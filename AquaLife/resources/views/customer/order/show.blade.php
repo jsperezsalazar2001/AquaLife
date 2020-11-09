@@ -83,19 +83,19 @@
                                     <option value="pdf">PDF</option>
                                     <option value="excel">Excel</option>
                                 </select>
-                                <button type="submit" class="btn btn-success" disabled><i class="fa fa-close"></i> {{ __('order_show.cancel') }}</button>
+                                <button type="submit" class="btn btn-success" disabled><i class="fa fa-close"></i> {{ __('order_show.download') }}</button>
                                 @else
                                 <input name="id" value="{{ $data['order']->getId() }}" hidden>
                                 <select name="bill">
                                     <option value="pdf">PDF</option>
                                     <option value="excel">Excel</option>
                                 </select>
-                                <button type="submit" class="btn btn-success" formtarget="_blank"><i class="fa fa-close"></i> {{ __('order_show.cancel') }}</button>
+                                <button type="submit" class="btn btn-success" formtarget="_blank"><i class="fa fa-close"></i> {{ __('order_show.download') }}</button>
                                 @endif
                             </form>
                         </div>
                         <div class="col-7"></div>
-                    </div>
+                    </div><br/>
                     <div class="row row-cols-3">
                         <div class="col">
                             <form method="POST" action="{{ route('customer.order.cancel') }}">

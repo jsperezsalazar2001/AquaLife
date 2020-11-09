@@ -9,6 +9,6 @@ use PDF;
 class OrderPDFBill implements OrderBill {
     public function generateBill($data){
         $pdf = PDF::loadView('util.order_pdf_bill', compact('data'));
-        return $pdf->stream('new_pdf.pdf');
+        return $pdf->stream($data['filename'].'.pdf');
     }
 }
