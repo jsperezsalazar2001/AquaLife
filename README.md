@@ -29,18 +29,18 @@ _La página web tiene dos roles diferentes (Administrador y cliente) los cuales 
 **2.1) Accesorio:** _Se le desplegarán todos los accesorios de la tienda así estén disponibles o no, además puede agregar la cantidad a comprar y lo puede adicionar le producto al carrito de compras._
 
 * En esta vista puede filtrar los accesorios por su categoría: 
-> -Filtros. 
-> -Iluminación. 
-> -Calentadores. 
-> -Alimentadores. 
-> -Skimmers. 
+    - Filtros. 
+    - Iluminación. 
+    - Calentadores. 
+    - Alimentadores. 
+    - Skimmers. 
 
 **2.2) Pez:** _Se le desplegarán todos los peces de la tienda así estén disponibles o no, también puedes añadir el pez a una lista de favoritos y además puede agregar la cantidad a comprar y lo puede adicionar le producto al carrito de compras._  
 
 * En esta vista puede filtrar los peces por: 
 
-> -Tamaño del pez. 
-> -Temperamento del pez. 
+    - Tamaño del pez. 
+    - Temperamento del pez. 
 
 **2.3) Lista de favoritos:** _En la lista de favoritos estarán todos los peces los cuales hayas adicionado manualmente desde la lista de peces, esta lista esta con el fin de que le usuario tenga a la mano una lista de sus peces favoritos._ 
 
