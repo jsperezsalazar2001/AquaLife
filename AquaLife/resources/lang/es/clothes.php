@@ -19,4 +19,5 @@ return [
     'price' => 'Precio',
     'top5msm' => 'Dale un vistazo al Top 5 de los productos de nuestra tienda amiga',
     'visit' => 'Visítalos!',
+    'error' => 'Oops!, hubo un error al intentar obtener los productos',
 ];
