@@ -16,11 +16,11 @@
                         </div>
                     @endforeach
             @endif
-            <div class="card text-center">
-                    <div class="btn btn-info col-12" >
-                        <i class="fas fa-cloud"> {{$data["information"][0]["temperature"]}} {{ __('fish_list.city')}} {{ $data["information"][0]["city"] }} </i>
-                    </div>
+            
+            <div class="alert alert-info col-12" align="center">
+                <i class="fas fa-cloud"></i> {{$data["information"][0]["temperature"]}} {{ __('fish_list.city')}} {{ $data["information"][0]["city"] }}
             </div>
+           
             <br>
             <div class="row">
                 <div class="btn-group col">
