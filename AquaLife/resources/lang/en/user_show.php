@@ -17,5 +17,6 @@ return [
     'email' => 'User email',
     'role' => 'User role',
     'update' => 'Update',
-    'back' => 'Back'
+    'back' => 'Back',
+    'fail' => 'There was a failure to search the temperature'
 ];

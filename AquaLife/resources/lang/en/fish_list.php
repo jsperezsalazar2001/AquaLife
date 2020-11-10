@@ -36,5 +36,5 @@ return [
     ],
     'no_fish' => 'There are not fish to show',
     'temperature' => 'Temperature is ',
-    'city'=> '°C in the city of '
+    'city'=> '°C - '
 ];

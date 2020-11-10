@@ -17,4 +17,5 @@ return [
     'email' => 'E-mail del usuario',
     'role' => 'Rol del usuario',
     'update' => 'Actualizar',
+    'fail' => 'hubo una falla al buscar la temperatura'
 ];
