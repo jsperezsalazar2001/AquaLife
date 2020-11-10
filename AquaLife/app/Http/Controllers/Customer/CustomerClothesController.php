@@ -27,9 +27,10 @@ class CustomerClothesController extends Controller
     {
         $data = [];
         $data["title"] = __('clothes.title');
-        $data["partner_shop_link"] = 'http://ec2-3-89-29-196.compute-1.amazonaws.com/public/api/inbag/products/paginate';
+        $data["partner_shop_link"] = 'http://inbagshop.tk/public';
+        $api_link = $data["partner_shop_link"].'/api/inbag/products/paginate';
         try {
-            $json_call = Http::timeout(2)->get($data["partner_shop_link"]);
+            $json_call = Http::timeout(2)->get($api_link);
             $response = $json_call->json();
             $clothes = $response['data'];
             $data['clothes'] = $clothes;
