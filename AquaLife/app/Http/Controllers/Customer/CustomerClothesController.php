@@ -25,19 +25,17 @@ class CustomerClothesController extends Controller
 
     public function list()
     {
+        $data = [];
+        $data["title"] = __('clothes.title');
+        $data["partner_shop_link"] = 'http://ec2-3-89-29-196.compute-1.amazonaws.com/public/api/inbag/products/paginate';
         try {
-            $json_call = Http::timeout(1)->get('http://ec2-3-89-29-196.compute-1.amazonaws.com/public/api/inbag/products/paginate');
+            $json_call = Http::timeout(2)->get($data["partner_shop_link"]);
             $response = $json_call->json();
             $clothes = $response['data'];
-            $data = [];
             $data['clothes'] = $clothes;
-            $data["title"] = __('clothes.title');
             return view('customer.clothes.list')->with("data",$data);
         } catch (\Throwable $e) {
-            $data = [];
-            $data["title"] = __('clothes.title');
             return view('customer.clothes.list')->with("data",$data);
         }
-        #$json_call = Http::get("http://aqualife.tk/public/api/accessories", false, $context);
     }
 }

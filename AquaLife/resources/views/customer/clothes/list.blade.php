@@ -33,7 +33,7 @@
                 @else
                     <p>{{ __('clothes.error') }}</p>
                 @endif
-                <form action="http://ec2-3-89-29-196.compute-1.amazonaws.com/public/index" target="_blank">
+                <form action='{{ $data["partner_shop_link"] }}' target="_blank">
                     <button type="submit" class="btn btn-primary">{{ __('clothes.visit') }}</button>
                 </form>
             </div>
