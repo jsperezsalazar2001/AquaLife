@@ -40,11 +40,13 @@ body{
 .green-color{
     color: green;
     font: bold;
+    font-size: 20px;
 }
 
 .red-color{
     color: red;
     font: bold;
+    font-size: 20px;
 }
 
 .order-completed{

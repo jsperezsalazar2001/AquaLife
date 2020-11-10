@@ -13,17 +13,18 @@ return [
     |
     */
 
-    'id' => 'Id de la orden:',
-    'user_id' => 'Id del usuario:',
-    'payment_type' => 'Tipo de pago:',
-    'total_price' => 'Precio de la orden:',
-    'status' => 'Estado de la orden:',
-    'created_at' => 'Orden creada el:',
-    'updated_at' => 'Orden actualizada el:',
+    'id' => 'Id de la orden',
+    'user_id' => 'Id del usuario',
+    'payment_type' => 'Tipo de pago',
+    'total_price' => 'Precio de la orden',
+    'status' => 'Estado de la orden',
+    'created_at' => 'Orden creada el',
+    'updated_at' => 'Orden actualizada el',
     'cancel' => 'Cancelar orden',
     'download' => 'Descargar orden',
     'update' => 'Actualizar',
     'quantity' => 'Cantidad',
-    'fish_ordered' => 'Peces ordenados:',
-    'accessories_ordered' => 'Accesorios ordenados:',
+    'fish_ordered' => 'Peces ordenados',
+    'accessories_ordered' => 'Accesorios ordenados',
+    'download_option' => 'Selecciona una opción para descargar tu orden',
 ];

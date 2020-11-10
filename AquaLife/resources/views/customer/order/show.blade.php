@@ -8,24 +8,40 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" align="center">
                 <div class="card-header"><i class="fa fa-info-circle"></i> {{ __('order.user.title') }}</div>
 
                 <div class="card-body">
-                    <b>{{ __('order_show.id') }}</b> {{ $data["order"]->getId() }}<br />
-                    <b>{{ __('order_show.payment_type') }} </b> {{ $data["order"]->getPaymentType() }}<br />
-                    <b>{{ __('order_show.total_price') }} </b> {{ $data["order"]->getTotalPrice() }}<br />
-                    @if($data["order"]->getStatus() == "Completed")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-completed"><i class="fa fa-check"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Pending")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-pending"><i class="fa fa-clock"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Delivering")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-delivering"><i class="fa fa-truck"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Canceled")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @endif
-                    <b>{{ __('order_show.created_at') }} </b> {{ $data["order"]->getCreatedAt() }}<br />
-                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br /><br />
+                    <div class="row">
+                        <div class="col-4">
+                            <b>{{ __('order_show.id') }}</b><br/> {{ $data["order"]->getId() }}<br />
+                        </div>
+                        <div class="col-4">
+                            <b>{{  __('order_show.payment_type') }}</b><br/> {{ $data["order"]->getPaymentType() }}<br />
+                        </div>
+                        <div class="col-4">
+                            <b>{{ __('order_show.total_price') }} </b><br/> {{ $data["order"]->getTotalPrice() }}<br />
+                        </div>
+                    </div><hr/>
+                    <div class="row">
+                        <div class="col-4">
+                            @if($data["order"]->getStatus() == "Completed")
+                                <b>{{ __('order_show.status') }} </b><br/> <strong class="order-completed"><i class="fa fa-check"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Pending")
+                                <b>{{ __('order_show.status') }} </b><br/> <strong class="order-pending"><i class="fa fa-clock"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Delivering")
+                                <b>{{ __('order_show.status') }} </b><br/> <strong class="order-delivering"><i class="fa fa-truck"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Canceled")
+                                <b>{{ __('order_show.status') }} </b><br/> <strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @endif
+                        </div>
+                        <div class="col-4">
+                            <b>{{ __('order_show.created_at') }} </b><br/>  {{ $data["order"]->getCreatedAt() }}<br />
+                        </div>
+                        <div class="col-4">
+                            <b>{{ __('order_show.updated_at') }} </b><br/>  {{ $data["order"]->getUpdatedAt() }}<br /><br />
+                        </div>
+                    </div><hr/>
                     @if(!empty($data["fish"]) and count($data["fish"]) > 0)
                     <b>{{ __('order_show.fish_ordered') }} </b><br />
                         <table class="table table-striped">
@@ -73,31 +89,32 @@
                         </tbody>
                     </table>
                     @endif
-                    <div class="row row-cols-3">
-                        <div class="col">
+                    <div class="row">
+                        <div class="col-12">
                             <form method="POST" action="{{ route('customer.order.download') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />
                                 @if(($data["order"]->getStatus() != 'Completed'))
+                                <p>{{ __('order_show.download_option') }}</p>
                                 <select disabled>
                                     <option value="pdf">PDF</option>
                                     <option value="excel">Excel</option>
-                                </select>
+                                </select><br/><br/>
                                 <button type="submit" class="btn btn-success" disabled><i class="fa fa-close"></i> {{ __('order_show.download') }}</button>
                                 @else
                                 <input name="id" value="{{ $data['order']->getId() }}" hidden>
+                                <p>{{ __('order_show.download_option') }}</p>
                                 <select name="bill">
                                     <option value="pdf">PDF</option>
                                     <option value="excel">Excel</option>
-                                </select>
+                                </select><br/><br/>
                                 <button type="submit" class="btn btn-success" formtarget="_blank"><i class="fa fa-close"></i> {{ __('order_show.download') }}</button>
                                 @endif
                             </form>
                         </div>
-                        <div class="col-7"></div>
                     </div><br/>
-                    <div class="row row-cols-3">
-                        <div class="col">
+                    <div class="row">
+                        <div class="col-12">
                             <form method="POST" action="{{ route('customer.order.cancel') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />
@@ -108,7 +125,6 @@
                                 @endif
                             </form>
                         </div>
-                        <div class="col-7"></div>
                     </div>
                 </div>
             </div>

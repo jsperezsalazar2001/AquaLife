@@ -13,13 +13,13 @@ return [
     |
     */
 
-    'name' => 'Fish name:',
-    'species' => 'Fish species:',
-    'family' => 'Fish family:',
-    'color' => 'Fish color:',
-    'price' => 'Fish price:',
-    'size' => 'Fish size:',
-    'temperament' => 'Fish temperament:',
+    'name' => 'Fish name',
+    'species' => 'Fish species',
+    'family' => 'Fish family',
+    'color' => 'Fish color',
+    'price' => 'Fish price',
+    'size' => 'Fish size',
+    'temperament' => 'Fish temperament',
     'stock' => 'Fish stock:',
     'delete' => 'Delete',
     'update' => 'Update',

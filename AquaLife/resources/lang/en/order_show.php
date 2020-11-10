@@ -13,17 +13,18 @@ return [
     |
     */
 
-    'id' => 'Order id:',
-    'user_id' => 'Order user id:',
-    'payment_type' => 'Payment type:',
-    'total_price' => 'Order price:',
-    'status' => 'Order status:',
-    'created_at' => 'Order created at:',
-    'updated_at' => 'Order updated at:',
+    'id' => 'Order id',
+    'user_id' => 'Order user id',
+    'payment_type' => 'Payment type',
+    'total_price' => 'Order price',
+    'status' => 'Order status',
+    'created_at' => 'Order created at',
+    'updated_at' => 'Order updated at',
     'cancel' => 'Cancel order',
     'download' => 'Download order',
     'update' => 'Update',
     'quantity' => 'Quantity',
-    'fish_ordered' => 'Fish ordered:',
-    'accessories_ordered' => 'Accessories ordered:',
+    'fish_ordered' => 'Fish ordered',
+    'accessories_ordered' => 'Accessories ordered',
+    'download_option' => 'Select an option to download your order',
 ];

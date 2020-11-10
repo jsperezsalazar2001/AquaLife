@@ -6,7 +6,7 @@
 @section("title", $data["title"])
 
 @section('content')
-<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top">{{__('navigation.go_to_top')}}</button>
+<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i> {{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -21,11 +21,11 @@
             @endif
 
             @if(!empty($data["fish"]) || !empty($data["accessories"]))
-                <div class="card">
+                <div class="card" align="center">
                     <div class="card-header"><i class="fa fa-shopping-cart"></i> {{ __('cart.name') }}</div>
                     <div class="card-body">
                     @if(!empty($data["fish"]))
-                        <h4 class="card-title" align="center">{{ __('fish_create.navbar_title') }}</h4><br />
+                        <h4 class="card-title" align="center">{{ __('fish.title_plural') }}</h4><br />
                         @foreach($data["fish"] as $fish)
                             @if($loop->index == 0)
                             <div class="card-deck">
@@ -39,12 +39,16 @@
                                 <div class="card">
                                     <img src="{{ asset('/images/'.$fish->getImage()) }}" class="card-img-top">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $fish->getName() }}</h5>
-                                        <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
-                                        <p class="card-text"><strong>{{ __('fish_show.size') }}</strong> {{ $fish->getSize() }}</p>
-                                        <p class="card-text"><strong>{{ __('fish_show.species') }}</strong> {{ $fish->getSpecies() }}</p>
-                                        <p class="card-text"><strong>{{ __('fish_show.family') }}</strong> {{ $fish->getFamily() }}</p>
-                                        <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
+                                        <hr/><h5 class="card-title">{{ $fish->getName() }}</h5><hr/>
+                                        <div class="row">
+                                            <p class="card-text col-6"><strong>{{ __('fish_show.color') }}</strong><br/> {{ $fish->getColor() }}</p>
+                                            <p class="card-text col-6"><strong>{{ __('fish_show.size') }}</strong><br/> {{ $fish->getSize() }}</p>
+                                        </div><hr/>
+                                        <div class="row">
+                                            <p class="card-text col-6"><strong>{{ __('fish_show.species') }}</strong><br/> {{ $fish->getSpecies() }}</p>
+                                            <p class="card-text col-6"><strong>{{ __('fish_show.family') }}</strong><br/> {{ $fish->getFamily() }}</p>
+                                        </div><hr/>
+                                        <p class="card-text col-12"><strong>{{ __('fish_show.price') }}</strong><br/> {{ $fish->getPrice() }}</p>
                                         @if($fish->getInStock() > 0)
                                         <p class="card-text green-color">{{ __('fish_list.in_stock') }}</p>
                                         @else
@@ -74,7 +78,7 @@
                     @endif
                     @if(!empty($data["accessories"]))
                     <br />
-                    <h4 class="card-title" align="center">{{ __('accessory_list.title') }}</h4><br />
+                    <h4 class="card-title" align="center">{{ __('accessory.title_plural') }}</h4><br />
                         @foreach($data["accessories"] as $accessory)
                             @if($loop->index == 0)
                             <div class="card-deck">
@@ -85,12 +89,14 @@
                             <div class="card-deck">
                             @endif
                             @endif
-                                <div class="card">
+                                <div class="card" align="center">
                                     <img src="{{ asset('/images/'.$accessory->getImage()) }}" class="card-img-top">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $accessory->getName() }}</h5>
-                                        <p class="card-text"><strong>{{ __('accessory_list.description') }}:</strong> {{ $accessory->getDescription() }}</p>
-                                        <p class="card-text"><strong>{{ __('accessory_list.price') }}:</strong> {{ $accessory->getPrice() }}</p>
+                                        <hr/><h5 class="card-title">{{ $accessory->getName() }}</h5><hr/>
+                                        <div class="row">
+                                            <p class="card-text col-6"><strong>{{ __('accessory_list.description') }}</strong><br/> {{ $accessory->getDescription() }}</p>
+                                            <p class="card-text col-6"><strong>{{ __('accessory_list.price') }}</strong><br/> {{ $accessory->getPrice() }}</p>
+                                        </div><hr/>
                                         @if($accessory->getInStock() > 0)
                                         <p class="card-text green-color">{{ __('accessory_list.in_stock') }}</p>
                                         @else
@@ -122,13 +128,9 @@
                         @if(!empty($data["fish"]) or !empty($data["accessories"]))
                         <form method="POST" action="{{ route('customer.cart.buy') }}">
                             @csrf
-                            <div class="form-group row align-items-end">
-                                <div class="col-3">
-                                    <p class="card-text "><strong>{{ __('cart.total') }}</strong></p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="card-text green-color">{{ $data["total"] }}</p>
-                                </div>
+                            <div class="form-group row align-items-end" align="center">
+                                    <p class="card-text col-12"><strong>{{ __('cart.total') }}</strong></p>
+                                    <p class="card-text green-color col-12">{{ $data["total"] }}</p>
                             </div>
                             <div class="form-group row align-items-end">
                                 <div class="col-6">
@@ -157,12 +159,12 @@
                         <div class="form-group row align-items-end">
                                 <div class="col-6">
                                     <form action="{{ route('customer.fish.list') }}">
-                                        <input type="submit" value="{{ __('navigation.go_back_to_fish_list') }}" class="btn btn-info"/>
+                                        <button type="submit" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{ __('navigation.go_back_to_fish_list') }}</button>
                                     </form>
                                 </div>
                                 <div class="col-6">
                                     <form action="{{ route('customer.accessory.list') }}">
-                                        <input type="submit" value="{{ __('navigation.go_back_to_accessory_list') }}" class="btn btn-info"/>
+                                        <button type="submit" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{ __('navigation.go_back_to_accessory_list') }}</button>
                                     </form>
                                 </div>
                         </div>

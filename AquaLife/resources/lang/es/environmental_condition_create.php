@@ -39,6 +39,6 @@ return [
         'fish' => 'Pez',
     ],
     'succesful' => '¡La condición ambiental fue creada correctamente!',
-    'create' => 'Crear una condoción ambiental',
+    'create' => 'Crear una condición ambiental',
     'fail' => 'Error al crear la condición ambiental',
 ];

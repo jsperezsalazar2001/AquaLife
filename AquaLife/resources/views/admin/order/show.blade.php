@@ -12,25 +12,45 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" align="center">
                 <div class="card-header"><i class="fa fa-info-circle"></i> {{ __('order_show.id') }} {{ $data["order"]->getId() }}</div>
 
                 <div class="card-body">
-                    <b>{{ __('order_show.id') }}</b> {{ $data["order"]->getId() }}<br />
-                    <a href="{{ route('admin.user.show', ['id'=>$data['order']->getUserId()]) }}"><b>{{ __('order_show.user_id') }} </b> {{ $data["order"]->getUserId() }}<br /></a>
-                    <b>{{ __('order_show.payment_type') }} </b> {{ $data["order"]->getPaymentType() }}<br />
-                    <b>{{ __('order_show.total_price') }} </b> {{ $data["order"]->getTotalPrice() }}<br />
-                    @if($data["order"]->getStatus() == "Completed")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-completed"><i class="fa fa-check"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Pending")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-pending"><i class="fa fa-clock"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Delivering")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-delivering"><i class="fa fa-truck"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @elseif($data["order"]->getStatus() == "Canceled")
-                        <b>{{ __('order_show.status') }} </b><strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
-                    @endif
-                    <b>{{ __('order_show.created_at') }} </b> {{ $data["order"]->getCreatedAt() }}<br />
-                    <b>{{ __('order_show.updated_at') }} </b> {{ $data["order"]->getUpdatedAt() }}<br />
+                    <div class="row">
+                        <div class="col-6">
+                            <b>{{ __('order_show.id') }}</b><br /> {{ $data["order"]->getId() }}<br />
+                        </div>
+                        <div class="col-6">
+                            <a href="{{ route('admin.user.show', ['id'=>$data['order']->getUserId()]) }}"><b>{{ __('order_show.user_id') }} </b><br /> {{ $data["order"]->getUserId() }}<br /></a>
+                        </div>
+                    </div><hr>
+                    <div class="row">
+                        <div class="col-4">
+                            <b>{{ __('order_show.payment_type') }} </b><br /> {{ $data["order"]->getPaymentType() }}<br />
+                        </div>
+                        <div class="col-4">
+                            <b>{{ __('order_show.total_price') }} </b><br /> {{ $data["order"]->getTotalPrice() }}<br />
+                        </div>
+                        <div class="col-4">
+                            @if($data["order"]->getStatus() == "Completed")
+                                <b>{{ __('order_show.status') }} </b><br /><strong class="order-completed"><i class="fa fa-check"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Pending")
+                                <b>{{ __('order_show.status') }} </b><br /><strong class="order-pending"><i class="fa fa-clock"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Delivering")
+                                <b>{{ __('order_show.status') }} </b><br /><strong class="order-delivering"><i class="fa fa-truck"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @elseif($data["order"]->getStatus() == "Canceled")
+                                <b>{{ __('order_show.status') }} </b><br /><strong class="order-canceled"><i class="fa fa-times"></i> {{ $data["order"]->getStatus() }} </strong><br />
+                            @endif
+                        </div>
+                    </div><hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <b>{{ __('order_show.created_at') }} </b><br /> {{ $data["order"]->getCreatedAt() }}<br />
+                        </div>
+                        <div class="col-6">
+                            <b>{{ __('order_show.updated_at') }} </b><br /> {{ $data["order"]->getUpdatedAt() }}<br />
+                        </div>
+                    </div>
                     @if(!empty($data["fish"]) and count($data["fish"]) > 0)
                     <br />
                     <b>{{ __('order_show.fish_ordered') }} </b><br />
@@ -79,8 +99,8 @@
                         </tbody>
                     </table>
                     @endif
-                    <div class="row row-cols-3">
-                        <div class="col">
+                    <div class="row">
+                        <div class="col-12">
                         <form method="GET" action="{{ route('admin.order.update') }}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data['order']->getId() }}" />

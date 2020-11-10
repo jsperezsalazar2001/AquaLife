@@ -3,7 +3,7 @@
 @extends('layouts.master')
 @section("title", $data["title"])
 @section('content')
-<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top">{{__('navigation.go_to_top')}}</button>
+<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i> {{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -61,14 +61,18 @@
                     <div class="card-deck">
                     @endif
                     @endif
-                        <div class="card">
+                        <div class="card" align="center">
                             <img src="{{ asset('/images/'.$fish->getImage()) }}" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $fish->getName() }}</h5>
-                                <p class="card-text"><strong>{{ __('fish_show.color') }}</strong> {{ $fish->getColor() }}</p>
-                                <p class="card-text"><strong>{{ __('fish_show.species') }}</strong> {{ $fish->getSpecies() }}</p>
-                                <p class="card-text"><strong>{{ __('fish_show.family') }}</strong> {{ $fish->getFamily() }}</p>
-                                <p class="card-text"><strong>{{ __('fish_show.price') }}</strong> {{ $fish->getPrice() }}</p>
+                                <hr/><h5 class="card-title">{{ $fish->getName() }}</h5><hr/>
+                                <div class="row">
+                                    <p class="card-text col-6"><strong>{{ __('fish_show.color') }}</strong><br/> {{ $fish->getColor() }}</p>
+                                    <p class="card-text col-6"><strong>{{ __('fish_show.size') }}</strong><br/> {{ $fish->getSize() }}</p>
+                                </div><hr/>
+                                <div class="row">
+                                    <p class="card-text col-6"><strong>{{ __('fish_show.temperament') }}</strong><br/> {{ $fish->getTemperament() }}</p>
+                                    <p class="card-text col-6"><strong>{{ __('fish_show.price') }}</strong><br/> {{ $fish->getPrice() }}</p>
+                                </div><hr/>
                                 @if($fish->getInStock() > 0)
                                 <p class="card-text green-color">{{ __('fish_list.in_stock') }}</p>
                                 @else

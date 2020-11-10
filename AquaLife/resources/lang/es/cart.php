@@ -15,7 +15,7 @@ return [
 
     'name' => 'Carro',
     'payment_type'=> 'Tipo de pago',
-    'total'=> 'Total: ',
+    'total'=> 'Total',
     'buy'=> 'Comprar',
     'payment_options' => [
         'credit' => 'Tarjeta de credito',

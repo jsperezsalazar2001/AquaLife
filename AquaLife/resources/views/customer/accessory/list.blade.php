@@ -5,6 +5,7 @@
 @section("title", $data["title"])
 
 @section('content')
+<button class="btn btn-info col-1" onclick="topFunction()" id="goToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i> {{__('navigation.go_to_top')}}</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -49,12 +50,14 @@
                     <div class="card-deck">
                     @endif
                     @endif
-                        <div class="card">
+                        <div class="card" align="center">
                             <img src="{{ asset('/images/'.$accessory->getImage()) }}" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $accessory->getName() }}</h5>
-                                <p class="card-text"><strong>{{ __('accessory_list.description') }}:</strong> {{ $accessory->getDescription() }}</p>
-                                <p class="card-text"><strong>{{ __('accessory_list.price') }}:</strong> {{ $accessory->getPrice() }}</p>
+                                <hr/><h5 class="card-title">{{ $accessory->getName() }}</h5><hr/>
+                                <div class="row">
+                                    <p class="card-text col-6"><strong>{{ __('accessory_list.description') }}</strong><br/> {{ $accessory->getDescription() }}</p>
+                                    <p class="card-text col-6"><strong>{{ __('accessory_list.price') }}</strong><br/> {{ $accessory->getPrice() }}</p>
+                                </div><hr/>
                                 @if($accessory->getInStock() > 0)
                                 <p class="card-text green-color">{{ __('accessory_list.in_stock') }}</p>
                                 @else

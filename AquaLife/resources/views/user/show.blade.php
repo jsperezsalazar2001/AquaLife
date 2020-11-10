@@ -8,27 +8,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" align="center">
                 <div class="card-header"><i class="fa fa-info-circle"></i> {{ $data["user"]->getName() }}</div>
 
                 <div class="card-body">
-                    <b>{{ __('user_show.address') }}:</b> {{ $data["user"]->getAddressUser() }}<br />
-                    <b>{{ __('user_show.email') }}:</b> {{ $data["user"]->getEmail() }}<br />
-                    <b>{{ __('user_show.role') }}:</b> {{ $data["user"]->getRole() }}<br /><br />
+                    <b>{{ __('user_show.address') }}</b><br /> {{ $data["user"]->getAddressUser() }}<br />
+                    <b>{{ __('user_show.email') }}</b><br /> {{ $data["user"]->getEmail() }}<br />
+                    <b>{{ __('user_show.role') }}</b><br /> {{ $data["user"]->getRole() }}<br /><br />
                 </div>
-                <div class="row col-12">
-                    <div class="col-3">
+                <div class="row">
+                    <div class="col-12"> 
                         <form method="GET" action="{{ route('user.update') }}">
                         @csrf
                         <input type="hidden" name="id" value="{{ $data['user']->getId() }}" />
                         <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('user_show.update') }}</button>
                         </form>
                     </div>
-                    <div class="col-5">
+                </div><br/>
+                <div class="row"> 
+                    <div class="col-12">   
                         @csrf
-                        <a href="{{ url()->previous() }}" class="btn btn-primary"><i class="fa fa-pencil-alt"></i> {{ __('user_show.back') }}</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-info"><i class="fa fa-arrow-left"></i> {{ __('user_show.back') }}</a>
                     </div>
-                    <div class="col-7"></div>
                 </div>
                 <br>
             </div>

@@ -13,14 +13,14 @@ return [
     |
     */
 
-    'name' => 'Nombre del pez:',
-    'species' => 'Especie del pez:',
-    'family' => 'Familia del pez:',
-    'color' => 'Color del pez:',
-    'price' => 'Precio del pez:',
-    'size' => 'Tamaño del pez:',
-    'temperament' => 'Temperamento del pez:',
-    'stock' => 'Stock:',
+    'name' => 'Nombre del pez',
+    'species' => 'Especie del pez',
+    'family' => 'Familia del pez',
+    'color' => 'Color del pez',
+    'price' => 'Precio del pez',
+    'size' => 'Tamaño del pez',
+    'temperament' => 'Temperamento del pez',
+    'stock' => 'Stock',
     'delete' => 'Borrar',
     'update' => 'Actualizar',
 ];
