@@ -16,10 +16,13 @@
                         </div>
                     @endforeach
             @endif
+            <div class="card text-center">
+                    <div class="btn btn-info col-12" >
+                        <i class="fas fa-cloud"> {{$data["information"][0]["temperature"]}} {{ __('fish_list.city')}} {{ $data["information"][0]["city"] }} </i>
+                    </div>
+            </div>
+            <br>
             <div class="row">
-                <div class="btn-group col">
-                    {{ __('fish_list.temperature') }} {{$data["information"][0]["temperature"]}} {{ __('fish_list.city')}} {{ $data["information"][0]["city"] }} 
-                </div>
                 <div class="btn-group col">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ __('fish_list.filter_by_temp') }}
