@@ -8,9 +8,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-list-ul"></i> {{ __('clothes.title') }}</div>
-                <div class="col-md-8">
+            <div class="card" align="center">
+                <div class="card-header col-12"><i class="fa fa-list-ul"></i> {{ __('clothes.title') }}</div>
+                <div class="col-12">
                     <h4>{{ __('clothes.top5msm') }}</h1>
                 </div>
                 @if(!empty($data["clothes"]))
@@ -34,7 +34,7 @@
                     <p>{{ __('clothes.error') }}</p>
                 @endif
                 <form action='{{ $data["partner_shop_link"] }}' target="_blank">
-                    <button type="submit" class="btn btn-primary">{{ __('clothes.visit') }}</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-running"></i> {{ __('clothes.visit') }}</button>
                 </form>
             </div>
         </div>
